@@ -52,6 +52,7 @@
   </views>
   <instances>
     <instance objName="obj_manipulator" x="40" y="50" name="inst_54BA3CBE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+<<<<<<< HEAD
     <instance objName="obj_button_play" x="250" y="172" name="inst_6CA19CFC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_button_options" x="250" y="264" name="inst_161BBCB7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_button_credits" x="250" y="356" name="inst_D2FDD6FE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -60,6 +61,16 @@
   </instances>
   <tiles>
     <tile bgName="bg_mainmenu_2" x="0" y="0" w="800" h="600" xo="0" yo="0" id="10000012" name="inst_6FD2D183" depth="0" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+=======
+    <instance objName="obj_button_play" x="203" y="172" name="inst_6CA19CFC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_button_options" x="203" y="264" name="inst_161BBCB7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_button_credits" x="203" y="356" name="inst_D2FDD6FE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_button_exit" x="203" y="448" name="inst_99E46C18" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+  </instances>
+  <tiles>
+    <tile bgName="" x="420" y="233" w="16" h="16" xo="0" yo="0" id="10000010" name="inst_B19887C3" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="" x="406" y="241" w="16" h="16" xo="0" yo="0" id="10000011" name="inst_FC5E109C" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+>>>>>>> origin/master
   </tiles>
   <PhysicsWorld>-1</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>
