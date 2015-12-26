@@ -84,6 +84,7 @@
     <background>background\bg_blue</background>
     <background>background\ti_siatka</background>
     <background>background\bg_mainmenu</background>
+    <background>background\bg_mainmenu_2</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -136,8 +137,8 @@
     <object>objects\obj_music</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\R_level_1</room>
     <room>rooms\R_mainmenu</room>
+    <room>rooms\R_level_1</room>
     <room>rooms\R_test</room>
   </rooms>
   <help>

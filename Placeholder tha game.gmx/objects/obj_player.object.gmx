@@ -67,6 +67,36 @@ Kwybicie=global.p1wybicie;
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (obj_player.have_ball) 
+{
+    with (obj_player) scr_balldrop();
+}
+else if (obj_player_2.have_ball)
+{
+    with (obj_player_2) scr_balldrop();
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="2">
       <action>
         <libid>1</libid>
@@ -249,14 +279,17 @@ if (keyboard_check(Kleft))
             obrot=1;
             }
         }
-    
+
+    if (have_ball)  global.zbiorka=false;         
     if (throwing =false)
         { 
-        global.zbiorka=false;
         physics_apply_force(x,y,-move_speed,0);
         if (phy_speed_x&lt;-1 and !jumping and !prejump)
             {
-            if (have_ball) sprite_index=Vspr_bieg_koz;
+            if (have_ball) 
+            {
+            sprite_index=Vspr_bieg_koz;
+            }
             else sprite_index=Vspr_bieg_woball; 
             }
         }
@@ -276,14 +309,16 @@ else if (keyboard_check(Kright))
             obrot=0;
             }
         }
-    
+    if (have_ball)  global.zbiorka=false;      
     if (throwing=false) 
         {
-        global.zbiorka=false;
         physics_apply_force(x,y,move_speed,0);
         if (phy_speed_x&gt;1 and !jumping and !prejump)
             {
-            if (have_ball) sprite_index=Vspr_bieg_koz;
+            if (have_ball) 
+            {
+            sprite_index=Vspr_bieg_koz;
+            }
             else sprite_index=Vspr_bieg_woball; 
             } 
         }
@@ -380,11 +415,11 @@ if (keyboard_check_released(Kwybicie) and !have_ball and !keyboard_check(Kleft) 
         else if (obrot=0) px=x+20;
         if (collision_rectangle( px,py,px+40,py+50, obj_stojak, false, false ))
             {
-            obj_controller.alarm[1]=10;
+            alarm[3]=10;
             }
         else if (collision_rectangle(px,py,px+40,py+50,obj_ball_wybicie, false, false ))
             {
-            obj_controller.alarm[1]=10;
+            alarm[3]=10;
             }
         }
     else
@@ -397,11 +432,11 @@ if (keyboard_check_released(Kwybicie) and !have_ball and !keyboard_check(Kleft) 
         else if (obrot=0) px=x+10;
         if (collision_rectangle( px,py,px+50,py+25, obj_stojak, false, false ))
             {
-            obj_controller.alarm[1]=10;
+            alarm[3]=10;
             }
         else if (collision_rectangle(px,py,px+50,py+25,obj_ball_wybicie, false, false ))
             {
-            obj_controller.alarm[1]=10;
+            alarm[3]=10;
             }
         }
     }

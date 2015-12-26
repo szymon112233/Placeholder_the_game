@@ -72,7 +72,7 @@ else if (global.ball="wybicie")
             physics_apply_torque(130);
             }
         }
-    else
+    else 
         {
         if (obj_player.obrot=0)
             {
