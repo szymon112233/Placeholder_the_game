@@ -52,6 +52,8 @@
   </views>
   <instances>
     <instance objName="obj_controller" x="0" y="0" name="inst_5FAA1035" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_player" x="600" y="675" name="inst_AE9D6494" locked="0" code="view_object[1]=id;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_player_2" x="725" y="675" name="inst_DFE74D4F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="0" y="775" name="inst_54430985" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="0" y="750" name="inst_4A9A665C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="0" y="725" name="inst_F5B2ED99" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -78,7 +80,6 @@
     <instance objName="obj_wall" x="1475" y="725" name="inst_DD5BAB9F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="1475" y="750" name="inst_BA2E56F7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="1475" y="775" name="inst_E4C58C54" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_player_2" x="725" y="675" name="inst_DFE74D4F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_spod" x="25" y="800" name="inst_2F0A204C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_spod" x="75" y="800" name="inst_8D1C5C3A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_spod" x="125" y="800" name="inst_E692516E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -132,7 +133,6 @@
     <instance objName="obj_pole" x="25" y="575" name="inst_8043E1B6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_pole" x="1375" y="575" name="inst_82B75D75" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_music" x="25" y="0" name="inst_701B07B5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_player" x="600" y="675" name="inst_AE9D6494" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="ti_siatka" x="0" y="0" w="1500" h="800" xo="0" yo="0" id="10000006" name="inst_8CF4CCA3" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

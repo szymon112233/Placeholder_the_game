@@ -26,6 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>kosz();
+view_visible[1]=false;
+view_visible[2]=false;
 global.rzutready=false;
 global.rzutmoc=alarm[0];
 global.rzutk=1;
@@ -324,24 +326,27 @@ if (Debug)
     draw_text(view_xview[view_current],view_yview[view_current]+36,"Throwing: "+string(global.throwing));
     draw_text(view_xview[view_current],view_yview[view_current]+48,"Have_ball: "+string(obj_player.have_ball));
     draw_text(view_xview[view_current],view_yview[view_current]+60,"Lastkey: "+string(keyboard_lastkey));
+    draw_text(view_xview[view_current],view_yview[view_current]+72,"V0: "+string(view_visible[0]));
+    draw_text(view_xview[view_current],view_yview[view_current]+84,"V1: "+string(view_visible[1]));
+    draw_text(view_xview[view_current],view_yview[view_current]+96,"V2: "+string(view_visible[2]));
     }
 //Arrows
-if (point_distance(view_xview[global.widok],0,obj_player.x,0)&gt;1 and point_distance(view_xview[global.widok]+1024,0,obj_player.x,0)&gt;1025 )
+if (point_distance(view_xview[global.widok],0,obj_player.x,0)&gt;1 and point_distance(view_xview[global.widok]+view_wview[global.widok],0,obj_player.x,0)&gt;view_wview[global.widok]+1 )
     {
     draw_sprite_ext(spr_arrow,0,view_xview[view_current]+50,view_yview[view_current]+470,1,1,90,c_white,0.75 );
     }
-else if (point_distance(view_xview[global.widok]+1024,0,obj_player.x,0)&gt;1 and point_distance(view_xview[global.widok],0,obj_player.x,0)&gt;1025 )
+else if (point_distance(view_xview[global.widok]+view_wview[global.widok],0,obj_player.x,0)&gt;1 and point_distance(view_xview[global.widok],0,obj_player.x,0)&gt;view_wview[global.widok]+1 )
     {
-    draw_sprite_ext(spr_arrow,0,view_xview[view_current]+974,view_yview[view_current]+470,1,1,-90,c_white,0.75 );
+    draw_sprite_ext(spr_arrow,0,view_xview[view_current]+view_wview[global.widok]-50,view_yview[view_current]+470,1,1,-90,c_white,0.75 );
     }
     
-if (point_distance(view_xview[global.widok],0,obj_player_2.x,0)&gt;1 and point_distance(view_xview[global.widok]+1024,0,obj_player_2.x,0)&gt;1025 )
+if (point_distance(view_xview[global.widok],0,obj_player_2.x,0)&gt;1 and point_distance(view_xview[global.widok]+view_wview[global.widok],0,obj_player_2.x,0)&gt;view_wview[global.widok]+1 )
     {
     draw_sprite_ext(spr_arrow,0,view_xview[view_current]+50,view_yview[view_current]+420,1,1,90,c_blue,0.75 );
     }
-else if (point_distance(view_xview[global.widok]+1024,0,obj_player_2.x,0)&gt;1 and point_distance(view_xview[global.widok],0,obj_player_2.x,0)&gt;1025 )
+else if (point_distance(view_xview[global.widok]+view_wview[global.widok],0,obj_player_2.x,0)&gt;1 and point_distance(view_xview[global.widok],0,obj_player_2.x,0)&gt;view_wview[global.widok]+1 )
     {
-    draw_sprite_ext(spr_arrow,0,view_xview[view_current]+974,view_yview[view_current]+420,1,1,-90,c_blue,0.75 );
+    draw_sprite_ext(spr_arrow,0,view_xview[view_current]+view_wview[global.widok]-50,view_yview[view_current]+420,1,1,-90,c_blue,0.75 );
     }
 
 
