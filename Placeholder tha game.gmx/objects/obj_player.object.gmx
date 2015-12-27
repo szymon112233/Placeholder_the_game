@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>player=1;
 //Stałe
+energy=100;
 image_speed=0.125;
 move_speed=2000;
 phy_fixed_rotation=true;

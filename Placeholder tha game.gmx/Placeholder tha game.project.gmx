@@ -96,6 +96,7 @@
     <script>scripts\scr_balldrop.gml</script>
     <script>scripts\gj_init.gml</script>
     <script>scripts\scr_wait.gml</script>
+    <script>scripts\script8.gml</script>
   </scripts>
   <objects name="objects">
     <objects name="Buttons">

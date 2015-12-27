@@ -25,18 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>player=2;
-//Stałe
-image_speed=0.125;
-move_speed=2000;
-phy_fixed_rotation=true;
-max_xspeed=5;
-prejump=false;
-jumping=false;
-jump_force=-800;
-have_ball=false;
-throwing=false;
-obrot=0;
+            <string>event_inherited();
+player=2;
 //Sprity
 Vspr_idle=spr_idle_2;
 Vspr_bieg_koz=spr_bieg_koz_2;
