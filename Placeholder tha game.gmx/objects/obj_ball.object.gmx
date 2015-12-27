@@ -86,6 +86,10 @@ else if (global.ball="wybicie")
             }
         }
     }
+else if (global.ball="random")  
+{
+    physics_apply_torque(random_range(-130,130)); 
+}  
 
 
 </string>
