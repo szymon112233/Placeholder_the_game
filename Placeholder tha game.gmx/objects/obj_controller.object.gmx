@@ -285,22 +285,11 @@ if (global.throwing)
 //Points
 draw_text(view_xview[view_current],view_yview[view_current],global.points1);
 draw_text(view_xview[view_current]+view_wview[view_current]-20,view_yview[view_current],global.points2);
-//Debug
-if (Debug)
-    {
-    draw_text(view_xview[view_current],view_yview[view_current]+12,"Prejump: "+ string(obj_player.prejump));
-    draw_rectangle(obj_player.x-30,obj_player.y-30,obj_player.x+30,obj_player.y+70,true);//gracz
-    draw_rectangle(obj_player.x-60,obj_player.y-5,obj_player.x-10,obj_player.y+20,true);//reka p1
-    draw_rectangle(obj_player_2.x-50,obj_player_2.y-50,obj_player_2.x-10,obj_player_2.y,true);//reka p2
-    draw_text(view_xview[view_current]+20,view_yview[view_current],"FPS: "+string(fps)+" RFPS: "+string(fps_real));
-    draw_text(view_xview[view_current],view_yview[view_current]+24,"Jumping: "+string(obj_player.jumping));
-    draw_text(view_xview[view_current],view_yview[view_current]+36,"Throwing: "+string(global.throwing));
-    draw_text(view_xview[view_current],view_yview[view_current]+48,"Have_ball: "+string(obj_player.have_ball));
-    draw_text(view_xview[view_current],view_yview[view_current]+60,"Lastkey: "+string(keyboard_lastkey));
-    draw_text(view_xview[view_current],view_yview[view_current]+72,"V0: "+string(view_visible[0]));
-    draw_text(view_xview[view_current],view_yview[view_current]+84,"V1: "+string(view_visible[1]));
-    draw_text(view_xview[view_current],view_yview[view_current]+96,"V2: "+string(view_visible[2]));
-    }
+//energy bars
+draw_healthbar(view_xview[global.widok]+10,view_yview[view_current],view_xview[global.widok]+50,view_yview[view_current]+10,obj_player.energy,c_black,c_yellow,c_red,0,false,false);
+//draw_healthbar(obj_player.x-8,obj_player.y-92,obj_player.x-5,obj_player.y-57,obj_player.energy,c_black,c_yellow,c_red,3,false,false);
+
+
 //Arrows
 if (point_distance(view_xview[global.widok],0,obj_player.x,0)&gt;1 and point_distance(view_xview[global.widok]+view_wview[global.widok],0,obj_player.x,0)&gt;view_wview[global.widok]+1 )
     {
@@ -319,9 +308,65 @@ else if (point_distance(view_xview[global.widok]+view_wview[global.widok],0,obj_
     {
     draw_sprite_ext(spr_arrow,0,view_xview[view_current]+view_wview[global.widok]-50,view_yview[view_current]+420,1,1,-90,c_blue,0.75 );
     }
-
-
+//Debug
+if (Debug)
+    {
+    draw_text(view_xview[view_current],view_yview[view_current]+12,"Prejump: "+ string(obj_player.prejump));
+    draw_rectangle(obj_player.x-30,obj_player.y-30,obj_player.x+30,obj_player.y+70,true);//gracz
+    draw_rectangle(obj_player.x-60,obj_player.y-5,obj_player.x-10,obj_player.y+20,true);//reka p1
+    draw_rectangle(obj_player_2.x-50,obj_player_2.y-50,obj_player_2.x-10,obj_player_2.y,true);//reka p2
+    draw_text(view_xview[view_current]+20,view_yview[view_current],"FPS: "+string(fps)+" RFPS: "+string(fps_real));
+    draw_text(view_xview[view_current],view_yview[view_current]+24,"Jumping: "+string(obj_player.jumping));
+    draw_text(view_xview[view_current],view_yview[view_current]+36,"Throwing: "+string(global.throwing));
+    draw_text(view_xview[view_current],view_yview[view_current]+48,"Have_ball: "+string(obj_player.have_ball));
+    draw_text(view_xview[view_current],view_yview[view_current]+60,"Lastkey: "+string(keyboard_lastkey));
+    draw_text(view_xview[view_current],view_yview[view_current]+72,"V0: "+string(view_visible[0]));
+    draw_text(view_xview[view_current],view_yview[view_current]+84,"V1: "+string(view_visible[1]));
+    draw_text(view_xview[view_current],view_yview[view_current]+96,"V2: "+string(view_visible[2]));
+    }
 </string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="10" enumb="84">
+      <action>
+        <libid>1</libid>
+        <id>601</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_execute_script</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>9</kind>
+            <script>kosz</script>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
           </argument>
         </arguments>
       </action>

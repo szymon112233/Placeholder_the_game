@@ -85,6 +85,7 @@
     <background>background\ti_siatka</background>
     <background>background\bg_mainmenu</background>
     <background>background\bg_mainmenu_2</background>
+    <background>background\bg_options</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -96,8 +97,10 @@
     <script>scripts\scr_balldrop.gml</script>
     <script>scripts\gj_init.gml</script>
     <script>scripts\scr_wait.gml</script>
-    <script>scripts\script8.gml</script>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\font0</font>
+  </fonts>
   <objects name="objects">
     <objects name="Buttons">
       <object>objects\obj_button</object>
@@ -108,6 +111,7 @@
     </objects>
     <objects name="Actual Things">
       <object>objects\obj_help</object>
+      <object>objects\obj_player_par</object>
       <object>objects\obj_player</object>
       <object>objects\obj_ball</object>
       <object>objects\obj_stojak</object>
@@ -142,6 +146,7 @@
     <room>rooms\R_mainmenu</room>
     <room>rooms\R_level_1</room>
     <room>rooms\R_test</room>
+    <room>rooms\R_options</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

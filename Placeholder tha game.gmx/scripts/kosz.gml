@@ -1,3 +1,4 @@
+with (obj_ball) instance_destroy();
 global.ball="free";
 obj_player.phy_position_x=700;
 obj_player.phy_position_y=700;
