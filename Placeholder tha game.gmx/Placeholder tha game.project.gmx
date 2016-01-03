@@ -3,6 +3,7 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
+  <datafiles number="1" name="datafiles"/>
   <NewExtensions/>
   <sounds name="sound">
     <sound>sound\sd_bgmusic</sound>
@@ -53,6 +54,10 @@
       <sprite>sprites\spr_obrecz</sprite>
     </sprites>
     <sprites name="GUI">
+      <sprites name="Buttons_options">
+        <sprite>sprites\spr_button_player_1</sprite>
+        <sprite>sprites\spr_button_player_2</sprite>
+      </sprites>
       <sprites name="Buttons_mainmenu">
         <sprite>sprites\spr_button_play</sprite>
         <sprite>sprites\spr_button_options</sprite>
@@ -99,7 +104,7 @@
     <script>scripts\scr_wait.gml</script>
   </scripts>
   <fonts name="fonts">
-    <font>fonts\font0</font>
+    <font>fonts\font_VCR</font>
   </fonts>
   <objects name="objects">
     <objects name="Buttons">
@@ -108,9 +113,12 @@
       <object>objects\obj_button_options</object>
       <object>objects\obj_button_credits</object>
       <object>objects\obj_button_exit</object>
+      <object>objects\obj_button_player_1</object>
+      <object>objects\obj_button_player_2</object>
     </objects>
     <objects name="Actual Things">
       <object>objects\obj_help</object>
+      <object>objects\obj_collision</object>
       <object>objects\obj_player_par</object>
       <object>objects\obj_player</object>
       <object>objects\obj_ball</object>
@@ -137,10 +145,13 @@
       <object>objects\obj_kosz_dol</object>
       <object>objects\obj_kosz_dol_p</object>
     </objects>
-    <object>objects\obj_collision</object>
-    <object>objects\obj_controller</object>
-    <object>objects\obj_music</object>
-    <object>objects\obj_ball_spawner</object>
+    <objects name="controllers">
+      <object>objects\obj_menu_controll</object>
+      <object>objects\obj_button_controls</object>
+      <object>objects\obj_ball_spawner</object>
+      <object>objects\obj_music</object>
+      <object>objects\obj_controller</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\R_mainmenu</room>

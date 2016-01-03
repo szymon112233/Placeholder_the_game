@@ -60,7 +60,7 @@ if (con==0)
         case "nminus": return vk_subtract; break;
         case "nmultiply": return vk_multiply; break;
         case "ndivide": return vk_divide; break;
-        default: return "unsupported key"; break;       
+        default: return vk_nokey; break;       
     }
 }
 else if (con==1)
@@ -103,8 +103,14 @@ else if (con==1)
         case vk_tab: return "tab"; break;
         case vk_enter: return "enter"; break;
         case vk_shift: return "shift"; break;
+        case vk_lshift: return "shift"; break;
+        case vk_rshift: return "shift"; break;
         case vk_control: return "ctrl"; break;
+        case vk_lcontrol: return "ctrl"; break;
+        case vk_rcontrol: return "ctrl"; break;
         case vk_alt: return "alt"; break;
+        case vk_lalt: return "alt"; break;
+        case vk_ralt: return "alt"; break;
         case vk_space: return "space"; break;
         //NUMPAD
         case vk_numpad1: return "n1"; break;
@@ -122,6 +128,6 @@ else if (con==1)
         case vk_subtract: return "nminus"; break;
         case vk_multiply: return "nmultiply"; break;
         case vk_divide: return "ndivide"; break;
-        default: return "unsupported key"; break;
+        default: return "unknown key"; break;
     }
 }

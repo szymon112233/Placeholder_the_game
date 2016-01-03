@@ -51,9 +51,8 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="obj_controller" x="0" y="0" name="inst_5FAA1035" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_player" x="600" y="675" name="inst_AE9D6494" locked="0" code="view_object[1]=id;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_player_2" x="725" y="675" name="inst_DFE74D4F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_player" x="675" y="725" name="inst_AE9D6494" locked="0" code="view_object[1]=id;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_player_2" x="825" y="725" name="inst_DFE74D4F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="0" y="775" name="inst_54430985" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="0" y="750" name="inst_4A9A665C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="0" y="725" name="inst_F5B2ED99" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -133,6 +132,7 @@
     <instance objName="obj_pole" x="25" y="575" name="inst_8043E1B6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_pole" x="1375" y="575" name="inst_82B75D75" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_music" x="25" y="0" name="inst_701B07B5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_ball" x="750" y="625" name="inst_E8DA76A1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="ti_siatka" x="0" y="0" w="1500" h="800" xo="0" yo="0" id="10000006" name="inst_8CF4CCA3" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

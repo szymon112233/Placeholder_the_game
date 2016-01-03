@@ -25,9 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>kosz();
-view_visible[1]=false;
-view_visible[2]=false;
+            <string>global.stage_curr="mainmenu";
 global.rzutready=false;
 global.rzutmoc=alarm[0];
 global.rzutk=1;
@@ -37,36 +35,56 @@ global.points2=0;
 global.throwing=false;
 //Ball
 global.ball="free";
-global.ballx=obj_player.x;
-global.bally=obj_player.y;
+global.ballx=0;
+global.bally=0;
 global.zbiorka=false;
 Debug=false;
 mapping=false;
-//Keys
-global.p1left=vk_left;
-global.p1right=vk_right;
-global.p1up=vk_up;
-global.p1down=vk_down;
-global.p1throw=vk_control;
-global.p1jump=vk_space;
-global.p1wybicie=vk_shift;
-//P2
-global.p2left=ord('A');
-global.p2right=ord('D');
-global.p2up=ord('W');
-global.p2down=ord('S');
-global.p2throw=vk_space;
-global.p2jump=vk_space;
-global.p2wybicie=ord('N');
-ini_open("gejm.ini");
-if (ini_section_exists("Controlls"))
+mplayer=0;
+mkey=1;
+
+ini_open("game.ini");
+ini_write_string("test","test","test");
+ini_section_delete("test");
+if (!ini_section_exists("Controlls"))
 {
-    ini_write_string("Controlls","up","vk_up");  
+    ini_write_string("Controlls","P1_left","left");
+    ini_write_string("Controlls","P1_right","right");  
+    ini_write_string("Controlls","P1_up","up");  
+    ini_write_string("Controlls","P1_down","down");  
+    ini_write_string("Controlls","P1_throw","ctrl");
+    ini_write_string("Controlls","P1_hit","shift");
+    
+    ini_write_string("Controlls","P2_left","A");
+    ini_write_string("Controlls","P2_right","D");  
+    ini_write_string("Controlls","P2_up","W");  
+    ini_write_string("Controlls","P2_down","S");  
+    ini_write_string("Controlls","P2_throw","space");
+    ini_write_string("Controlls","P2_hit","alt");
 }
+//Keys
+global.p1left=scr_convert(ini_read_string("Controlls","P1_left","left"),0)
+global.p1right=scr_convert(ini_read_string("Controlls","P1_right","right"),0)
+global.p1up=scr_convert(ini_read_string("Controlls","P1_up","up"),0)
+global.p1down=scr_convert(ini_read_string("Controlls","P1_down","down"),0)
+global.p1throw=scr_convert(ini_read_string("Controlls","P1_throw","ctrl"),0)
+global.p1wybicie=scr_convert(ini_read_string("Controlls","P1_hit","shift"),0)
+//P2
+global.p2left=scr_convert(ini_read_string("Controlls","P2_left","A"),0)
+global.p2right=scr_convert(ini_read_string("Controlls","P2_right","D"),0)
+global.p2up=scr_convert(ini_read_string("Controlls","P2_up","W"),0)
+global.p2down=scr_convert(ini_read_string("Controlls","P2_down","S"),0)
+global.p2throw=scr_convert(ini_read_string("Controlls","P2_throw","space"),0)
+global.p2wybicie=scr_convert(ini_read_string("Controlls","P2_hit","alt"),0)
+          
 ini_close();
-sprajt=spr_ball;
 global.widok=0;
 shake=false;
+
+
+
+
+
 </string>
           </argument>
         </arguments>
@@ -165,45 +183,7 @@ else global.rzutk =1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (mapping=true and keyboard_check_released(vk_anykey))
-{
-    global.p1up=keyboard_lastkey;
-    mapping=false;
-}
-if (obj_player.have_ball=true)
-    {
-       if (obj_player.obrot=0)
-       {
-       global.ballx=obj_player.x+27;
-       global.bally=obj_player.y;  
-       }
-       else
-       {
-       global.ballx=obj_player.x-27;
-       global.bally=obj_player.y;     
-       }
-    }
-/*else if (obj_stojak.have_ball=true)
-    {
-    global.ballx=obj_stojak.x;
-    global.bally=obj_stojak.y-15;
-    }*/
-else if (obj_player_2.have_ball=true)
-    {
-        if (obj_player_2.obrot=0)
-       {
-       global.ballx=obj_player_2.x+27;
-       global.bally=obj_player_2.y;  
-       }
-       else
-       {
-       global.ballx=obj_player_2.x-27;
-       global.bally=obj_player_2.y;     
-       }
-    }
-if (obj_player.throwing=true or obj_player_2.throwing=true) global.throwing=true;
-else global.throwing=false;
-//SCREEENSHAKE BABYYY
+            <string>//SCREEENSHAKE BABYYY
 if (shake) 
 {
 view_angle[0]+= random_range(-0.15, 0.15);
@@ -211,35 +191,77 @@ if (view_angle[0]&gt;0.8) view_angle[0]=0.8;
 else if (view_angle[0]&lt;-0.8) view_angle[0]=-0.8;
 }
 else view_angle[0]=0;
+
+if (instance_exists(obj_player_par))
+{
+    if (obj_player.have_ball=true)
+        {
+           if (obj_player.obrot=0)
+           {
+           global.ballx=obj_player.x+27;
+           global.bally=obj_player.y;  
+           }
+           else
+           {
+           global.ballx=obj_player.x-27;
+           global.bally=obj_player.y;     
+           }
+        }
+    /*else if (obj_stojak.have_ball=true)
+        {
+        global.ballx=obj_stojak.x;
+        global.bally=obj_stojak.y-15;
+        }*/
+    else if (obj_player_2.have_ball=true)
+        {
+            if (obj_player_2.obrot=0)
+           {
+           global.ballx=obj_player_2.x+27;
+           global.bally=obj_player_2.y;  
+           }
+           else
+           {
+           global.ballx=obj_player_2.x-27;
+           global.bally=obj_player_2.y;     
+           }
+        }
+    if (obj_player.throwing=true or obj_player_2.throwing=true) global.throwing=true;
+    else global.throwing=false;
+}        
+if (mapping and keyboard_check_released(vk_anykey) and keyboard_lastkey!=-1)
+{
+ini_open("game.ini");
+    if (mplayer==1)
+    {
+        switch (mkey)
+        {
+            case 1: global.p1up=keyboard_lastkey; ini_write_string("Controlls","P1_up",scr_convert(keyboard_lastkey,1)); break;
+            case 2: global.p1left=keyboard_lastkey; ini_write_string("Controlls","P1_left",scr_convert(keyboard_lastkey,1)); break;
+            case 3: global.p1down=keyboard_lastkey; ini_write_string("Controlls","P1_down",scr_convert(keyboard_lastkey,1)); break;
+            case 4: global.p1right=keyboard_lastkey; ini_write_string("Controlls","P1_right",scr_convert(keyboard_lastkey,1)); break;
+            case 5: global.p1throw=keyboard_lastkey; ini_write_string("Controlls","P1_throw",scr_convert(keyboard_lastkey,1)); break;
+            case 6: global.p1wybicie=keyboard_lastkey; ini_write_string("Controlls","P1_hit",scr_convert(keyboard_lastkey,1)); break;
+        }    
+    }
+    else if (mplayer==2)
+    {
+        switch (mkey)
+        {
+            case 1: global.p2up=keyboard_lastkey; break;
+            case 2: global.p2left=keyboard_lastkey; break;
+            case 3: global.p2down=keyboard_lastkey; break;
+            case 4: global.p2right=keyboard_lastkey; break;
+            case 5: global.p2throw=keyboard_lastkey; break;
+            case 6: global.p2wybicie=keyboard_lastkey; break;
+        }    
         
-
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="6" enumb="58">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>mapping=true;
-keyboard_lastkey=-1;
-
-
+    }
+    keyboard_lastkey=-1;
+    mkey++;
+    
+    if (mkey==7) mapping = false;  
+ini_close(); 
+}
 </string>
           </argument>
         </arguments>
@@ -282,48 +304,54 @@ if (global.throwing)
         draw_sprite(spr_bar,0,obj_player_2.x-12,obj_player_2.y-94);
         }
 }
-//Points
-draw_text(view_xview[view_current],view_yview[view_current],global.points1);
-draw_text(view_xview[view_current]+view_wview[view_current]-20,view_yview[view_current],global.points2);
-//energy bars
-draw_healthbar(view_xview[global.widok]+10,view_yview[view_current],view_xview[global.widok]+50,view_yview[view_current]+10,obj_player.energy,c_black,c_yellow,c_red,0,false,false);
-//draw_healthbar(obj_player.x-8,obj_player.y-92,obj_player.x-5,obj_player.y-57,obj_player.energy,c_black,c_yellow,c_red,3,false,false);
-
-
-//Arrows
-if (point_distance(view_xview[global.widok],0,obj_player.x,0)&gt;1 and point_distance(view_xview[global.widok]+view_wview[global.widok],0,obj_player.x,0)&gt;view_wview[global.widok]+1 )
-    {
-    draw_sprite_ext(spr_arrow,0,view_xview[view_current]+50,view_yview[view_current]+470,1,1,90,c_white,0.75 );
-    }
-else if (point_distance(view_xview[global.widok]+view_wview[global.widok],0,obj_player.x,0)&gt;1 and point_distance(view_xview[global.widok],0,obj_player.x,0)&gt;view_wview[global.widok]+1 )
-    {
-    draw_sprite_ext(spr_arrow,0,view_xview[view_current]+view_wview[global.widok]-50,view_yview[view_current]+470,1,1,-90,c_white,0.75 );
-    }
+if (instance_exists(obj_player_par))
+{
+    //Points
+    draw_text(view_xview[view_current],view_yview[view_current],global.points1);
+    draw_text(view_xview[view_current]+view_wview[view_current]-20,view_yview[view_current],global.points2);
+    //energy bars
+    draw_healthbar(view_xview[global.widok]+10,view_yview[view_current],view_xview[global.widok]+50,view_yview[view_current]+10,
+    obj_player.energy,c_black,c_yellow,c_red,0,false,false);
     
-if (point_distance(view_xview[global.widok],0,obj_player_2.x,0)&gt;1 and point_distance(view_xview[global.widok]+view_wview[global.widok],0,obj_player_2.x,0)&gt;view_wview[global.widok]+1 )
+    draw_healthbar(view_xview[global.widok]+view_wview[global.widok]-60,view_yview[view_current],view_xview[global.widok]+view_wview[global.widok]-20,view_yview[view_current]+10,
+    obj_player_2.energy,c_black,c_yellow,c_red,0,false,false);
+    
+    
+    //Arrows
+    if (point_distance(view_xview[global.widok],0,obj_player.x,0)&gt;1 and point_distance(view_xview[global.widok]+view_wview[global.widok],0,obj_player.x,0)&gt;view_wview[global.widok]+1 )
+        {
+        draw_sprite_ext(spr_arrow,0,view_xview[view_current]+50,view_yview[view_current]+470,1,1,90,c_white,0.75 );
+        }
+    else if (point_distance(view_xview[global.widok]+view_wview[global.widok],0,obj_player.x,0)&gt;1 and point_distance(view_xview[global.widok],0,obj_player.x,0)&gt;view_wview[global.widok]+1 )
+        {
+        draw_sprite_ext(spr_arrow,0,view_xview[view_current]+view_wview[global.widok]-50,view_yview[view_current]+470,1,1,-90,c_white,0.75 );
+        }
+        
+    if (point_distance(view_xview[global.widok],0,obj_player_2.x,0)&gt;1 and point_distance(view_xview[global.widok]+view_wview[global.widok],0,obj_player_2.x,0)&gt;view_wview[global.widok]+1 )
+        {
+        draw_sprite_ext(spr_arrow,0,view_xview[view_current]+50,view_yview[view_current]+420,1,1,90,c_blue,0.75 );
+        }
+    else if (point_distance(view_xview[global.widok]+view_wview[global.widok],0,obj_player_2.x,0)&gt;1 and point_distance(view_xview[global.widok],0,obj_player_2.x,0)&gt;view_wview[global.widok]+1 )
+        {
+        draw_sprite_ext(spr_arrow,0,view_xview[view_current]+view_wview[global.widok]-50,view_yview[view_current]+420,1,1,-90,c_blue,0.75 );
+        }
+    //Debug
+    if (Debug)
     {
-    draw_sprite_ext(spr_arrow,0,view_xview[view_current]+50,view_yview[view_current]+420,1,1,90,c_blue,0.75 );
+        draw_text(view_xview[view_current],view_yview[view_current]+12,"Prejump: "+ string(obj_player.prejump));
+        draw_rectangle(obj_player.x-30,obj_player.y-30,obj_player.x+30,obj_player.y+70,true);//gracz
+        draw_rectangle(obj_player.x-60,obj_player.y-5,obj_player.x-10,obj_player.y+20,true);//reka p1
+        draw_rectangle(obj_player_2.x-50,obj_player_2.y-50,obj_player_2.x-10,obj_player_2.y,true);//reka p2
+        draw_text(view_xview[view_current]+20,view_yview[view_current],"FPS: "+string(fps)+" RFPS: "+string(fps_real));
+        draw_text(view_xview[view_current],view_yview[view_current]+24,"Jumping: "+string(obj_player.jumping));
+        draw_text(view_xview[view_current],view_yview[view_current]+36,"Throwing: "+string(global.throwing));
+        draw_text(view_xview[view_current],view_yview[view_current]+48,"Have_ball: "+string(obj_player.have_ball));
+        draw_text(view_xview[view_current],view_yview[view_current]+60,"Lastkey: "+string(keyboard_lastkey));
+        draw_text(view_xview[view_current],view_yview[view_current]+72,"V0: "+string(view_visible[0]));
+        draw_text(view_xview[view_current],view_yview[view_current]+84,"V1: "+string(view_visible[1]));
+        draw_text(view_xview[view_current],view_yview[view_current]+96,"V2: "+string(view_visible[2]));
     }
-else if (point_distance(view_xview[global.widok]+view_wview[global.widok],0,obj_player_2.x,0)&gt;1 and point_distance(view_xview[global.widok],0,obj_player_2.x,0)&gt;view_wview[global.widok]+1 )
-    {
-    draw_sprite_ext(spr_arrow,0,view_xview[view_current]+view_wview[global.widok]-50,view_yview[view_current]+420,1,1,-90,c_blue,0.75 );
-    }
-//Debug
-if (Debug)
-    {
-    draw_text(view_xview[view_current],view_yview[view_current]+12,"Prejump: "+ string(obj_player.prejump));
-    draw_rectangle(obj_player.x-30,obj_player.y-30,obj_player.x+30,obj_player.y+70,true);//gracz
-    draw_rectangle(obj_player.x-60,obj_player.y-5,obj_player.x-10,obj_player.y+20,true);//reka p1
-    draw_rectangle(obj_player_2.x-50,obj_player_2.y-50,obj_player_2.x-10,obj_player_2.y,true);//reka p2
-    draw_text(view_xview[view_current]+20,view_yview[view_current],"FPS: "+string(fps)+" RFPS: "+string(fps_real));
-    draw_text(view_xview[view_current],view_yview[view_current]+24,"Jumping: "+string(obj_player.jumping));
-    draw_text(view_xview[view_current],view_yview[view_current]+36,"Throwing: "+string(global.throwing));
-    draw_text(view_xview[view_current],view_yview[view_current]+48,"Have_ball: "+string(obj_player.have_ball));
-    draw_text(view_xview[view_current],view_yview[view_current]+60,"Lastkey: "+string(keyboard_lastkey));
-    draw_text(view_xview[view_current],view_yview[view_current]+72,"V0: "+string(view_visible[0]));
-    draw_text(view_xview[view_current],view_yview[view_current]+84,"V1: "+string(view_visible[1]));
-    draw_text(view_xview[view_current],view_yview[view_current]+96,"V2: "+string(view_visible[2]));
-    }
+}
 </string>
           </argument>
         </arguments>
@@ -413,6 +441,33 @@ if (Debug)
             <kind>1</kind>
             <string>if (Debug) Debug=false;
 else Debug=true;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="10" enumb="27">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (!global.stage_curr=="mainmenu" and !mapping)
+{
+    global.stage_curr="mainmenu"
+    room_goto(R_mainmenu);
+}
 </string>
           </argument>
         </arguments>

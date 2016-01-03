@@ -25,7 +25,12 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (selected) room_goto(R_level_1);
+            <string>if (selected)
+{
+    global.stage_curr="game"; 
+    with (obj_menu_controll) instance_destroy();
+    room_goto(R_level_1);
+}
 </string>
           </argument>
         </arguments>

@@ -36,7 +36,7 @@ phy_fixed_rotation=true;
 max_xspeed=5;
 prejump=false;
 jumping=false;
-jump_force=-800;
+jump_force=-850;
 have_ball=false;
 throwing=false;
 obrot=0;
@@ -62,7 +62,6 @@ Kright=global.p1right;
 Kup=global.p1up;
 Kdown=global.p1down;
 Kthrow=global.p1throw;
-Kjump=global.p1jump;
 Kwybicie=global.p1wybicie;
 
 </string>
@@ -413,12 +412,12 @@ if (keyboard_check_pressed(Kup) and !jumping)
         }
     }
 //Wybicie
-if (keyboard_check_released(Kwybicie) and !have_ball and !keyboard_check(Kleft) and !keyboard_check(Kright) and energy &gt;= 60)
+if (keyboard_check_released(Kwybicie) and !have_ball and energy &gt;= 60)
     {
     if (jumping)
         {
         sprite_index=Vspr_wybicie_midair;
-        image_index=1;
+        image_index=0;
         alarm[2]=35
         py=y-50;
         if (obrot=1)  px=x-50;
@@ -432,7 +431,7 @@ if (keyboard_check_released(Kwybicie) and !have_ball and !keyboard_check(Kleft) 
     else
         {
         sprite_index=Vspr_wybicie_ziemia;
-        image_index=1;
+        image_index=0;
         alarm[2]=35
         py=y-5;
         if (obrot=1)  px=x-60;

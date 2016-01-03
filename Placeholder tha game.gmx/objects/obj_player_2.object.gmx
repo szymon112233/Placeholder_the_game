@@ -49,7 +49,6 @@ Kright=global.p2right;
 Kup=global.p2up;
 Kdown=global.p2down;
 Kthrow=global.p2throw;
-Kjump=global.p2jump;
 Kwybicie=global.p2wybicie;
 
 </string>
