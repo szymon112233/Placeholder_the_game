@@ -163,35 +163,6 @@ else if (global.ball="random")
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_collision">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///collide ffs
-if (obj_controller.shake!=true)
-{
-obj_controller.alarm[2]=15;
-obj_controller.shake=true;
-}
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="4" ename="obj_pole">
       <action>
         <libid>1</libid>
@@ -257,6 +228,35 @@ alarm[0]=140;
           <argument>
             <kind>1</kind>
             <string>///collide ffs
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_collision">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///collide ffs
+if (obj_controller.shake!=true)
+{
+obj_controller.alarm[2]=15;
+obj_controller.shake=true;
+}
+
 </string>
           </argument>
         </arguments>

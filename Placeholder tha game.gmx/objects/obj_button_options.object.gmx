@@ -28,7 +28,8 @@
             <string>if (selected)
 {
     global.stage_curr="options"; 
-    room_goto(R_options);
+    obj_menu_controll.moving_r=true;
+    obj_menu_controll.alarm[0]=20;
 }
 </string>
           </argument>

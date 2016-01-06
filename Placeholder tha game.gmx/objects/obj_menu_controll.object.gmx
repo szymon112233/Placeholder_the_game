@@ -27,6 +27,33 @@
             <kind>1</kind>
             <string>selection=1;
 selection_o=1;
+moving_r=false;
+moving_l=false;
+MENU_SPEED=40;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>moving_r=false;
+moving_l=false;
 </string>
           </argument>
         </arguments>
@@ -74,7 +101,15 @@ selection_o=1;
     if (selection==4) obj_button_exit.selected=true;
     else    obj_button_exit.selected=false;
 }
-else if (global.stage_curr=="options" and !obj_controller.mapping)
+else
+{
+    obj_button_play.selected=false;
+    obj_button_options.selected=false;
+    obj_button_credits.selected=false;
+    obj_button_exit.selected=false;
+}
+
+if (global.stage_curr=="options" and !obj_controller.mapping)
 {
     if (keyboard_check_released(vk_left))
     {
@@ -93,6 +128,14 @@ else if (global.stage_curr=="options" and !obj_controller.mapping)
     if (selection_o==2) obj_button_player_2.selected=true;
     else    obj_button_player_2.selected=false;
 }
+else
+{
+    obj_button_player_1.selected=false;
+    obj_button_player_2.selected=false;
+}
+if (moving_r) view_xview[4]+=MENU_SPEED;
+else if (moving_l) view_xview[4]-=MENU_SPEED;
+
 </string>
           </argument>
         </arguments>

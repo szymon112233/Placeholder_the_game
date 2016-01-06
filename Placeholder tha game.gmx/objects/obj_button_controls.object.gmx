@@ -26,12 +26,15 @@
           <argument>
             <kind>1</kind>
             <string>vspace=52;
+ax=150;
+ay=255;
+obrot=-90;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="6" enumb="7">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -48,7 +51,17 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>show_debug_message("wat");
+            <string>if (obj_controller.mplayer==1) 
+{
+    ax=1750;
+    obrot=-90;
+}
+else
+{
+    ax=2250;
+    obrot=90;
+}
+ay=255+vspace*(obj_controller.mkey-1)
 </string>
           </argument>
         </arguments>
@@ -86,6 +99,11 @@ draw_text_colour(x+315,y+15+2*vspace,scr_convert(global.p2down,1),c_white,c_whit
 draw_text_colour(x+315,y+15+3*vspace,scr_convert(global.p2right,1),c_white,c_white,c_white,c_white,1);
 draw_text_colour(x+315,y+15+4*vspace,scr_convert(global.p2throw,1),c_white,c_white,c_white,c_white,1);
 draw_text_colour(x+315,y+15+5*vspace,scr_convert(global.p2wybicie,1),c_white,c_white,c_white,c_white,1);
+
+if (obj_controller.mapping)
+{
+    draw_sprite_ext(spr_arrow,0,ax,ay,1,1,obrot,c_white,1)
+}
 
 </string>
           </argument>

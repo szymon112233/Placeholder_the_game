@@ -154,6 +154,7 @@
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\R_mainmenu_v2</room>
     <room>rooms\R_mainmenu</room>
     <room>rooms\R_level_1</room>
     <room>rooms\R_test</room>

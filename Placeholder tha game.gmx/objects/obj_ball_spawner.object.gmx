@@ -26,9 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>global.ball="random"
-alarm[0]=8;
+alarm[0]=4;
 p=0;
-q=800;
+q=2400;
 </string>
           </argument>
         </arguments>
@@ -51,8 +51,8 @@ q=800;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_create(random_range(p,q),-20,obj_ball)
-alarm[0]=8;
+            <string>instance_create(random_range(p,q),-30,obj_ball)
+alarm[0]=4;
 </string>
           </argument>
         </arguments>

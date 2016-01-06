@@ -227,7 +227,8 @@ if (instance_exists(obj_player_par))
         }
     if (obj_player.throwing=true or obj_player_2.throwing=true) global.throwing=true;
     else global.throwing=false;
-}        
+}      
+//Mapping keys  
 if (mapping and keyboard_check_released(vk_anykey) and keyboard_lastkey!=-1)
 {
 ini_open("game.ini");
@@ -247,12 +248,12 @@ ini_open("game.ini");
     {
         switch (mkey)
         {
-            case 1: global.p2up=keyboard_lastkey; break;
-            case 2: global.p2left=keyboard_lastkey; break;
-            case 3: global.p2down=keyboard_lastkey; break;
-            case 4: global.p2right=keyboard_lastkey; break;
-            case 5: global.p2throw=keyboard_lastkey; break;
-            case 6: global.p2wybicie=keyboard_lastkey; break;
+            case 1: global.p2up=keyboard_lastkey; ini_write_string("Controlls","P2_up",scr_convert(keyboard_lastkey,1)); break;
+            case 2: global.p2left=keyboard_lastkey; ini_write_string("Controlls","P2_left",scr_convert(keyboard_lastkey,1)); break;
+            case 3: global.p2down=keyboard_lastkey; ini_write_string("Controlls","P2down",scr_convert(keyboard_lastkey,1)); break;
+            case 4: global.p2right=keyboard_lastkey; ini_write_string("Controlls","P2_right",scr_convert(keyboard_lastkey,1)); break;
+            case 5: global.p2throw=keyboard_lastkey; ini_write_string("Controlls","P2_throw",scr_convert(keyboard_lastkey,1)); break;
+            case 6: global.p2wybicie=keyboard_lastkey; ini_write_string("Controlls","P2_hit",scr_convert(keyboard_lastkey,1)); break;
         }    
         
     }
@@ -285,36 +286,39 @@ ini_close();
           <argument>
             <kind>1</kind>
             <string>global.widok=view_current;
-if (global.throwing)
-{
-    if (obj_player.have_ball=true)
-        {
-        if(global.rzutk==1)
-            draw_healthbar(obj_player.x-8,obj_player.y-92,obj_player.x-5,obj_player.y-57,(45-alarm[0])/45*100,c_black,c_green,c_red,3,false,false);
-        else if (global.rzutk==0)
-            draw_healthbar(obj_player.x-8,obj_player.y-92,obj_player.x-5,obj_player.y-57,(alarm[0])/45*100,c_black,c_green,c_red,3,false,false);   
-        draw_sprite(spr_bar,0,obj_player.x-12,obj_player.y-94);
-        }
-    else if (obj_player_2.have_ball=true)
-        {
-        if (global.rzutk==1)
-            draw_healthbar(obj_player_2.x-8,obj_player_2.y-92,obj_player_2.x-5,obj_player_2.y-57,(45-alarm[0])/45*100,c_black,c_green,c_red,3,false,false);
-        else if (global.rzutk==0)
-            draw_healthbar(obj_player_2.x-8,obj_player_2.y-92,obj_player_2.x-5,obj_player_2.y-57,(alarm[0])/45*100,c_black,c_green,c_red,3,false,false);   
-        draw_sprite(spr_bar,0,obj_player_2.x-12,obj_player_2.y-94);
-        }
-}
 if (instance_exists(obj_player_par))
 {
+    if (global.throwing)
+    {
+        if (obj_player.have_ball=true)
+            {
+            if(global.rzutk==1)
+                draw_healthbar(obj_player.x-8,obj_player.y-92,obj_player.x-5,obj_player.y-57,(45-alarm[0])/45*100,c_black,c_green,c_red,3,false,false);
+            else if (global.rzutk==0)
+                draw_healthbar(obj_player.x-8,obj_player.y-92,obj_player.x-5,obj_player.y-57,(alarm[0])/45*100,c_black,c_green,c_red,3,false,false);   
+            draw_sprite(spr_bar,0,obj_player.x-12,obj_player.y-94);
+            }
+        else if (obj_player_2.have_ball=true)
+            {
+            if (global.rzutk==1)
+                draw_healthbar(obj_player_2.x-8,obj_player_2.y-92,obj_player_2.x-5,obj_player_2.y-57,(45-alarm[0])/45*100,c_black,c_green,c_red,3,false,false);
+            else if (global.rzutk==0)
+                draw_healthbar(obj_player_2.x-8,obj_player_2.y-92,obj_player_2.x-5,obj_player_2.y-57,(alarm[0])/45*100,c_black,c_green,c_red,3,false,false);   
+            draw_sprite(spr_bar,0,obj_player_2.x-12,obj_player_2.y-94);
+            }
+    }
+
     //Points
     draw_text(view_xview[view_current],view_yview[view_current],global.points1);
     draw_text(view_xview[view_current]+view_wview[view_current]-20,view_yview[view_current],global.points2);
+    /*
     //energy bars
     draw_healthbar(view_xview[global.widok]+10,view_yview[view_current],view_xview[global.widok]+50,view_yview[view_current]+10,
     obj_player.energy,c_black,c_yellow,c_red,0,false,false);
     
     draw_healthbar(view_xview[global.widok]+view_wview[global.widok]-60,view_yview[view_current],view_xview[global.widok]+view_wview[global.widok]-20,view_yview[view_current]+10,
     obj_player_2.energy,c_black,c_yellow,c_red,0,false,false);
+    */
     
     
     //Arrows
@@ -463,10 +467,11 @@ else Debug=true;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (!global.stage_curr=="mainmenu" and !mapping)
+            <string>if (global.stage_curr=="options" and !mapping)
 {
     global.stage_curr="mainmenu"
-    room_goto(R_mainmenu);
+    obj_menu_controll.moving_l=true;
+    obj_menu_controll.alarm[0]=20;
 }
 </string>
           </argument>
