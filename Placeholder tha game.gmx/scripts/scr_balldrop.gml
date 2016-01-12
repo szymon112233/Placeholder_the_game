@@ -1,9 +1,7 @@
 show_debug_message("balllldrooop")
 global.ball="wybicie";
 instance_create(obj_ball_wybicie.x+10,obj_ball_wybicie.y+15,obj_ball);
-view_visible[2]=false;
-view_visible[1]=false;
-view_visible[0]=true;
+obj_camera.following=obj_ball;
 have_ball=false;
 depth=1;
 throwing=false;

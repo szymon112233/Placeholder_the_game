@@ -307,6 +307,7 @@ if (instance_exists(obj_player_par))
             draw_sprite(spr_bar,0,obj_player_2.x-12,obj_player_2.y-94);
             }
     }
+    draw_set_font(font_default);
 
     //Points
     draw_text(view_xview[view_current],view_yview[view_current],global.points1);
@@ -469,9 +470,15 @@ else Debug=true;
             <kind>1</kind>
             <string>if (global.stage_curr=="options" and !mapping)
 {
-    global.stage_curr="mainmenu"
+    global.stage_curr="mainmenu";
     obj_menu_controll.moving_l=true;
     obj_menu_controll.alarm[0]=20;
+}
+else if (global.stage_curr=="game")
+{
+global.stage_curr="mainmenu";
+with (obj_menu_controll) instance_activate_object(self);
+room_goto(R_mainmenu_v2);
 }
 </string>
           </argument>

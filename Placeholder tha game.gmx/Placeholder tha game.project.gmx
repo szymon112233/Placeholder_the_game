@@ -74,7 +74,6 @@
     <sprite>sprites\spr_wall</sprite>
     <sprite>sprites\spr_stojak</sprite>
     <sprite>sprites\spr_manipulator</sprite>
-    <sprite>sprites\sprite10</sprite>
     <sprite>sprites\spr_ball</sprite>
     <sprite>sprites\spr_ball_wybicie</sprite>
     <sprite>sprites\spr_stojak_woball</sprite>
@@ -82,6 +81,7 @@
     <sprite>sprites\spr_arrow</sprite>
     <sprite>sprites\spr_help</sprite>
     <sprite>sprites\spr_pole</sprite>
+    <sprite>sprites\spr_camera</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\ti_kosz</background>
@@ -105,6 +105,7 @@
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_VCR</font>
+    <font>fonts\font_default</font>
   </fonts>
   <objects name="objects">
     <objects name="Buttons">
@@ -151,14 +152,17 @@
       <object>objects\obj_ball_spawner</object>
       <object>objects\obj_music</object>
       <object>objects\obj_controller</object>
+      <object>objects\obj_camera</object>
     </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\R_mainmenu_v2</room>
-    <room>rooms\R_mainmenu</room>
     <room>rooms\R_level_1</room>
-    <room>rooms\R_test</room>
-    <room>rooms\R_options</room>
+    <rooms name="old ones">
+      <room>rooms\R_mainmenu</room>
+      <room>rooms\R_test</room>
+      <room>rooms\R_options</room>
+    </rooms>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

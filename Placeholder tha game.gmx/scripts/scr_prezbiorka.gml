@@ -1,6 +1,6 @@
 global.zbiorka=true;
-view_visible[0]=false;
 have_ball=true;
+obj_camera.following=player_name;
 depth=2;
 if (phy_speed_x <2 and phy_speed_x>-2)
 {   

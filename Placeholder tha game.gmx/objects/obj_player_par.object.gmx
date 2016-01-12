@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>player=1;
+player_name=obj_player;
 //Stałe
 energy=100;
 energy_regen=0.1;
@@ -291,7 +292,6 @@ if (keyboard_check_pressed(Kdown) )
     if (collision_rectangle( x-30, y-30, x+30, y+70, obj_ball, false, false ))
         {
         scr_prezbiorka();
-        view_visible[player]=true;
         }
     }        
 //Ruch w lewo (Priorytet)
@@ -391,8 +391,7 @@ if (have_ball)
         
         global.ball="wyrzut";
         
-        view_visible[player]=false;
-        view_visible[0]=true;
+        obj_camera.following=obj_ball;
         
         if (obrot=0)
             {
