@@ -32,13 +32,13 @@ energy=100;
 energy_regen=0.1;
 energy_max=100;
 cdwybycie=true;
-image_speed=0.125;
-move_speed=2000;
+image_speed=0.185;
+move_speed=2200;
 phy_fixed_rotation=true;
-max_xspeed=5;
+max_xspeed=6.5;
 prejump=false;
 jumping=false;
-jump_force=-850;
+jump_force=-900;
 have_ball=false;
 throwing=false;
 obrot=0;
@@ -411,7 +411,7 @@ if (have_ball)
         have_ball=false;
         global.rzutk=1;
         
-        alarm[0]=30;
+        alarm[0]=25;
         
         }
     }       
@@ -421,7 +421,7 @@ if (keyboard_check_pressed(Kup) and !jumping)
     if (place_meeting(x,y+1,obj_collision))
         {
         prejump=true;
-        alarm[1]=20;
+        alarm[1]=15;
         if (have_ball)
             {
             sprite_index=Vspr_wyskok;
