@@ -68,6 +68,7 @@
       <sprite>sprites\spr_spod</sprite>
       <sprite>sprites\spr_music_off</sprite>
       <sprite>sprites\spr_music_on</sprite>
+      <sprite>sprites\spr_scoreboard</sprite>
     </sprites>
     <sprite>sprites\spr_kosz_dol_l</sprite>
     <sprite>sprites\spr_kosz_dol_p</sprite>
@@ -91,6 +92,7 @@
     <background>background\bg_mainmenu</background>
     <background>background\bg_mainmenu_2</background>
     <background>background\bg_options</background>
+    <background>background\bg_socreboard</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -105,6 +107,7 @@
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_VCR</font>
+    <font>fonts\font_sb</font>
     <font>fonts\font_default</font>
   </fonts>
   <objects name="objects">

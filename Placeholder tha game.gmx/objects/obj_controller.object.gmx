@@ -42,6 +42,10 @@ Debug=false;
 mapping=false;
 mplayer=0;
 mkey=1;
+shake=false;
+mtime=3;
+s1time=0;
+s2time=0;
 
 ini_open("game.ini");
 ini_write_string("test","test","test");
@@ -79,12 +83,57 @@ global.p2wybicie=scr_convert(ini_read_string("Controlls","P2_hit","alt"),0)
           
 ini_close();
 global.widok=0;
-shake=false;
 
 
 
 
 
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (mtime==0 and s1time==0 and s2time==0)
+{
+    show_message("Player 1 Wins!!!!");
+}
+else
+{
+    if (s1time==0 and s2time==0)
+    {
+        mtime--;
+        s1time=5;
+        s2time=9;
+    }
+    else if (s2time==0)
+    {
+        s1time--;
+        s2time=9;
+    }
+    else
+    {
+        s2time--;
+    }
+    alarm[4]=room_speed;
+}
 </string>
           </argument>
         </arguments>
@@ -307,11 +356,16 @@ if (instance_exists(obj_player_par))
             draw_sprite(spr_bar,0,obj_player_2.x-12,obj_player_2.y-94);
             }
     }
-    draw_set_font(font_default);
 
     //Points
-    draw_text(view_xview[view_current],view_yview[view_current],global.points1);
-    draw_text(view_xview[view_current]+view_wview[view_current]-20,view_yview[view_current],global.points2);
+    draw_set_font(font_sb);
+    draw_sprite(spr_scoreboard,0,view_xview[view_current]+275,view_yview[view_current]);
+    draw_text_colour(view_xview[view_current]+319,view_yview[view_current]+35,global.points1,c_white,c_white,c_white,c_white,1);
+    draw_text_colour(view_xview[view_current]+view_wview[view_current]-319,view_yview[view_current]+35,global.points2,c_white,c_white,c_white,c_white,1);
+    
+    //TIME
+    draw_text_colour(view_xview[view_current]+400,view_yview[view_current]+100,string(mtime)+":"+string(s1time)+string(s2time),c_white,c_white,c_white,c_white,1);
+    
     /*
     //energy bars
     draw_healthbar(view_xview[global.widok]+10,view_yview[view_current],view_xview[global.widok]+50,view_yview[view_current]+10,
@@ -343,6 +397,7 @@ if (instance_exists(obj_player_par))
     //Debug
     if (Debug)
     {
+        draw_set_font(font_default);
         draw_text(view_xview[view_current],view_yview[view_current]+12,"Prejump: "+ string(obj_player.prejump));
         draw_rectangle(obj_player.x-30,obj_player.y-30,obj_player.x+30,obj_player.y+70,true);//gracz
         draw_rectangle(obj_player.x-60,obj_player.y-5,obj_player.x-10,obj_player.y+20,true);//reka p1
