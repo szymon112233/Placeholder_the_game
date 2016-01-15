@@ -5,6 +5,8 @@ obj_camera.following=obj_ball;
 have_ball=false;
 depth=1;
 throwing=false;
+obj_ball_wybicie.x=0;
+obj_ball_wybicie.y=0;
 switch (sprite_index)
     {
         case Vspr_idle: sprite_index=Vspr_idle_woball; break;

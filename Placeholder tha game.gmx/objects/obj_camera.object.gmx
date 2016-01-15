@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>following=obj_player;
+            <string>following=obj_ball;
 </string>
           </argument>
         </arguments>

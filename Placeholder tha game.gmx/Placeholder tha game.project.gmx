@@ -104,6 +104,7 @@
     <script>scripts\scr_balldrop.gml</script>
     <script>scripts\gj_init.gml</script>
     <script>scripts\scr_wait.gml</script>
+    <script>scripts\scr_game_end.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_VCR</font>

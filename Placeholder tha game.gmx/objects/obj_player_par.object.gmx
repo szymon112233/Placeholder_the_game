@@ -205,6 +205,10 @@ prejump=false;
     if (have_ball)
         { 
         sprite_index=Vspr_idle ;
+        if (player==1)
+            global.fouls1++;
+        else if (player==2)
+            global.fouls2++;
         show_debug_message("FAUUL");
         }
     else sprite_index=Vspr_idle_woball;
@@ -279,7 +283,7 @@ else if (!have_ball)
             obj_blok.phy_position_x=x-7;
         }
     }
-    else if(!obj_player_2.jumping )
+    else 
     {
         obj_blok.phy_position_y=0;
         obj_blok.phy_position_x=0;
@@ -410,6 +414,9 @@ if (have_ball)
         throwing=false;        
         have_ball=false;
         global.rzutk=1;
+        
+        obj_ball_wybicie.x=0;
+        obj_ball_wybicie.y=0;
         
         alarm[0]=25;
         

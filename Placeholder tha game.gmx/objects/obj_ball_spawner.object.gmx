@@ -52,6 +52,7 @@ q=2400;
           <argument>
             <kind>1</kind>
             <string>instance_create(random_range(p,q),-30,obj_ball)
+instance_create(random_range(p,q),-50,obj_ball)
 alarm[0]=4;
 </string>
           </argument>

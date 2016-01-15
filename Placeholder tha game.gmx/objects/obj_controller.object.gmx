@@ -33,6 +33,9 @@ global.rzutk=1;
 global.points1=0;
 global.points2=0;
 global.throwing=false;
+//Faule
+global.fouls1=0;
+global.fouls2=0;
 //Ball
 global.ball="free";
 global.ballx=0;
@@ -43,9 +46,8 @@ mapping=false;
 mplayer=0;
 mkey=1;
 shake=false;
-mtime=3;
-s1time=0;
-s2time=0;
+time=180;
+win_message="Tie !";
 
 ini_open("game.ini");
 ini_write_string("test","test","test");
@@ -111,27 +113,13 @@ global.widok=0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (mtime==0 and s1time==0 and s2time==0)
+            <string>if (time==0)
 {
-    show_message("Player 1 Wins!!!!");
+    scr_game_end();
 }
 else
 {
-    if (s1time==0 and s2time==0)
-    {
-        mtime--;
-        s1time=5;
-        s2time=9;
-    }
-    else if (s2time==0)
-    {
-        s1time--;
-        s2time=9;
-    }
-    else
-    {
-        s2time--;
-    }
+    time--;
     alarm[4]=room_speed;
 }
 </string>
@@ -256,23 +244,22 @@ if (instance_exists(obj_player_par))
            global.bally=obj_player.y;     
            }
         }
-    /*else if (obj_stojak.have_ball=true)
+        
+    else if (instance_exists(obj_player_2))
         {
-        global.ballx=obj_stojak.x;
-        global.bally=obj_stojak.y-15;
-        }*/
-    else if (obj_player_2.have_ball=true)
-        {
-            if (obj_player_2.obrot=0)
-           {
-           global.ballx=obj_player_2.x+27;
-           global.bally=obj_player_2.y;  
-           }
-           else
-           {
-           global.ballx=obj_player_2.x-27;
-           global.bally=obj_player_2.y;     
-           }
+            if (obj_player_2.have_ball=true)
+            {
+                if (obj_player_2.obrot=0)
+                {
+                   global.ballx=obj_player_2.x+27;
+                   global.bally=obj_player_2.y;  
+               }
+               else
+               {
+                   global.ballx=obj_player_2.x-27;
+                   global.bally=obj_player_2.y;     
+               }
+            }
         }
     if (obj_player.throwing=true or obj_player_2.throwing=true) global.throwing=true;
     else global.throwing=false;
@@ -364,7 +351,11 @@ if (instance_exists(obj_player_par))
     draw_text_colour(view_xview[view_current]+view_wview[view_current]-319,view_yview[view_current]+35,global.points2,c_white,c_white,c_white,c_white,1);
     
     //TIME
-    draw_text_colour(view_xview[view_current]+400,view_yview[view_current]+100,string(mtime)+":"+string(s1time)+string(s2time),c_white,c_white,c_white,c_white,1);
+    draw_text_colour(view_xview[view_current]+400,view_yview[view_current]+100,string(time div 60)+":"+string((time%60) div 10)+string((time%60)%10),c_white,c_white,c_white,c_white,1);
+    
+    //FOULS
+    draw_text_colour(view_xview[view_current]+306,view_yview[view_current]+102,global.fouls1,c_white,c_white,c_white,c_white,1);
+    draw_text_colour(view_xview[view_current]+view_wview[view_current]-306,view_yview[view_current]+102,global.fouls2,c_white,c_white,c_white,c_white,1);
     
     /*
     //energy bars
