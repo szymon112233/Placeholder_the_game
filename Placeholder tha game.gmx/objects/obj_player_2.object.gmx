@@ -28,6 +28,8 @@
             <string>event_inherited();
 player=2;
 player_name=obj_player_2;
+obrot=1;
+blok=obj_blok_2;
 //Sprity
 Vspr_idle=spr_idle_2;
 Vspr_bieg_koz=spr_bieg_koz_2;

@@ -105,6 +105,8 @@
     <script>scripts\gj_init.gml</script>
     <script>scripts\scr_wait.gml</script>
     <script>scripts\scr_game_end.gml</script>
+    <script>scripts\scr_reload_keys.gml</script>
+    <script>scripts\scr_newgame.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_VCR</font>
@@ -132,6 +134,7 @@
     </objects>
     <objects name="pola">
       <object>objects\obj_blok</object>
+      <object>objects\obj_blok_2</object>
       <object>objects\obj_ball_wybicie</object>
       <object>objects\obj_wall</object>
       <object>objects\obj_manipulator</object>

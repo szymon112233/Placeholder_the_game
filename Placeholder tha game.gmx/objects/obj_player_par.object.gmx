@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>player=1;
 player_name=obj_player;
+blok=obj_blok;
 //Stałe
 energy=100;
 energy_regen=0.1;
@@ -38,7 +39,8 @@ phy_fixed_rotation=true;
 max_xspeed=6.5;
 prejump=false;
 jumping=false;
-jump_force=-900;
+jump_force=-800;
+jump_force_woball=-900;
 have_ball=false;
 throwing=false;
 obrot=0;
@@ -170,12 +172,14 @@ prejump=false;
     if (have_ball)
         {
         sprite_index=Vspr_skok;
+        physics_apply_impulse(x,y,0,jump_force);
         }
     else
         {
+        physics_apply_impulse(x,y,0,jump_force_woball);
         sprite_index=Vspr_skok_woball;
         }
-    physics_apply_impulse(x,y,0,jump_force);
+    
     alarm[0]=5;
     audio_play_sound(sd_pilka,0,0);
 </string>
@@ -274,22 +278,26 @@ else if (!have_ball)
     {   
         if (obrot==0)
         {
-            obj_blok.phy_position_y=y-65;
-            obj_blok.phy_position_x=x-5;
+            blok.phy_position_y=y-65;
+            blok.phy_position_x=x-5;
         }
         else if (obrot==1)
         {
-            obj_blok.phy_position_y=y-65;
-            obj_blok.phy_position_x=x-7;
+            blok.phy_position_y=y-65;
+            blok.phy_position_x=x-7;
         }
     }
     else 
     {
-        obj_blok.phy_position_y=0;
-        obj_blok.phy_position_x=0;
+        blok.phy_position_y=0;
+        blok.phy_position_x=0;
     }
 }
+
+
 if (jumping or prejump) phy_speed_x/=1.2;
+
+
 //Zbiorka
 if (keyboard_check_pressed(Kdown) )
     {
@@ -477,6 +485,8 @@ if (keyboard_check_released(Kwybicie) and !have_ball and cdwybycie)
 if (place_meeting(x,y+1,obj_spod))
 jumping=false;
 else jumping=true;
+
+
 
 
 
