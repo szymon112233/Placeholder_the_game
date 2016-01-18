@@ -6,8 +6,8 @@
   <datafiles number="1" name="datafiles"/>
   <NewExtensions/>
   <sounds name="sound">
-    <sound>sound\sd_bgmusic</sound>
     <sound>sound\sd_pilka</sound>
+    <sound>sound\sd_bgmusic</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Player_1">
@@ -46,10 +46,12 @@
     </sprites>
     <sprites name="Kosz">
       <sprite>sprites\spr_kosz</sprite>
+      <sprite>sprites\spr_kosz_dol_l</sprite>
       <sprite>sprites\spr_kosz3</sprite>
       <sprite>sprites\spr_kosz4</sprite>
       <sprite>sprites\spr_kosz6</sprite>
       <sprite>sprites\spr_kosz2</sprite>
+      <sprite>sprites\spr_kosz_dol_p</sprite>
       <sprite>sprites\spr_kosz5</sprite>
       <sprite>sprites\spr_obrecz</sprite>
     </sprites>
@@ -64,25 +66,27 @@
         <sprite>sprites\spr_button_credits</sprite>
         <sprite>sprites\spr_button_exit</sprite>
       </sprites>
+      <sprites name="Scoreboard">
+        <sprite>sprites\spr_scoreboard</sprite>
+        <sprite>sprites\spr_sound</sprite>
+      </sprites>
       <sprite>sprites\spr_bar</sprite>
       <sprite>sprites\spr_spod</sprite>
-      <sprite>sprites\spr_music_off</sprite>
-      <sprite>sprites\spr_music_on</sprite>
-      <sprite>sprites\spr_scoreboard</sprite>
     </sprites>
-    <sprite>sprites\spr_kosz_dol_l</sprite>
-    <sprite>sprites\spr_kosz_dol_p</sprite>
-    <sprite>sprites\spr_wall</sprite>
-    <sprite>sprites\spr_stojak</sprite>
-    <sprite>sprites\spr_manipulator</sprite>
-    <sprite>sprites\spr_ball</sprite>
-    <sprite>sprites\spr_ball_wybicie</sprite>
-    <sprite>sprites\spr_stojak_woball</sprite>
-    <sprite>sprites\spr_blok</sprite>
-    <sprite>sprites\spr_arrow</sprite>
-    <sprite>sprites\spr_help</sprite>
-    <sprite>sprites\spr_pole</sprite>
-    <sprite>sprites\spr_camera</sprite>
+    <sprites name="Randomshit">
+      <sprite>sprites\spr_help</sprite>
+      <sprite>sprites\spr_stojak_woball</sprite>
+      <sprite>sprites\spr_wall</sprite>
+      <sprite>sprites\spr_stojak</sprite>
+      <sprite>sprites\spr_manipulator</sprite>
+      <sprite>sprites\spr_ball</sprite>
+      <sprite>sprites\spr_ball_wybicie</sprite>
+      <sprite>sprites\spr_blok</sprite>
+      <sprite>sprites\spr_arrow</sprite>
+      <sprite>sprites\spr_camera</sprite>
+      <sprite>sprites\spr_pole</sprite>
+      <sprite>sprites\spr_ball_small</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\ti_kosz</background>
@@ -131,6 +135,7 @@
       <object>objects\obj_ball</object>
       <object>objects\obj_stojak</object>
       <object>objects\obj_player_2</object>
+      <object>objects\obj_ball_small</object>
     </objects>
     <objects name="pola">
       <object>objects\obj_blok</object>

@@ -412,11 +412,11 @@ if (instance_exists(obj_player_par))
     //Arrows
     if (point_distance(view_xview[global.widok],0,obj_player.x,0)&gt;1 and point_distance(view_xview[global.widok]+view_wview[global.widok],0,obj_player.x,0)&gt;view_wview[global.widok]+1 )
         {
-        draw_sprite_ext(spr_arrow,0,view_xview[view_current]+50,view_yview[view_current]+470,1,1,90,c_white,0.75 );
+        draw_sprite_ext(spr_arrow,0,view_xview[view_current]+50,view_yview[view_current]+470,1,1,90,c_red,0.75 );
         }
     else if (point_distance(view_xview[global.widok]+view_wview[global.widok],0,obj_player.x,0)&gt;1 and point_distance(view_xview[global.widok],0,obj_player.x,0)&gt;view_wview[global.widok]+1 )
         {
-        draw_sprite_ext(spr_arrow,0,view_xview[view_current]+view_wview[global.widok]-50,view_yview[view_current]+470,1,1,-90,c_white,0.75 );
+        draw_sprite_ext(spr_arrow,0,view_xview[view_current]+view_wview[global.widok]-50,view_yview[view_current]+470,1,1,-90,c_red,0.75 );
         }
         
     if (point_distance(view_xview[global.widok],0,obj_player_2.x,0)&gt;1 and point_distance(view_xview[global.widok]+view_wview[global.widok],0,obj_player_2.x,0)&gt;view_wview[global.widok]+1 )
