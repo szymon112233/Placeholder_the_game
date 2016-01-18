@@ -44,6 +44,7 @@ jump_force_woball=-900;
 have_ball=false;
 throwing=false;
 obrot=0;
+obrotable=true;
 //Sprity
 Vspr_idle=spr_idle;
 Vspr_bieg_koz=spr_bieg_koz;
@@ -216,7 +217,9 @@ prejump=false;
         show_debug_message("FAUUL");
         }
     else sprite_index=Vspr_idle_woball;
+    obrotable = true;
 }
+
 else 
     {
     alarm[0]=5;
@@ -244,6 +247,8 @@ else
           <argument>
             <kind>1</kind>
             <string>phy_speed_x=max(min(phy_speed_x,max_xspeed),-max_xspeed);
+
+
 //wybijarka
 if (have_ball)
 {
@@ -309,16 +314,14 @@ if (keyboard_check_pressed(Kdown) )
 //Ruch w lewo (Priorytet)
 if (keyboard_check(Kleft))
     {
-    if (!prejump)
-        {
-        if (!jumping)
-            {
-            image_xscale=-1;
-            obrot=1;
-            }
-        }
+    if (obrotable)
+    {
+        image_xscale=-1;
+        obrot=1;
+    }
 
-    if (have_ball)  global.zbiorka=false;         
+    if (have_ball)  global.zbiorka=false;   
+          
     if (throwing =false)
         { 
         physics_apply_force(x,y,-move_speed,0);
@@ -339,14 +342,12 @@ if (keyboard_check(Kleft))
 //Ruch w prawo
 else if (keyboard_check(Kright))
     {
-    if (!jumping)
-        {
-        if (!prejump)
-            {
-            image_xscale=1;
-            obrot=0;
-            }
-        }
+    if (obrotable)
+    {
+        image_xscale=1;
+        obrot=0;
+    }
+    
     if (have_ball)  global.zbiorka=false;      
     if (throwing=false) 
         {
@@ -435,6 +436,7 @@ if (keyboard_check_pressed(Kup) and !jumping)
     {
     if (place_meeting(x,y+1,obj_collision))
         {
+        obrotable = false;
         prejump=true;
         alarm[1]=15;
         if (have_ball)
@@ -485,6 +487,7 @@ if (keyboard_check_released(Kwybicie) and !have_ball and cdwybycie)
 if (place_meeting(x,y+1,obj_spod))
 jumping=false;
 else jumping=true;
+
 
 
 

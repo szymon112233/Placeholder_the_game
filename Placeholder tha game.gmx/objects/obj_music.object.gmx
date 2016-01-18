@@ -48,7 +48,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite(spr_sound,4-music,view_xview[global.widok]+400,view_yview[global.widok]+5);
+            <string>draw_sprite(spr_sound,4-music,view_xview[global.widok]+400,view_yview[global.widok]+3);
 </string>
           </argument>
         </arguments>
