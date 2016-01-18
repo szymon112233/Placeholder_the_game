@@ -89,6 +89,7 @@
       <sprite>sprites\spr_pole</sprite>
       <sprite>sprites\spr_ball_small</sprite>
     </sprites>
+    <sprite>sprites\sprite62</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\ti_kosz</background>
