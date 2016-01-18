@@ -70,6 +70,7 @@
       <sprites name="Scoreboard">
         <sprite>sprites\spr_scoreboard</sprite>
         <sprite>sprites\spr_sound</sprite>
+        <sprite>sprites\spr_pilkascore</sprite>
       </sprites>
       <sprite>sprites\spr_bar</sprite>
       <sprite>sprites\spr_spod</sprite>

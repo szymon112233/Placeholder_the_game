@@ -48,6 +48,7 @@ mkey=1;
 shake=false;
 time=180;
 win_message="Tie !";
+winpercent=50;
 
 ini_open("game.ini");
 ini_write_string("test","test","test");
@@ -113,7 +114,8 @@ global.widok=0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (time==0)
+            <string>///Czas
+if (time==0)
 {
     scr_game_end();
 }
@@ -398,6 +400,10 @@ if (instance_exists(obj_player_par))
     //FOULS
     draw_text_colour(view_xview[view_current]+306,view_yview[view_current]+102,global.fouls1,c_white,c_white,c_white,c_white,1);
     draw_text_colour(view_xview[view_current]+view_wview[view_current]-306,view_yview[view_current]+102,global.fouls2,c_white,c_white,c_white,c_white,1);
+    
+    //SCOREBALL
+    draw_healthbar(view_xview[view_current]+378, view_yview[view_current]+2, view_xview[view_current]+421, view_yview[view_current]+93, winpercent, make_colour_rgb(248, 35, 12), make_colour_rgb(18, 166, 245), make_colour_rgb(18, 166, 245), 1, true, false);
+    draw_sprite(spr_pilkascore,0,view_xview[view_current]+378,view_yview[view_current]+2)
     
     /*
     //energy bars
