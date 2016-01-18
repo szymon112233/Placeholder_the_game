@@ -447,8 +447,8 @@ if (keyboard_check_pressed(Kup) and !jumping)
             sprite_index=Vspr_wyskok_woball;
             image_index=0;
             }
-        }
-    }
+        } 
+    } 
 //Wybicie
 if (keyboard_check_released(Kwybicie) and !have_ball and cdwybycie)
     {
