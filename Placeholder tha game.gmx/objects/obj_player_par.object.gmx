@@ -37,6 +37,7 @@ image_speed=0.185;
 move_speed=2200;
 phy_fixed_rotation=true;
 max_xspeed=6.5;
+max_xspeed_woball=7.5;
 prejump=false;
 jumping=false;
 jump_force=-800;
@@ -246,7 +247,16 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>phy_speed_x=max(min(phy_speed_x,max_xspeed),-max_xspeed);
+            <string>if (have_ball)
+    {
+    move_speed=2200;
+    phy_speed_x=max(min(phy_speed_x,max_xspeed),-max_xspeed);
+    }
+else
+    {
+    move_speed=2400; 
+    phy_speed_x=max(min(phy_speed_x,max_xspeed_woball),-max_xspeed_woball);
+    }
 
 
 //wybijarka
@@ -314,6 +324,10 @@ if (keyboard_check_pressed(Kdown) )
 //Ruch w lewo (Priorytet)
 if (keyboard_check(Kleft))
     {
+    
+    if (phy_speed_x&gt;0)
+        show_debug_message("BUUG");
+    
     if (obrotable)
     {
         image_xscale=-1;
@@ -322,26 +336,26 @@ if (keyboard_check(Kleft))
 
     if (have_ball)  global.zbiorka=false;   
           
-    if (throwing =false)
+    if (!throwing)
         { 
-        physics_apply_force(x,y,-move_speed,0);
-        if (phy_speed_x&lt;-1 and !jumping and !prejump)
+            if (phy_speed_x&lt;-1 and !jumping and !prejump)
             {
-            if (have_ball) 
-            {
-            sprite_index=Vspr_bieg_koz;
-            }
-            else sprite_index=Vspr_bieg_woball; 
+                if (have_ball) 
+                {
+                sprite_index=Vspr_bieg_koz;
+                }
+                else sprite_index=Vspr_bieg_woball; 
             }
         }
-    if (throwing and jumping )
-        {
-        physics_apply_force(x,y,-move_speed,0);
-        }
+    physics_apply_force(x,y,-move_speed,0);
     }
 //Ruch w prawo
 else if (keyboard_check(Kright))
     {
+    
+    if (phy_speed_x&lt;0)
+        show_debug_message("BUUG");
+    
     if (obrotable)
     {
         image_xscale=1;
@@ -351,20 +365,16 @@ else if (keyboard_check(Kright))
     if (have_ball)  global.zbiorka=false;      
     if (throwing=false) 
         {
-        physics_apply_force(x,y,move_speed,0);
-        if (phy_speed_x&gt;1 and !jumping and !prejump)
+            if (phy_speed_x&gt;1 and !jumping and !prejump)
             {
-            if (have_ball) 
-            {
-            sprite_index=Vspr_bieg_koz;
-            }
-            else sprite_index=Vspr_bieg_woball; 
-            } 
+                if (have_ball) 
+                {
+                sprite_index=Vspr_bieg_koz;
+                }
+                else sprite_index=Vspr_bieg_woball; 
+                } 
         }
-    if (throwing and jumping )
-        {
         physics_apply_force(x,y,move_speed,0);
-        }
     }   
 //Zatrzymanie
 if (keyboard_check_released(Kleft) or keyboard_check_released(Kright))

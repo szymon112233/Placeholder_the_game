@@ -446,7 +446,7 @@ if (instance_exists(obj_player_par))
         draw_text(view_xview[view_current],view_yview[view_current]+36,"Throwing: "+string(global.throwing));
         draw_text(view_xview[view_current],view_yview[view_current]+48,"Have_ball: "+string(obj_player.have_ball));
         draw_text(view_xview[view_current],view_yview[view_current]+60,"Lastkey: "+string(keyboard_lastkey));
-        draw_text(view_xview[view_current],view_yview[view_current]+72,"V0: "+string(view_visible[0]));
+        draw_text(view_xview[view_current],view_yview[view_current]+72,"player 1 speed: "+string(obj_player.phy_speed_x));
         draw_text(view_xview[view_current],view_yview[view_current]+84,"V1: "+string(view_visible[1]));
         draw_text(view_xview[view_current],view_yview[view_current]+96,"V2: "+string(view_visible[2]));
     }

@@ -89,7 +89,7 @@
       <sprite>sprites\spr_pole</sprite>
       <sprite>sprites\spr_ball_small</sprite>
     </sprites>
-    <sprite>sprites\sprite62</sprite>
+    <sprite>sprites\spr_clouds</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\ti_kosz</background>
@@ -169,6 +169,7 @@
       <object>objects\obj_controller</object>
       <object>objects\obj_camera</object>
     </objects>
+    <object>objects\obj_clouds</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\R_mainmenu_v2</room>

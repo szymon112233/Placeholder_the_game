@@ -122,9 +122,10 @@
     <instance objName="obj_ball" x="750" y="625" name="inst_E8DA76A1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_camera" x="300" y="250" name="inst_307BEDA1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_blok_2" x="475" y="100" name="inst_E2558D78" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_clouds" x="1285" y="-190" name="inst_6BD9C195" locked="0" code="" scaleX="2" scaleY="1.5" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
-    <tile bgName="ti_siatka" x="0" y="0" w="1500" h="800" xo="0" yo="0" id="10000006" name="inst_8CF4CCA3" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ti_siatka" x="0" y="0" w="1500" h="800" xo="0" yo="0" id="10000006" name="inst_8CF4CCA3" depth="10" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tj_kosz_i" x="1297" y="498" w="204" h="302" xo="0" yo="0" id="10000008" name="inst_733AC176" depth="0" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ti_kosz" x="2" y="498" w="204" h="302" xo="0" yo="0" id="10000009" name="inst_44B7DC5D" depth="0" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
