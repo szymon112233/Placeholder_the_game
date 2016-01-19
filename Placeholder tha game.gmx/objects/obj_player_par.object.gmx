@@ -231,53 +231,6 @@ else
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="2">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>lastspeed=phy_speed_x;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="1">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (phy_speed_x!=lastspeed)
-    phy_speed_x=lastspeed;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -295,7 +248,8 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (have_ball)
+            <string>if (phy_rotation!=0) show_debug_message("BUUG");
+if (have_ball)
     {
     move_speed=2200;
     phy_speed_x=max(min(phy_speed_x,max_xspeed),-max_xspeed);
@@ -372,9 +326,7 @@ if (keyboard_check_pressed(Kdown) )
 //Ruch w lewo (Priorytet)
 if (keyboard_check(Kleft))
     {
-    
-    if (phy_speed_x==0)
-        show_debug_message("BUUG");
+
     
     if (obrotable)
     {
@@ -400,9 +352,7 @@ if (keyboard_check(Kleft))
 //Ruch w prawo
 else if (keyboard_check(Kright))
     {
-    
-    if (phy_speed_x==0)
-        show_debug_message("BUUG");
+
     
     if (obrotable)
     {
@@ -586,8 +536,8 @@ else jumping=true;
   <PhysicsObjectDensity>1</PhysicsObjectDensity>
   <PhysicsObjectRestitution>0.0500000007450581</PhysicsObjectRestitution>
   <PhysicsObjectGroup>0</PhysicsObjectGroup>
-  <PhysicsObjectLinearDamping>0.100000001490116</PhysicsObjectLinearDamping>
-  <PhysicsObjectAngularDamping>0.100000001490116</PhysicsObjectAngularDamping>
+  <PhysicsObjectLinearDamping>0</PhysicsObjectLinearDamping>
+  <PhysicsObjectAngularDamping>0</PhysicsObjectAngularDamping>
   <PhysicsObjectFriction>2</PhysicsObjectFriction>
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
