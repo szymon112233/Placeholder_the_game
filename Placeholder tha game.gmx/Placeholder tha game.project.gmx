@@ -7,8 +7,8 @@
   <NewExtensions/>
   <sounds name="sound">
     <sound>sound\sd_pilka</sound>
-    <sound>sound\sd_bgmusic</sound>
     <sound>sound\menu_sound</sound>
+    <sound>sound\sd_bgmusic</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Player_1">
