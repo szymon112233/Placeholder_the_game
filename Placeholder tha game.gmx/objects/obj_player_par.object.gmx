@@ -46,6 +46,7 @@ have_ball=false;
 throwing=false;
 obrot=0;
 obrotable=true;
+lastspeed=0;
 //Sprity
 Vspr_idle=spr_idle;
 Vspr_bieg_koz=spr_bieg_koz;
@@ -230,6 +231,53 @@ else
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>lastspeed=phy_speed_x;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (phy_speed_x!=lastspeed)
+    phy_speed_x=lastspeed;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -325,7 +373,7 @@ if (keyboard_check_pressed(Kdown) )
 if (keyboard_check(Kleft))
     {
     
-    if (phy_speed_x&gt;0)
+    if (phy_speed_x==0)
         show_debug_message("BUUG");
     
     if (obrotable)
@@ -347,13 +395,13 @@ if (keyboard_check(Kleft))
                 else sprite_index=Vspr_bieg_woball; 
             }
         }
-    physics_apply_force(x,y,-move_speed,0);
+    physics_apply_force(x,y,-move_speed,5);
     }
 //Ruch w prawo
 else if (keyboard_check(Kright))
     {
     
-    if (phy_speed_x&lt;0)
+    if (phy_speed_x==0)
         show_debug_message("BUUG");
     
     if (obrotable)
@@ -374,7 +422,7 @@ else if (keyboard_check(Kright))
                 else sprite_index=Vspr_bieg_woball; 
                 } 
         }
-        physics_apply_force(x,y,move_speed,0);
+        physics_apply_force(x,y,move_speed,5);
     }   
 //Zatrzymanie
 if (keyboard_check_released(Kleft) or keyboard_check_released(Kright))
