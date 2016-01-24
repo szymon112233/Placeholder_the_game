@@ -466,7 +466,7 @@ if (keyboard_check_released(Kwybicie) and !have_ball and cdwybycie)
         {
         sprite_index=Vspr_wybicie_midair;
         image_index=0;
-        alarm[2]=35
+        alarm[2]=35;
         py=y-50;
         if (obrot=1)  px=x-50;
         else if (obrot=0) px=x+20;
@@ -479,7 +479,7 @@ if (keyboard_check_released(Kwybicie) and !have_ball and cdwybycie)
         {
         sprite_index=Vspr_wybicie_ziemia;
         image_index=0;
-        alarm[2]=35
+        alarm[2]=35;
         py=y-5;
         if (obrot=1)  px=x-60;
         else if (obrot=0) px=x+10;
