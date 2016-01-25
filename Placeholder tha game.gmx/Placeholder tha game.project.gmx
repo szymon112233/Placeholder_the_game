@@ -91,6 +91,8 @@
     </sprites>
     <sprite>sprites\spr_clouds</sprite>
     <sprite>sprites\spr_cloud1</sprite>
+    <sprite>sprites\spr_dym</sprite>
+    <sprite>sprites\spr_drzewko</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\ti_kosz</background>
@@ -101,6 +103,7 @@
     <background>background\bg_mainmenu_2</background>
     <background>background\bg_options</background>
     <background>background\bg_socreboard</background>
+    <background>background\ti_budynki</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -171,6 +174,8 @@
       <object>objects\obj_camera</object>
     </objects>
     <object>objects\obj_clouds</object>
+    <object>objects\obj_dym</object>
+    <object>objects\obj_drzewko</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\R_mainmenu_v2</room>

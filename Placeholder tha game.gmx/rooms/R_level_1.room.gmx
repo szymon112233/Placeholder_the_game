@@ -3,8 +3,8 @@
   <caption></caption>
   <width>1500</width>
   <height>800</height>
-  <vsnap>5</vsnap>
-  <hsnap>5</hsnap>
+  <vsnap>1</vsnap>
+  <hsnap>1</hsnap>
   <isometric>0</isometric>
   <speed>70</speed>
   <persistent>-1</persistent>
@@ -125,8 +125,15 @@
     <instance objName="obj_clouds" x="935" y="110" name="inst_6BD9C195" locked="0" code="" scaleX="2" scaleY="1.75" colour="4294967295" rotation="0"/>
     <instance objName="obj_clouds" x="-260" y="170" name="inst_B7B3412B" locked="0" code="ex=-1;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_manipulator" x="620" y="445" name="inst_3D6D6376" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_dym" x="375" y="441" name="inst_E8B84956" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_dym" x="927" y="441" name="inst_8DE9AE94" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_drzewko" x="29" y="291" name="inst_27D354ED" locked="0" code="" scaleX="0.899999976158142" scaleY="0.899999976158142" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
+    <tile bgName="ti_budynki" x="9" y="548" w="400" h="216" xo="0" yo="0" id="10000020" name="inst_EE838B5A" depth="11" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ti_budynki" x="499" y="548" w="400" h="216" xo="400" yo="0" id="10000021" name="inst_5D47BA9E" depth="11" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ti_budynki" x="894" y="548" w="400" h="216" xo="400" yo="0" id="10000022" name="inst_AE8F81CA" depth="11" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ti_budynki" x="1399" y="548" w="400" h="216" xo="0" yo="0" id="10000023" name="inst_7DEC5C5E" depth="11" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ti_siatka" x="0" y="0" w="1500" h="800" xo="0" yo="0" id="10000006" name="inst_8CF4CCA3" depth="10" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tj_kosz_i" x="1297" y="498" w="204" h="302" xo="0" yo="0" id="10000008" name="inst_733AC176" depth="0" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ti_kosz" x="2" y="498" w="204" h="302" xo="0" yo="0" id="10000009" name="inst_44B7DC5D" depth="0" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
