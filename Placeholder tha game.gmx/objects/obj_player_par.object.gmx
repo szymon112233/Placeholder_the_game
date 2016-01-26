@@ -40,8 +40,8 @@ max_xspeed=6.5;
 max_xspeed_woball=7.5;
 prejump=false;
 jumping=false;
-jump_force=-800;
-jump_force_woball=-900;
+jump_force=-1000;
+jump_force_woball=-1000;
 have_ball=false;
 throwing=false;
 obrot=0;
@@ -251,12 +251,12 @@ else
             <string>if (phy_rotation!=0) show_debug_message("BUUG");
 if (have_ball)
     {
-    move_speed=2200;
+    move_speed=2500;
     phy_speed_x=max(min(phy_speed_x,max_xspeed),-max_xspeed);
     }
 else
     {
-    move_speed=2400; 
+    move_speed=2700; 
     phy_speed_x=max(min(phy_speed_x,max_xspeed_woball),-max_xspeed_woball);
     }
 
@@ -347,7 +347,7 @@ if (keyboard_check(Kleft))
                 else sprite_index=Vspr_bieg_woball; 
             }
         }
-    physics_apply_force(x,y,-move_speed,5);
+    physics_apply_force(x,y,-move_speed,10);
     }
 //Ruch w prawo
 else if (keyboard_check(Kright))
@@ -372,7 +372,7 @@ else if (keyboard_check(Kright))
                 else sprite_index=Vspr_bieg_woball; 
                 } 
         }
-        physics_apply_force(x,y,move_speed,5);
+        physics_apply_force(x,y,move_speed,10);
     }   
 //Zatrzymanie
 if (keyboard_check_released(Kleft) or keyboard_check_released(Kright))
