@@ -33,12 +33,12 @@
             {
             if (obj_player.obrot=0)
                 {
-                physics_apply_impulse(x,y,(global.rzutmoc*4)/9,(-global.rzutmoc*2)/3);
+                physics_apply_impulse(x,y,(global.rzutmoc*4)/9,(-global.rzutmoc*7)/9);
                 physics_apply_torque(-130);
                 }
             else if (obj_player.obrot=1)
                 {
-                physics_apply_impulse(x,y,(-global.rzutmoc*4)/9,(-global.rzutmoc*2)/3);
+                physics_apply_impulse(x,y,(-global.rzutmoc*4)/9,(-global.rzutmoc*7)/9);
                 physics_apply_torque(130);
                 }
             }
@@ -46,12 +46,12 @@
             {
             if (obj_player_2.obrot=0)
                 {
-                physics_apply_impulse(x,y,(global.rzutmoc*4)/9,(-global.rzutmoc*2)/3);
+                physics_apply_impulse(x,y,(global.rzutmoc*4)/9,(-global.rzutmoc*7)/9);
                 physics_apply_torque(-130);
                 }
             else if (obj_player_2.obrot=1)
                 {
-                physics_apply_impulse(x,y,(-global.rzutmoc*4)/9,(-global.rzutmoc*2)/3);
+                physics_apply_impulse(x,y,(-global.rzutmoc*4)/9,(-global.rzutmoc*7)/9);
                 physics_apply_torque(130);
                 }
             }

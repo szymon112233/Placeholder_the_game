@@ -41,7 +41,7 @@ max_xspeed_woball=7.5;
 prejump=false;
 jumping=false;
 jump_force=-1200;
-jump_force_woball=-1350;
+jump_force_woball=-1250;
 have_ball=false;
 throwing=false;
 obrot=0;
@@ -93,7 +93,8 @@ Kwybicie=global.p1wybicie;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>cdwybycie=true;
+            <string>///Cooldown na Wybicie
+cdwybycie=true;
 </string>
           </argument>
         </arguments>
@@ -312,7 +313,7 @@ else if (!have_ball)
 }
 
 
-if (jumping or prejump) phy_speed_x/=1.2;
+if (jumping or prejump) phy_speed_x/=1.1;
 
 
 //Zbiorka
@@ -346,8 +347,8 @@ if (keyboard_check(Kleft))
                 }
                 else sprite_index=Vspr_bieg_woball; 
             }
+            physics_apply_force(x,y,-move_speed,5);
         }
-    physics_apply_force(x,y,-move_speed,5);
     }
 //Ruch w prawo
 else if (keyboard_check(Kright))
@@ -370,9 +371,10 @@ else if (keyboard_check(Kright))
                 sprite_index=Vspr_bieg_koz;
                 }
                 else sprite_index=Vspr_bieg_woball; 
-                } 
+            }
+            physics_apply_force(x,y,move_speed,5); 
         }
-        physics_apply_force(x,y,move_speed,5);
+        
     }   
 //Zatrzymanie
 if (keyboard_check_released(Kleft) or keyboard_check_released(Kright))
@@ -382,7 +384,7 @@ if (keyboard_check_released(Kleft) or keyboard_check_released(Kright))
         if (have_ball) sprite_index=Vspr_idle;
         else sprite_index=Vspr_idle_woball; 
         } 
-    phy_speed_x/=2.5;
+    phy_speed_x/=3;
     }
 //rzut
 if (have_ball)
@@ -396,7 +398,7 @@ if (have_ball)
         {
         if (!jumping and !prejump)
             {
-            phy_speed_x/=1.2;
+            phy_speed_x/=1.3;
             sprite_index=Vspr_prerzut;
             }
         else if(!prejump and jumping) sprite_index=Vspr_skok;
@@ -460,7 +462,7 @@ if (keyboard_check_pressed(Kup) and !jumping)
         } 
     } 
 //Wybicie
-if (keyboard_check_released(Kwybicie) and !have_ball and cdwybycie)
+if (keyboard_check_pressed(Kwybicie) and !have_ball and cdwybycie)
     {
     if (jumping)
         {
@@ -489,7 +491,7 @@ if (keyboard_check_released(Kwybicie) and !have_ball and cdwybycie)
             }
         }
     cdwybycie=false;
-    alarm[4]=room_speed*2;
+    alarm[4]=room_speed*0.75;
     }
 //Skakanie sure maker
 if (place_meeting(x,y+1,obj_spod))
