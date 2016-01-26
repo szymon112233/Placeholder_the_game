@@ -30,7 +30,7 @@ player_name=obj_player;
 blok=obj_blok;
 //Stałe
 energy=100;
-energy_regen=0.1;
+energy_regen=100;
 energy_max=100;
 cdwybycie=true;
 image_speed=0.185;
@@ -40,8 +40,8 @@ max_xspeed=6.5;
 max_xspeed_woball=7.5;
 prejump=false;
 jumping=false;
-jump_force=-1000;
-jump_force_woball=-1000;
+jump_force=-1200;
+jump_force_woball=-1350;
 have_ball=false;
 throwing=false;
 obrot=0;
@@ -251,12 +251,12 @@ else
             <string>if (phy_rotation!=0) show_debug_message("BUUG");
 if (have_ball)
     {
-    move_speed=2200;
+    move_speed=3200;
     phy_speed_x=max(min(phy_speed_x,max_xspeed),-max_xspeed);
     }
 else
     {
-    move_speed=2400; 
+    move_speed=3400; 
     phy_speed_x=max(min(phy_speed_x,max_xspeed_woball),-max_xspeed_woball);
     }
 
