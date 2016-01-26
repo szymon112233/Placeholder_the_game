@@ -78,12 +78,12 @@ moving_l=false;
             <kind>1</kind>
             <string>if (global.stage_curr=="mainmenu")
 {
-    if (keyboard_check_released(vk_up))
+    if (keyboard_check_pressed(vk_up))
     {
         selection-=1;
         audio_play_sound(menu_sound,0,0);
     }
-    else if (keyboard_check_released(vk_down))
+    else if (keyboard_check_pressed(vk_down))
     {
         selection+=1;
         audio_play_sound(menu_sound,0,0);
@@ -113,12 +113,12 @@ else
 
 if (global.stage_curr=="options" and !obj_controller.mapping)
 {
-    if (keyboard_check_released(vk_left))
+    if (keyboard_check_pressed(vk_left))
     {
         selection_o-=1;
         audio_play_sound(menu_sound,0,0);
     }
-    else if (keyboard_check_released(vk_right))
+    else if (keyboard_check_pressed(vk_right))
     {
         selection_o+=1;
         audio_play_sound(menu_sound,0,0);

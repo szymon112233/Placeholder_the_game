@@ -40,8 +40,13 @@ max_xspeed=6.5;
 max_xspeed_woball=7.5;
 prejump=false;
 jumping=false;
+<<<<<<< HEAD
 jump_force=-1000;
 jump_force_woball=-1000;
+=======
+jump_force=-850;
+jump_force_woball=-900;
+>>>>>>> origin/master
 have_ball=false;
 throwing=false;
 obrot=0;
