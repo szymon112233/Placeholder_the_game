@@ -377,7 +377,7 @@ else if (keyboard_check(Kright))
             physics_apply_force(x,y,move_speed,5); 
         }
     else if (throwing and jumping)
-        physics_apply_force(x,y,-move_speed,5);
+        physics_apply_force(x,y,move_speed,5);
         
     }   
 //Zatrzymanie
