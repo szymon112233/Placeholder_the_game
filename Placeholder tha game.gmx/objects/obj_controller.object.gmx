@@ -46,7 +46,7 @@ mapping=false;
 mplayer=0;
 mkey=1;
 shake=false;
-time=240;
+time=180;
 win_message="Tie !";
 winpercent=50;
 
@@ -87,13 +87,46 @@ global.p2wybicie=scr_convert(ini_read_string("Controlls","P2_hit","alt"),0)
 ini_close();
 global.widok=0;
 
-gj_init(	"123485" , "7eaafccf98473ebe4c12a5261a2573c9" );
+gj_init("123485" , "7eaafccf98473ebe4c12a5261a2573c9" );
+
+//pady dreadzone
+
+gamepad_set_axis_deadzone(0, 0.5);
+gamepad_set_axis_deadzone(1, 0.5);
+
+obj_controller.alarm[5]=30;
 
 
 
 
 
-
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Vibration stop
+gamepad_set_vibration(0, 0, 0);
+gamepad_set_vibration(1, 0, 0);
+gamepad_set_vibration(2, 0, 0);
+gamepad_set_vibration(3, 0, 0);
 </string>
           </argument>
         </arguments>

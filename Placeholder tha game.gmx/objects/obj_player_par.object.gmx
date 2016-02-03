@@ -28,6 +28,7 @@
             <string>player=1;
 player_name=obj_player;
 blok=obj_blok;
+input=0;
 //Stałe
 energy=100;
 energy_regen=100;
@@ -70,6 +71,21 @@ Kup=global.p1up;
 Kdown=global.p1down;
 Kthrow=global.p1throw;
 Kwybicie=global.p1wybicie;
+
+//sterowanie pad/keybaord
+
+ch_Kleft=keyboard_check(Kleft);
+ch_Kright=keyboard_check(Kright);
+ch_Kleft_r=keyboard_check_released(Kleft);
+ch_Kright_r=keyboard_check_released(Kright);
+ch_Kup_p=keyboard_check_pressed(Kup);
+ch_Kdown_r=keyboard_check_pressed(Kdown);
+ch_Kthrow_p=keyboard_check_pressed(Kthrow);
+ch_Kthrow=keyboard_check(Kthrow);
+ch_Kthrow_r=keyboard_check_released(Kthrow);
+ch_Kwybicie_p=keyboard_check_pressed(Kwybicie);
+
+
 
 </string>
           </argument>
@@ -117,7 +133,8 @@ cdwybycie=true;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (obj_player.have_ball) 
+            <string>///Balldrop decide
+if (obj_player.have_ball) 
 {
     with (obj_player) scr_balldrop();
 }
@@ -147,7 +164,8 @@ else if (obj_player_2.have_ball)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (jumping) sprite_index=Vspr_wybicie_midair_idle;
+            <string>///Wybicie sprite choser
+if (jumping) sprite_index=Vspr_wybicie_midair_idle;
 else sprite_index=Vspr_idle_woball;
 </string>
           </argument>
@@ -171,7 +189,8 @@ else sprite_index=Vspr_idle_woball;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>jumping=true;
+            <string>///Jump
+jumping=true;
 prejump=false;
     if (have_ball)
         {
@@ -208,7 +227,8 @@ prejump=false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (!jumping and !prejump)
+            <string>///Jump restarter
+if (!jumping and !prejump)
 {
     if (have_ball)
         { 
@@ -249,7 +269,20 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (phy_rotation!=0) show_debug_message("BUUG");
+            <string>
+    ch_Kleft=( keyboard_check(Kleft) or gamepad_button_check(player-1 , gp_padl) /*or gamepad_axis_value(player-1, gp_axislh)&lt;0*/);
+    ch_Kright=(keyboard_check(Kright) or gamepad_button_check(player-1 , gp_padr)/* or gamepad_axis_value(player-1, gp_axislh)&gt;0*/);
+    ch_Kleft_r=(keyboard_check_released(Kleft) or gamepad_button_check_released(player-1 , gp_padl)/* or gamepad_axis_value(player-1, gp_axislh)==0*/);
+    ch_Kright_r=(keyboard_check_released(Kright) or gamepad_button_check_released(player-1 , gp_padr)/* or gamepad_axis_value(player-1, gp_axislh)==0*/);
+    ch_Kup_p=(keyboard_check_pressed(Kup) or gamepad_button_check_pressed(player-1 , gp_face1));
+    ch_Kdown_p=(keyboard_check_pressed(Kdown) or gamepad_button_check_pressed(player-1 , gp_padd)/* or gamepad_axis_value(player-1, gp_axislv)&lt;0*/);
+    ch_Kthrow_p=(keyboard_check_pressed(Kthrow) or gamepad_button_check_pressed(player-1 , gp_face2));
+    ch_Kthrow=(keyboard_check(Kthrow) or gamepad_button_check(player-1 , gp_face2));
+    ch_Kthrow_r=(keyboard_check_released(Kthrow) or gamepad_button_check_released(player-1,gp_face2));
+    ch_Kwybicie_p=(keyboard_check_pressed(Kwybicie) or gamepad_button_check_pressed(player-1 , gp_face3));
+
+
+
 if (have_ball)
     {
     move_speed=3200;
@@ -317,7 +350,7 @@ if (jumping or prejump) phy_speed_x/=1.1;
 
 
 //Zbiorka
-if (keyboard_check_pressed(Kdown) )
+if (ch_Kdown_p )
     {
     if (collision_rectangle( x-30, y-30, x+30, y+70, obj_ball, false, false ))
         {
@@ -325,7 +358,7 @@ if (keyboard_check_pressed(Kdown) )
         }
     }        
 //Ruch w lewo (Priorytet)
-if (keyboard_check(Kleft))
+if (ch_Kleft)
     {
 
     
@@ -353,7 +386,7 @@ if (keyboard_check(Kleft))
         physics_apply_force(x,y,-move_speed,5);
     }
 //Ruch w prawo
-else if (keyboard_check(Kright))
+else if (ch_Kright)
     {
 
     
@@ -381,7 +414,7 @@ else if (keyboard_check(Kright))
         
     }   
 //Zatrzymanie
-if (keyboard_check_released(Kleft) or keyboard_check_released(Kright))
+if (ch_Kleft_r or ch_Kright_r)
     {
     if (!throwing and !jumping and !prejump)
         {
@@ -393,12 +426,12 @@ if (keyboard_check_released(Kleft) or keyboard_check_released(Kright))
 //rzut
 if (have_ball)
     {
-    if (keyboard_check_pressed(Kthrow))
+    if (ch_Kthrow_p)
         {
         obj_controller.alarm[0]=45;
         throwing=true;
         }
-    if (keyboard_check(Kthrow))
+    if (ch_Kthrow)
         {
         if (!prejump and jumping) sprite_index=Vspr_skok;
         
@@ -408,7 +441,7 @@ if (have_ball)
             sprite_index=Vspr_prerzut;
             }
         }
-    if (keyboard_check_released(Kthrow) )
+    if (ch_Kthrow_r )
         {
         global.rzutready=true;
         if (global.rzutk==1)
@@ -447,7 +480,7 @@ if (have_ball)
         }
     }       
 //wyskok
-if (keyboard_check_pressed(Kup) and !jumping)
+if (ch_Kup_p and !jumping)
     {
     if (place_meeting(x,y+1,obj_collision))
         {
@@ -467,7 +500,7 @@ if (keyboard_check_pressed(Kup) and !jumping)
         } 
     } 
 //Wybicie
-if (keyboard_check_pressed(Kwybicie) and !have_ball and cdwybycie)
+if (ch_Kwybicie_p and !have_ball and cdwybycie)
     {
     if (jumping)
         {
