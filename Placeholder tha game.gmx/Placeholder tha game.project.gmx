@@ -173,9 +173,11 @@
       <object>objects\obj_controller</object>
       <object>objects\obj_camera</object>
     </objects>
-    <object>objects\obj_clouds</object>
-    <object>objects\obj_dym</object>
-    <object>objects\obj_drzewko</object>
+    <objects name="Decorations">
+      <object>objects\obj_dym</object>
+      <object>objects\obj_clouds</object>
+      <object>objects\obj_drzewko</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\R_mainmenu_v2</room>
