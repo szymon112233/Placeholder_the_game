@@ -89,10 +89,7 @@ global.widok=0;
 
 gj_init("123485" , "7eaafccf98473ebe4c12a5261a2573c9" );
 
-//pady dreadzone
 
-gamepad_set_axis_deadzone(0, 0.5);
-gamepad_set_axis_deadzone(1, 0.5);
 
 obj_controller.alarm[5]=30;
 
@@ -181,7 +178,7 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Odmrozenie
+            <string>///Odmrozenie
 physics_pause_enable(false);
 </string>
           </argument>
@@ -205,7 +202,10 @@ physics_pause_enable(false);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>shake=false;
+            <string>///Screnshake turnoffer
+gamepad_set_vibration(0, 0, 0);
+gamepad_set_vibration(1, 0, 0);
+shake=false;
 </string>
           </argument>
         </arguments>
@@ -270,10 +270,11 @@ physics_pause_enable(false);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (keyboard_check(global.p1throw) or keyboard_check(global.p2throw))
+            <string>///Wyrzut alarm (moc)
+if (obj_player.ch_Kthrow)
 {
 alarm[0]=45;
-show_debug_message("Alarm!");
+show_debug_message("Rzut_Max_Alarm!");
 if (global.rzutk==1) global.rzutk=0;
 else global.rzutk =1;
 }
@@ -378,6 +379,7 @@ ini_open("game.ini");
     if (mkey==7) mapping = false;  
 ini_close(); 
 }
+
 </string>
           </argument>
         </arguments>
@@ -401,7 +403,11 @@ ini_close();
           <argument>
             <kind>1</kind>
             <string>if (async_load[? "event_type"]= "gamepad discovered")
-    show_debug_message("WAT");
+{
+    show_debug_message("Gamepad Discovered:"+ gamepad_get_description(0)+string(gamepad_get_device_count()));
+    if gamepad_is_connected(0) gamepad_set_axis_deadzone(0, 0.5);
+    if gamepad_is_connected(1) gamepad_set_axis_deadzone(1, 0.5);
+}
 
 </string>
           </argument>
@@ -509,6 +515,7 @@ if (instance_exists(obj_player_par))
         draw_text(view_xview[view_current],view_yview[view_current]+72,"player 1 speed: "+string(obj_player.phy_speed_x));
         draw_text(view_xview[view_current],view_yview[view_current]+84,"V1: "+string(view_visible[1]));
         draw_text(view_xview[view_current],view_yview[view_current]+96,"V2: "+string(view_visible[2]));
+        draw_text(view_xview[view_current],view_yview[view_current]+108,"axislh: "+string(gamepad_axis_value(0, gp_axislh)));
     }
 }
 </string>

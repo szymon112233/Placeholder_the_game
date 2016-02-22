@@ -87,6 +87,8 @@ ch_Kwybicie_p=keyboard_check_pressed(Kwybicie);
 
 
 
+
+
 </string>
           </argument>
         </arguments>
@@ -269,20 +271,19 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-    ch_Kleft=( keyboard_check(Kleft) or gamepad_button_check(player-1 , gp_padl) /*or gamepad_axis_value(player-1, gp_axislh)&lt;0*/);
-    ch_Kright=(keyboard_check(Kright) or gamepad_button_check(player-1 , gp_padr)/* or gamepad_axis_value(player-1, gp_axislh)&gt;0*/);
-    ch_Kleft_r=(keyboard_check_released(Kleft) or gamepad_button_check_released(player-1 , gp_padl)/* or gamepad_axis_value(player-1, gp_axislh)==0*/);
-    ch_Kright_r=(keyboard_check_released(Kright) or gamepad_button_check_released(player-1 , gp_padr)/* or gamepad_axis_value(player-1, gp_axislh)==0*/);
+            <string>    
+    ch_Kleft=( keyboard_check(Kleft) or gamepad_button_check(player-1 , gp_padl) or gamepad_axis_value(player-1, gp_axislh)&lt;0);
+    ch_Kright=(keyboard_check(Kright) or gamepad_button_check(player-1 , gp_padr) or gamepad_axis_value(player-1, gp_axislh)&gt;0);
+    //ch_Kleft_r=(keyboard_check_released(Kleft) or gamepad_button_check_released(player-1 , gp_padl));
+    //ch_Kright_r=(keyboard_check_released(Kright) or gamepad_button_check_released(player-1 , gp_padr));
     ch_Kup_p=(keyboard_check_pressed(Kup) or gamepad_button_check_pressed(player-1 , gp_face1));
-    ch_Kdown_p=(keyboard_check_pressed(Kdown) or gamepad_button_check_pressed(player-1 , gp_padd)/* or gamepad_axis_value(player-1, gp_axislv)&lt;0*/);
+    ch_Kdown_p=(keyboard_check_pressed(Kdown) or gamepad_button_check_pressed(player-1 , gp_padd) or gamepad_button_check_pressed(player-1 , gp_stickl));
     ch_Kthrow_p=(keyboard_check_pressed(Kthrow) or gamepad_button_check_pressed(player-1 , gp_face2));
     ch_Kthrow=(keyboard_check(Kthrow) or gamepad_button_check(player-1 , gp_face2));
     ch_Kthrow_r=(keyboard_check_released(Kthrow) or gamepad_button_check_released(player-1,gp_face2));
     ch_Kwybicie_p=(keyboard_check_pressed(Kwybicie) or gamepad_button_check_pressed(player-1 , gp_face3));
 
-
-
+    
 if (have_ball)
     {
     move_speed=3200;
@@ -414,14 +415,13 @@ else if (ch_Kright)
         
     }   
 //Zatrzymanie
-if (ch_Kleft_r or ch_Kright_r)
+if phy_speed_x=0 //(ch_Kleft_r or ch_Kright_r)
     {
-    if (!throwing and !jumping and !prejump)
+    if (!throwing and !jumping and !prejump and obrotable)
         {
         if (have_ball) sprite_index=Vspr_idle;
         else sprite_index=Vspr_idle_woball; 
         } 
-    phy_speed_x/=3;
     }
 //rzut
 if (have_ball)

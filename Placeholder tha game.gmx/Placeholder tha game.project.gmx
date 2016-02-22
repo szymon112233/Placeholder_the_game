@@ -4,7 +4,10 @@
     <Config>Configs\Default</Config>
   </Configs>
   <datafiles number="1" name="datafiles"/>
-  <NewExtensions/>
+  <NewExtensions>
+    <extension index="0">extensions\GoogleAnalyticsExt</extension>
+    <extension index="1">extensions\Capture screen - Pause example</extension>
+  </NewExtensions>
   <sounds name="sound">
     <sound>sound\sd_pilka</sound>
     <sound>sound\menu_sound</sound>
