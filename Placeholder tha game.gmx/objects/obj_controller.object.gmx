@@ -29,6 +29,7 @@
 global.rzutready=false;
 global.rzutmoc=alarm[0];
 global.rzutk=1;
+global.insiderzut=false;
 //Punkty
 global.points1=0;
 global.points2=0;
@@ -49,6 +50,7 @@ shake=false;
 time=180;
 win_message="Tie !";
 winpercent=50;
+
 
 ini_open("game.ini");
 ini_write_string("test","test","test");
@@ -300,14 +302,19 @@ else global.rzutk =1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//SCREEENSHAKE BABYYY
+            <string>/*-------------------------SCREEENSHAKE BABYYY-------------------------------*/
+
 if (shake) 
-{
-view_angle[0]+= random_range(-0.15, 0.15);
-if (view_angle[0]&gt;0.8) view_angle[0]=0.8;
-else if (view_angle[0]&lt;-0.8) view_angle[0]=-0.8;
-}
+    {
+    view_angle[0]+= random_range(-0.15, 0.15);
+    if (view_angle[0]&gt;0.8) view_angle[0]=0.8;
+    else if (view_angle[0]&lt;-0.8) view_angle[0]=-0.8;
+    }
 else view_angle[0]=0;
+
+/*----------------------------------------------------------------------------*/
+
+
 
 if (instance_exists(obj_player_par))
 {
@@ -343,7 +350,15 @@ if (instance_exists(obj_player_par))
         }
     if (obj_player.throwing=true or obj_player_2.throwing=true) global.throwing=true;
     else global.throwing=false;
-}      
+    
+    if (collision_rectangle(obj_ball_wybicie.x,obj_ball_wybicie.y,obj_ball_wybicie.x+20,obj_ball_wybicie.y+30,obj_obrecz_par,1,1))
+    global.insiderzut=true;
+else
+    global.insiderzut=false;
+
+} 
+
+     
 //Mapping keys  
 if (mapping and keyboard_check_released(vk_anykey) and keyboard_lastkey!=-1)
 {
@@ -434,7 +449,7 @@ ini_close();
             <string>global.widok=view_current;
 if (instance_exists(obj_player_par))
 {
-    if (global.throwing)
+    if (global.throwing and !global.insiderzut)
     {
         if (obj_player.have_ball=true)
             {

@@ -47,7 +47,7 @@ have_ball=false;
 throwing=false;
 obrot=0;
 obrotable=true;
-lastspeed=0;
+wybicie=false;
 //Sprity
 Vspr_idle=spr_idle;
 Vspr_bieg_koz=spr_bieg_koz;
@@ -166,9 +166,9 @@ else if (obj_player_2.have_ball)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Wybicie sprite choser
+            <string>///Wybicie off maker
 if (jumping) sprite_index=Vspr_wybicie_midair_idle;
-else sprite_index=Vspr_idle_woball;
+wybicie=false;
 </string>
           </argument>
         </arguments>
@@ -326,7 +326,7 @@ if (have_ball)
 } 
 else if (!have_ball)
 {
-    if (jumping)
+    if (jumping and !wybicie)
     {   
         if (obrot==0)
         {
@@ -415,9 +415,9 @@ else if (ch_Kright)
         
     }   
 //Zatrzymanie
-if phy_speed_x=0 //(ch_Kleft_r or ch_Kright_r)
+if phy_speed_x=0 
     {
-    if (!throwing and !jumping and !prejump and obrotable)
+    if (!throwing and !jumping and !prejump and obrotable and !wybicie)
         {
         if (have_ball) sprite_index=Vspr_idle;
         else sprite_index=Vspr_idle_woball; 
@@ -426,15 +426,15 @@ if phy_speed_x=0 //(ch_Kleft_r or ch_Kright_r)
 //rzut
 if (have_ball)
     {
-    if (ch_Kthrow_p)
+    if (ch_Kthrow_p )
         {
         obj_controller.alarm[0]=45;
         throwing=true;
         }
     if (ch_Kthrow)
         {
-        if (!prejump and jumping) sprite_index=Vspr_skok;
-        
+        if (!prejump and jumping) 
+            sprite_index=Vspr_skok;
         else if (!jumping and !prejump)
             {
             phy_speed_x/=1.1;
@@ -443,40 +443,44 @@ if (have_ball)
         }
     if (ch_Kthrow_r )
         {
-        global.rzutready=true;
-        if (global.rzutk==1)
-            global.rzutmoc=45-obj_controller.alarm[0];
+        if (!global.insiderzut)
+        {
+            global.rzutready=true;
+            if (global.rzutk==1)
+                global.rzutmoc=45-obj_controller.alarm[0];
+            else
+                global.rzutmoc=obj_controller.alarm[0];
+                
+            
+            global.ball="wyrzut";
+            
+            obj_camera.following=obj_ball;
+            
+            if (obrot=0)
+                {
+                instance_create(x+35,y-52,obj_ball);
+                }
+            else if (obrot=1)
+                {
+                instance_create(x-35,y-52,obj_ball);
+                }
+                
+            depth=1;
+            
+            if (!jumping)sprite_index=Vspr_rzut;
+            else sprite_index=Vspr_skok_rzut;
+    
+            throwing=false;        
+            have_ball=false;
+            global.rzutk=1;
+            
+            obj_ball_wybicie.x=0;
+            obj_ball_wybicie.y=0;
+            
+            alarm[0]=25;
+            }
         else
-            global.rzutmoc=obj_controller.alarm[0];
-            
-        
-        global.ball="wyrzut";
-        
-        obj_camera.following=obj_ball;
-        
-        if (obrot=0)
-            {
-            instance_create(x+35,y-52,obj_ball);
-            }
-        else if (obrot=1)
-            {
-            instance_create(x-35,y-52,obj_ball);
-            }
-            
-        depth=1;
-        
-        if (!jumping)sprite_index=Vspr_rzut;
-        else sprite_index=Vspr_skok_rzut;
-
-        throwing=false;        
-        have_ball=false;
-        global.rzutk=1;
-        
-        obj_ball_wybicie.x=0;
-        obj_ball_wybicie.y=0;
-        
-        alarm[0]=25;
-        
+             throwing=false;
         }
     }       
 //wyskok
@@ -515,7 +519,7 @@ if (ch_Kwybicie_p and !have_ball and cdwybycie)
             alarm[3]=10;
             }
         }
-    else
+    else if (abs(phy_speed_x)&lt;0.4)
         {
         sprite_index=Vspr_wybicie_ziemia;
         image_index=0;
@@ -528,6 +532,7 @@ if (ch_Kwybicie_p and !have_ball and cdwybycie)
             alarm[3]=10;
             }
         }
+    wybicie=true;
     cdwybycie=false;
     alarm[4]=room_speed*0.75;
     }
