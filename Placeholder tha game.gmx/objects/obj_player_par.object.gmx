@@ -48,6 +48,7 @@ throwing=false;
 obrot=0;
 obrotable=true;
 wybicie=false;
+foul=false;
 //Sprity
 Vspr_idle=spr_idle;
 Vspr_bieg_koz=spr_bieg_koz;
@@ -235,14 +236,17 @@ if (!jumping and !prejump)
     if (have_ball)
         { 
         sprite_index=Vspr_idle ;
+        }
+    else sprite_index=Vspr_idle_woball;
+    obrotable = true;
+    if (foul)
+    {
         if (player==1)
             global.fouls1++;
         else if (player==2)
             global.fouls2++;
         show_debug_message("FAUUL");
-        }
-    else sprite_index=Vspr_idle_woball;
-    obrotable = true;
+    }
 }
 
 else 
@@ -321,8 +325,10 @@ if (have_ball)
         obj_ball_wybicie.y=y+16;
         if (obrot==1) obj_ball_wybicie.x=x-44;
         else obj_ball_wybicie.x=x+24;
-        } 
-    
+        }
+    //So that it wont bug out
+    blok.phy_position_y=0;
+    blok.phy_position_x=0;
 } 
 else if (!have_ball)
 {
@@ -445,6 +451,7 @@ if (have_ball)
         {
         if (!global.insiderzut)
         {
+            foul=false;
             global.rzutready=true;
             if (global.rzutk==1)
                 global.rzutmoc=45-obj_controller.alarm[0];
@@ -495,6 +502,7 @@ if (ch_Kup_p and !jumping)
             {
             sprite_index=Vspr_wyskok;
             image_index=0;
+            foul=true;
             }
         else
             {
@@ -518,8 +526,11 @@ if (ch_Kwybicie_p and !have_ball and cdwybycie)
             {
             alarm[3]=10;
             }
+        wybicie=true;
+        cdwybycie=false;
+        alarm[4]=room_speed*0.75;
         }
-    else if (abs(phy_speed_x)&lt;0.4)
+    else if (abs(phy_speed_x)&lt;1)
         {
         sprite_index=Vspr_wybicie_ziemia;
         image_index=0;
@@ -531,10 +542,10 @@ if (ch_Kwybicie_p and !have_ball and cdwybycie)
             {
             alarm[3]=10;
             }
+        wybicie=true;
+        cdwybycie=false;
+        alarm[4]=room_speed*0.75;
         }
-    wybicie=true;
-    cdwybycie=false;
-    alarm[4]=room_speed*0.75;
     }
 //Skakanie sure maker
 if (place_meeting(x,y+1,obj_spod))

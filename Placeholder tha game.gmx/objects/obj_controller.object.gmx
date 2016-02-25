@@ -273,7 +273,7 @@ shake=false;
           <argument>
             <kind>1</kind>
             <string>///Wyrzut alarm (moc)
-if (obj_player.ch_Kthrow)
+if (obj_player.ch_Kthrow or obj_player_2.ch_Kthrow)
 {
 alarm[0]=45;
 show_debug_message("Rzut_Max_Alarm!");
@@ -471,6 +471,7 @@ if (instance_exists(obj_player_par))
 
     //Points
     draw_set_font(font_sb);
+    draw_set_halign(fa_center);
     draw_sprite(spr_scoreboard,0,view_xview[view_current]+275,view_yview[view_current]);
     draw_text_colour(view_xview[view_current]+319,view_yview[view_current]+35,global.points1,c_white,c_white,c_white,c_white,1);
     draw_text_colour(view_xview[view_current]+view_wview[view_current]-319,view_yview[view_current]+35,global.points2,c_white,c_white,c_white,c_white,1);
@@ -518,6 +519,7 @@ if (instance_exists(obj_player_par))
     if (Debug)
     {
         draw_set_font(font_default);
+        draw_set_halign(fa_left);
         draw_text(view_xview[view_current],view_yview[view_current]+12,"Prejump: "+ string(obj_player.prejump));
         draw_rectangle(obj_player.x-30,obj_player.y-30,obj_player.x+30,obj_player.y+70,true);//gracz
         draw_rectangle(obj_player.x-60,obj_player.y-5,obj_player.x-10,obj_player.y+20,true);//reka p1
