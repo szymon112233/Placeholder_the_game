@@ -10,7 +10,9 @@ else
 gamepad_set_vibration(0, 0.5, 0.5);
 gamepad_set_vibration(1, 0.5, 0.5);
 
-show_message_async(win_message);
+//show_message_async(win_message);
+
+scr_pop_up(120,"end");
 
 
-game_restart();
+//game_restart();

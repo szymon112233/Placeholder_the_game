@@ -5,8 +5,7 @@
   </Configs>
   <datafiles number="1" name="datafiles"/>
   <NewExtensions>
-    <extension index="0">extensions\GoogleAnalyticsExt</extension>
-    <extension index="1">extensions\Capture screen - Pause example</extension>
+    <extension index="0">extensions\Capture screen - Pause example</extension>
   </NewExtensions>
   <sounds name="sound">
     <sound>sound\sd_pilka</sound>
@@ -14,39 +13,66 @@
     <sound>sound\sd_bgmusic</sound>
   </sounds>
   <sprites name="sprites">
-    <sprites name="Player_1">
-      <sprite>sprites\spr_idle</sprite>
-      <sprite>sprites\spr_bieg_koz</sprite>
-      <sprite>sprites\spr_bieg_woball</sprite>
-      <sprite>sprites\spr_idle_grab</sprite>
-      <sprite>sprites\spr_idle_woball</sprite>
-      <sprite>sprites\spr_prerzut</sprite>
-      <sprite>sprites\spr_rzut</sprite>
-      <sprite>sprites\spr_skok</sprite>
-      <sprite>sprites\spr_skok_rzut</sprite>
-      <sprite>sprites\spr_skok_woball</sprite>
-      <sprite>sprites\spr_wybicie_midair</sprite>
-      <sprite>sprites\spr_wybicie_midair_idle</sprite>
-      <sprite>sprites\spr_wybicie_ziemia</sprite>
-      <sprite>sprites\spr_wyskok</sprite>
-      <sprite>sprites\spr_wyskok_woball</sprite>
-    </sprites>
-    <sprites name="Player_2">
-      <sprite>sprites\spr_idle_2</sprite>
-      <sprite>sprites\spr_bieg_koz_2</sprite>
-      <sprite>sprites\spr_bieg_woball_2</sprite>
-      <sprite>sprites\spr_idle_grab_2</sprite>
-      <sprite>sprites\spr_idle_woball_2</sprite>
-      <sprite>sprites\spr_prerzut_2</sprite>
-      <sprite>sprites\spr_rzut_2</sprite>
-      <sprite>sprites\spr_skok_2</sprite>
-      <sprite>sprites\spr_skok_rzut_2</sprite>
-      <sprite>sprites\spr_skok_woball_2</sprite>
-      <sprite>sprites\spr_wybicie_midair_idle_2</sprite>
-      <sprite>sprites\spr_wybicie_midair_2</sprite>
-      <sprite>sprites\spr_wybicie_ziemia_2</sprite>
-      <sprite>sprites\spr_wyskok_2</sprite>
-      <sprite>sprites\spr_wyskok_woball_2</sprite>
+    <sprites name="Skins">
+      <sprite>sprites\spr_skinchose</sprite>
+      <sprite>sprites\spr_ballchose</sprite>
+      <sprites name="Balls">
+        <sprite>sprites\spr_ball</sprite>
+        <sprite>sprites\spr_ball_2</sprite>
+      </sprites>
+      <sprites name="Players">
+        <sprites name="Player_1">
+          <sprite>sprites\spr_idle</sprite>
+          <sprite>sprites\spr_bieg_koz</sprite>
+          <sprite>sprites\spr_bieg_woball</sprite>
+          <sprite>sprites\spr_idle_grab</sprite>
+          <sprite>sprites\spr_idle_woball</sprite>
+          <sprite>sprites\spr_prerzut</sprite>
+          <sprite>sprites\spr_rzut</sprite>
+          <sprite>sprites\spr_skok</sprite>
+          <sprite>sprites\spr_skok_rzut</sprite>
+          <sprite>sprites\spr_skok_woball</sprite>
+          <sprite>sprites\spr_wybicie_midair</sprite>
+          <sprite>sprites\spr_wybicie_midair_idle</sprite>
+          <sprite>sprites\spr_wybicie_ziemia</sprite>
+          <sprite>sprites\spr_wyskok</sprite>
+          <sprite>sprites\spr_wyskok_woball</sprite>
+        </sprites>
+        <sprites name="Player_2">
+          <sprite>sprites\spr_idle_2</sprite>
+          <sprite>sprites\spr_bieg_koz_2</sprite>
+          <sprite>sprites\spr_bieg_woball_2</sprite>
+          <sprite>sprites\spr_idle_grab_2</sprite>
+          <sprite>sprites\spr_idle_woball_2</sprite>
+          <sprite>sprites\spr_prerzut_2</sprite>
+          <sprite>sprites\spr_rzut_2</sprite>
+          <sprite>sprites\spr_skok_2</sprite>
+          <sprite>sprites\spr_skok_rzut_2</sprite>
+          <sprite>sprites\spr_skok_woball_2</sprite>
+          <sprite>sprites\spr_wybicie_midair_idle_2</sprite>
+          <sprite>sprites\spr_wybicie_midair_2</sprite>
+          <sprite>sprites\spr_wybicie_ziemia_2</sprite>
+          <sprite>sprites\spr_wyskok_2</sprite>
+          <sprite>sprites\spr_wyskok_woball_2</sprite>
+        </sprites>
+        <sprites name="Red">
+          <sprite>sprites\spr_idle_3</sprite>
+          <sprite>sprites\spr_bieg_koz_3</sprite>
+          <sprite>sprites\spr_bieg_woball_3</sprite>
+          <sprite>sprites\spr_idle_grab_3</sprite>
+          <sprite>sprites\spr_idle_woball_3</sprite>
+          <sprite>sprites\spr_prerzut_3</sprite>
+          <sprite>sprites\spr_rzut_3</sprite>
+          <sprite>sprites\spr_skok_3</sprite>
+          <sprite>sprites\spr_skok_rzut_3</sprite>
+          <sprite>sprites\spr_skok_woball_3</sprite>
+          <sprite>sprites\spr_wybicie_midair_3</sprite>
+          <sprite>sprites\spr_wybicie_midair_idle_3</sprite>
+          <sprite>sprites\spr_wybicie_ziemia_3</sprite>
+          <sprite>sprites\spr_wyskok_3</sprite>
+          <sprite>sprites\spr_wyskok_woball_3</sprite>
+        </sprites>
+      </sprites>
     </sprites>
     <sprites name="Kosz">
       <sprite>sprites\spr_kosz</sprite>
@@ -69,6 +95,7 @@
         <sprite>sprites\spr_button_options</sprite>
         <sprite>sprites\spr_button_credits</sprite>
         <sprite>sprites\spr_button_exit</sprite>
+        <sprite>sprites\spr_arrow_small</sprite>
       </sprites>
       <sprites name="Scoreboard">
         <sprite>sprites\spr_scoreboard</sprite>
@@ -77,6 +104,11 @@
       </sprites>
       <sprite>sprites\spr_bar</sprite>
       <sprite>sprites\spr_spod</sprite>
+      <sprites name="Pop-up">
+        <sprite>sprites\spr_score_1</sprite>
+        <sprite>sprites\spr_score_2</sprite>
+        <sprite>sprites\spr_score_end</sprite>
+      </sprites>
     </sprites>
     <sprites name="Randomshit">
       <sprite>sprites\spr_help</sprite>
@@ -84,18 +116,17 @@
       <sprite>sprites\spr_wall</sprite>
       <sprite>sprites\spr_stojak</sprite>
       <sprite>sprites\spr_manipulator</sprite>
-      <sprite>sprites\spr_ball</sprite>
       <sprite>sprites\spr_ball_wybicie</sprite>
       <sprite>sprites\spr_blok</sprite>
       <sprite>sprites\spr_arrow</sprite>
       <sprite>sprites\spr_camera</sprite>
       <sprite>sprites\spr_pole</sprite>
       <sprite>sprites\spr_ball_small</sprite>
+      <sprite>sprites\spr_clouds</sprite>
+      <sprite>sprites\spr_cloud1</sprite>
+      <sprite>sprites\spr_dym</sprite>
+      <sprite>sprites\spr_drzewko</sprite>
     </sprites>
-    <sprite>sprites\spr_clouds</sprite>
-    <sprite>sprites\spr_cloud1</sprite>
-    <sprite>sprites\spr_dym</sprite>
-    <sprite>sprites\spr_drzewko</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\ti_kosz</background>
@@ -121,10 +152,21 @@
     <script>scripts\scr_game_end.gml</script>
     <script>scripts\scr_reload_keys.gml</script>
     <script>scripts\scr_newgame.gml</script>
+    <script>scripts\scr_set_skin.gml</script>
+    <script>scripts\scr_player_init.gml</script>
+    <script>scripts\scr_get_ball_skin_by_id.gml</script>
+    <scripts name="State Machine">
+      <script>scripts\scr_sm_init.gml</script>
+      <script>scripts\scr_sm_state0.gml</script>
+      <script>scripts\scr_sm_state1.gml</script>
+      <script>scripts\scr_sm_state2.gml</script>
+    </scripts>
+    <script>scripts\scr_pop_up.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_VCR</font>
     <font>fonts\font_sb</font>
+    <font>fonts\font_sb_small</font>
     <font>fonts\font_default</font>
   </fonts>
   <objects name="objects">
@@ -136,6 +178,9 @@
       <object>objects\obj_button_exit</object>
       <object>objects\obj_button_player_1</object>
       <object>objects\obj_button_player_2</object>
+      <object>objects\obj_button_clickable</object>
+      <object>objects\obj_button_go</object>
+      <object>objects\obj_button_skin1</object>
     </objects>
     <objects name="Actual Things">
       <object>objects\obj_help</object>
@@ -176,15 +221,19 @@
       <object>objects\obj_music</object>
       <object>objects\obj_controller</object>
       <object>objects\obj_camera</object>
+      <object>objects\obj_state_machine</object>
     </objects>
     <objects name="plansza">
       <object>objects\obj_clouds</object>
       <object>objects\obj_drzewko</object>
       <object>objects\obj_dym</object>
+      <object>objects\obj_pop_up</object>
     </objects>
+    <object>objects\obj_skindisplay</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\R_mainmenu_v2</room>
+    <room>rooms\R_level_select</room>
     <room>rooms\R_level_1</room>
     <rooms name="old ones">
       <room>rooms\R_mainmenu</room>

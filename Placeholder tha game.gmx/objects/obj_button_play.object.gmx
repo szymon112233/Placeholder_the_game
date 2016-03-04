@@ -31,7 +31,7 @@
     global.ball="play"; 
     with (obj_menu_controll) instance_deactivate_object(self);
     obj_controller.alarm[1]=60;
-    room_goto(R_level_1);
+    room_goto(R_level_select);
 
 }
 </string>

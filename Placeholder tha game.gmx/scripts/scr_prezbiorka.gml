@@ -2,16 +2,18 @@ global.zbiorka=true;
 have_ball=true;
 obj_camera.following=player_name;
 depth=2;
-if (phy_speed_x <2 and phy_speed_x>-2)
-{   
-    if (jumping)
+if (jumping)
     {
     sprite_index=Vspr_skok;
     }
-    else
-    {
+else if (abs(phy_speed_x) <2)
+{   
     sprite_index=Vspr_idle_grab;
-    }    
 }
+else
+{
+    sprite_index=Vspr_bieg_koz;
+}   
+
 
 with (obj_ball) instance_destroy();    

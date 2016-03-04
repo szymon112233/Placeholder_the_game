@@ -91,6 +91,7 @@ else if (global.ball="random")
     physics_apply_torque(random_range(-130,130));
     alarm[1]=room_speed*10; 
 }  
+sprite_index=scr_get_ball_skin_by_id(global.skinball);
 
 
 </string>

@@ -26,6 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>global.stage_curr="mainmenu";
+global.bot=true;
+//Rzut
 global.rzutready=false;
 global.rzutmoc=alarm[0];
 global.rzutk=1;
@@ -42,11 +44,17 @@ global.ball="free";
 global.ballx=0;
 global.bally=0;
 global.zbiorka=false;
+//Skiny
+global.skincount=2;
+global.skin1=1;
+global.skin2=2;
+global.skinball=1;
 Debug=false;
 mapping=false;
 mplayer=0;
 mkey=1;
 shake=false;
+shake_value=0.25;
 time=180;
 win_message="Tie !";
 winpercent=50;
@@ -304,13 +312,18 @@ else global.rzutk =1;
             <kind>1</kind>
             <string>/*-------------------------SCREEENSHAKE BABYYY-------------------------------*/
 
-if (shake) 
+if (shake &amp;&amp; instance_exists(obj_ball)) 
     {
-    view_angle[0]+= random_range(-0.15, 0.15);
-    if (view_angle[0]&gt;0.8) view_angle[0]=0.8;
-    else if (view_angle[0]&lt;-0.8) view_angle[0]=-0.8;
+    
+    view_angle[0]+= random_range(-shake_value, shake_value);
+    if (view_angle[0]&gt;1) view_angle[0]=1;
+    else if (view_angle[0]&lt;-1) view_angle[0]=-1;
+    
+    view_xview[0]+=3+random_range(-7, 7);
+    view_yview[0]+=3+random_range(-7, 7);
     }
-else view_angle[0]=0;
+else view_angle[0] = 0;
+
 
 /*----------------------------------------------------------------------------*/
 

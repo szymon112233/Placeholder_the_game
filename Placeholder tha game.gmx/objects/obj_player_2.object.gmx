@@ -25,35 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_inherited();
-player=2;
-player_name=obj_player_2;
-obrot=1;
-blok=obj_blok_2;
-input=0;
-//Sprity
-Vspr_idle=spr_idle_2;
-Vspr_bieg_koz=spr_bieg_koz_2;
-Vspr_bieg_woball=spr_bieg_woball_2;
-Vspr_idle_grab=spr_idle_grab_2;
-Vspr_idle_woball=spr_idle_woball_2;
-Vspr_prerzut=spr_prerzut_2;
-Vspr_rzut=spr_rzut_2;
-Vspr_skok=spr_skok_2;
-Vspr_skok_rzut=spr_skok_rzut_2;
-Vspr_skok_woball=spr_skok_woball_2;
-Vspr_wybicie_midair=spr_wybicie_midair_2;
-Vspr_wybicie_midair_idle=spr_wybicie_midair_idle_2;
-Vspr_wybicie_ziemia=spr_wybicie_ziemia_2;
-Vspr_wyskok=spr_wyskok_2;
-Vspr_wyskok_woball=spr_wyskok_woball_2;
-//Kopiowanie sterowania
-Kleft=global.p2left;
-Kright=global.p2right;
-Kup=global.p2up;
-Kdown=global.p2down;
-Kthrow=global.p2throw;
-Kwybicie=global.p2wybicie;
+            <string>scr_player_init(2);
+
 
 </string>
           </argument>

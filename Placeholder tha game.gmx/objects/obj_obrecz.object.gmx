@@ -80,6 +80,7 @@ if (punktable)
      if (player==1) global.points1+=2;
      else if (player==2) global.points2+=2;
     punktable=false;
+    scr_pop_up(60,"score");
     obj_ball.alarm[0]=60;
     alarm[0]=180;
     }

@@ -1,5 +1,6 @@
 show_debug_message("balllldrooop")
 global.ball="wybicie";
+global.zbiorka=false;
 instance_create(obj_ball_wybicie.x+10,obj_ball_wybicie.y+15,obj_ball);
 obj_camera.following=obj_ball;
 have_ball=false;

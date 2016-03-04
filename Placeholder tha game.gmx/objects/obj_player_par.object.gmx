@@ -8,93 +8,6 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="0" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>player=1;
-player_name=obj_player;
-blok=obj_blok;
-input=0;
-//Stałe
-energy=100;
-energy_regen=100;
-energy_max=100;
-cdwybycie=true;
-image_speed=0.185;
-move_speed=2200;
-phy_fixed_rotation=true;
-max_xspeed=6.5;
-max_xspeed_woball=7.5;
-prejump=false;
-jumping=false;
-jump_force=-1200;
-jump_force_woball=-1250;
-have_ball=false;
-throwing=false;
-obrot=0;
-obrotable=true;
-wybicie=false;
-foul=false;
-//Sprity
-Vspr_idle=spr_idle;
-Vspr_bieg_koz=spr_bieg_koz;
-Vspr_bieg_woball=spr_bieg_woball;
-Vspr_idle_grab=spr_idle_grab;
-Vspr_idle_woball=spr_idle_woball;
-Vspr_prerzut=spr_prerzut;
-Vspr_rzut=spr_rzut;
-Vspr_skok=spr_skok;
-Vspr_skok_rzut=spr_skok_rzut;
-Vspr_skok_woball=spr_skok_woball;
-Vspr_wybicie_midair=spr_wybicie_midair;
-Vspr_wybicie_midair_idle=spr_wybicie_midair_idle;
-Vspr_wybicie_ziemia=spr_wybicie_ziemia;
-Vspr_wyskok=spr_wyskok;
-Vspr_wyskok_woball=spr_wyskok_woball;
-//kopiownie sterowania
-Kleft=global.p1left;
-Kright=global.p1right;
-Kup=global.p1up;
-Kdown=global.p1down;
-Kthrow=global.p1throw;
-Kwybicie=global.p1wybicie;
-
-//sterowanie pad/keybaord
-
-ch_Kleft=keyboard_check(Kleft);
-ch_Kright=keyboard_check(Kright);
-ch_Kleft_r=keyboard_check_released(Kleft);
-ch_Kright_r=keyboard_check_released(Kright);
-ch_Kup_p=keyboard_check_pressed(Kup);
-ch_Kdown_r=keyboard_check_pressed(Kdown);
-ch_Kthrow_p=keyboard_check_pressed(Kthrow);
-ch_Kthrow=keyboard_check(Kthrow);
-ch_Kthrow_r=keyboard_check_released(Kthrow);
-ch_Kwybicie_p=keyboard_check_pressed(Kwybicie);
-
-
-
-
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="2" enumb="4">
       <action>
         <libid>1</libid>
@@ -136,7 +49,7 @@ cdwybycie=true;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Balldrop decide
+            <string>///*Balldrop decide
 if (obj_player.have_ball) 
 {
     with (obj_player) scr_balldrop();
@@ -275,7 +188,8 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>    
+            <string>if (!bot)
+{    
     ch_Kleft=( keyboard_check(Kleft) or gamepad_button_check(player-1 , gp_padl) or gamepad_axis_value(player-1, gp_axislh)&lt;0);
     ch_Kright=(keyboard_check(Kright) or gamepad_button_check(player-1 , gp_padr) or gamepad_axis_value(player-1, gp_axislh)&gt;0);
     //ch_Kleft_r=(keyboard_check_released(Kleft) or gamepad_button_check_released(player-1 , gp_padl));
@@ -286,6 +200,7 @@ else
     ch_Kthrow=(keyboard_check(Kthrow) or gamepad_button_check(player-1 , gp_face2));
     ch_Kthrow_r=(keyboard_check_released(Kthrow) or gamepad_button_check_released(player-1,gp_face2));
     ch_Kwybicie_p=(keyboard_check_pressed(Kwybicie) or gamepad_button_check_pressed(player-1 , gp_face3));
+}
 
     
 if (have_ball)
@@ -295,7 +210,7 @@ if (have_ball)
     }
 else
     {
-    move_speed=3400; 
+    move_speed=3600; 
     phy_speed_x=max(min(phy_speed_x,max_xspeed_woball),-max_xspeed_woball);
     }
 
@@ -315,11 +230,11 @@ if (have_ball)
         if (obrot==1) obj_ball_wybicie.x=x-30;
         else obj_ball_wybicie.x=x+10;
         }
-    else if (global.zbiorka)
+    /*else if (global.zbiorka)
         {
         obj_ball_wybicie.y=y;
         obj_ball_wybicie.x=x-11;
-        } 
+        } */
     else
         {
         obj_ball_wybicie.y=y+16;
@@ -423,7 +338,7 @@ else if (ch_Kright)
 //Zatrzymanie
 if phy_speed_x=0 
     {
-    if (!throwing and !jumping and !prejump and obrotable and !wybicie)
+    if (!throwing and !jumping and !prejump and obrotable and !wybicie /*and !global.zbiorka*/)
         {
         if (have_ball) sprite_index=Vspr_idle;
         else sprite_index=Vspr_idle_woball; 
