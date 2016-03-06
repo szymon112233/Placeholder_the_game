@@ -3,32 +3,25 @@ show_debug_message("STATE 0");
 
 if (player.have_ball)
 {
-    //Just stand still
-    player.ch_Kleft=false;
-    player.ch_Kright=false;
+    state = 3;
 }
-else 
+else  if (instance_exists(obj_ball))
 {
-    if (instance_exists(obj_ball))
+    if (global.ball="wyrzut")
+        state=2;
+    else if (global.ball="wybicie" )
     {
-        if (global.ball="wyrzut")
-            state=2;
-        else if (global.ball="wybicie" )
-        {
-            nstate=2;
-            if (alarm[0]<0) alarm[0]=room_speed;
-        }
-        else if (global.ball="free" )
-        {
-            nstate=2;
-            if (alarm[0]<0) alarm[0]=room_speed/2;
-        }
-            
+        nstate=2;
+        if (alarm[0]<0) alarm[0]=room_speed;
     }
-    else
+    else if (global.ball="free" )
     {
+        nstate=2;
+        if (alarm[0]<0) alarm[0]=room_speed/2;
+    }                
+}
+else
+    {    
         player.ch_Kleft=false;
         player.ch_Kright=false;
     }
-    
-}

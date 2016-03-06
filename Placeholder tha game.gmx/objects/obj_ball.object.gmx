@@ -25,33 +25,40 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.ball="wyrzut")
+            <string>mx=2;
+my=3.5;
+if (global.ball="wyrzut")
 {
+    global.rzutmoc=(global.rzutmoc*2)/9;
     if (global.rzutready)
     {
         if (obj_player.have_ball=true)
             {
+            my=global.throw_values[global.skin1-1,0];
+            mx=global.throw_values[global.skin1-1,1];
             if (obj_player.obrot=0)
                 {
-                physics_apply_impulse(x,y,(global.rzutmoc*4)/9,(-global.rzutmoc*7)/9);
+                physics_apply_impulse(x,y,global.rzutmoc*mx,-global.rzutmoc*my);
                 physics_apply_torque(-130);
                 }
             else if (obj_player.obrot=1)
                 {
-                physics_apply_impulse(x,y,(-global.rzutmoc*4)/9,(-global.rzutmoc*7)/9);
+                physics_apply_impulse(x,y,-global.rzutmoc*mx,-global.rzutmoc*my);
                 physics_apply_torque(130);
                 }
             }
         else
             {
+            my=global.throw_values[global.skin2-1,0];
+            mx=global.throw_values[global.skin2-1,1];
             if (obj_player_2.obrot=0)
                 {
-                physics_apply_impulse(x,y,(global.rzutmoc*4)/9,(-global.rzutmoc*7)/9);
+                physics_apply_impulse(x,y,global.rzutmoc*mx,-global.rzutmoc*my);
                 physics_apply_torque(-130);
                 }
             else if (obj_player_2.obrot=1)
                 {
-                physics_apply_impulse(x,y,(-global.rzutmoc*4)/9,(-global.rzutmoc*7)/9);
+                physics_apply_impulse(x,y,-global.rzutmoc*mx,-global.rzutmoc*my);
                 physics_apply_torque(130);
                 }
             }
@@ -94,6 +101,29 @@ else if (global.ball="random")
 sprite_index=scr_get_ball_skin_by_id(global.skinball);
 
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>part_particles_clear(global.psys);
 </string>
           </argument>
         </arguments>
@@ -160,6 +190,29 @@ sprite_index=scr_get_ball_skin_by_id(global.skinball);
           <argument>
             <kind>0</kind>
             <string></string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>part_particles_create(global.psys, x, y, global.ptype, 1);
+</string>
           </argument>
         </arguments>
       </action>

@@ -52,12 +52,12 @@
   </views>
   <instances>
     <instance objName="obj_skindisplay" x="230" y="480" name="inst_DFD3875A" locked="0" code="skin=1;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_button_skin1" x="192" y="480" name="inst_D3906721" locked="0" code="next =  (-1) ;&#xA;skin = 1;&#xA;" scaleX="-1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_button_skin1" x="256" y="480" name="inst_9783A170" locked="0" code="next=1;&#xA;skin = 1;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_button_skin1" x="160" y="480" name="inst_D3906721" locked="0" code="next =  (-1) ;&#xA;skin = 1;&#xA;" scaleX="-1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_button_skin1" x="296" y="480" name="inst_9783A170" locked="0" code="next=1;&#xA;skin = 1;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_button_go" x="320" y="96" name="inst_944F3BE6" locked="0" code="" scaleX="5" scaleY="5" colour="4294967295" rotation="0"/>
     <instance objName="obj_skindisplay" x="616" y="480" name="inst_37EBF904" locked="0" code="skin = 2;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_button_skin1" x="640" y="480" name="inst_0ED196AA" locked="0" code="next = 1;&#xA;skin = 2;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_button_skin1" x="576" y="480" name="inst_CE8E22ED" locked="0" code="next = -1;&#xA;skin = 2;&#xA;" scaleX="-1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_button_skin1" x="684" y="480" name="inst_0ED196AA" locked="0" code="next = 1;&#xA;skin = 2;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_button_skin1" x="544" y="480" name="inst_CE8E22ED" locked="0" code="next = -1;&#xA;skin = 2;&#xA;" scaleX="-1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

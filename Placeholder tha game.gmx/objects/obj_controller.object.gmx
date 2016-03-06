@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>global.stage_curr="mainmenu";
-global.bot=true;
+global.bot=false;
 //Rzut
 global.rzutready=false;
 global.rzutmoc=alarm[0];
@@ -45,10 +45,19 @@ global.ballx=0;
 global.bally=0;
 global.zbiorka=false;
 //Skiny
-global.skincount=2;
+global.skincount=5;
 global.skin1=1;
 global.skin2=2;
 global.skinball=1;
+//Particles
+global.psys=part_system_create();
+global.ptype=part_type_create();
+part_type_colour_rgb(global.ptype, 255, 255, 0, 0, 0, 0); 
+part_type_shape(global.ptype, pt_shape_disk);
+part_type_scale(global.ptype, 0.1, 0.1);
+part_type_alpha1(global.ptype, 0.5);
+part_type_life(global.ptype, room_speed*60, room_speed*60);
+//Others
 Debug=false;
 mapping=false;
 mplayer=0;
@@ -58,6 +67,16 @@ shake_value=0.25;
 time=180;
 win_message="Tie !";
 winpercent=50;
+global.throw_values[0,0]=3;
+global.throw_values[0,1]=2.5;
+global.throw_values[1,0]=3;
+global.throw_values[1,1]=2;
+global.throw_values[2,0]=3.5;
+global.throw_values[2,1]=2;
+global.throw_values[3,0]=3.8;
+global.throw_values[3,1]=1.5;
+global.throw_values[4,0]=4;
+global.throw_values[4,1]=1.2;
 
 
 ini_open("game.ini");
@@ -326,6 +345,10 @@ else view_angle[0] = 0;
 
 
 /*----------------------------------------------------------------------------*/
+
+/*Particle
+if (instance_exists(obj_ball))
+    part_system_position(global.psys,obj_ball.x,obj_ball.y);*/
 
 
 

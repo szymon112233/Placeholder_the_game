@@ -160,6 +160,8 @@
       <script>scripts\scr_sm_state0.gml</script>
       <script>scripts\scr_sm_state1.gml</script>
       <script>scripts\scr_sm_state2.gml</script>
+      <script>scripts\scr_sm_state3.gml</script>
+      <script>scripts\scr_sm_state4.gml</script>
     </scripts>
     <script>scripts\scr_pop_up.gml</script>
   </scripts>
