@@ -211,7 +211,7 @@ sprite_index=scr_get_ball_skin_by_id(global.skinball);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>part_particles_create(global.psys, x, y, global.ptype, 1);
+            <string>//part_particles_create(global.psys, x, y, global.ptype, 1);
 </string>
           </argument>
         </arguments>

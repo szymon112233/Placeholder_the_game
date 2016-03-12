@@ -8,29 +8,6 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="0" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>music=0;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -48,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite(spr_sound,4-music,view_xview[global.widok]+400,view_yview[global.widok]+3);
+            <string>draw_sprite(spr_sound,global.music,view_xview[global.widok]+400,view_yview[global.widok]+3);
 </string>
           </argument>
         </arguments>
@@ -74,16 +51,16 @@
             <string>if (!audio_is_playing(sd_bgmusic))
     audio_play_sound(sd_bgmusic , 0, 1);
     
-if (music==0)
+if (global.music==0)
 {
-    music=4;
+    global.music=4;
 }
 else
 {
-    music--;
+    global.music--;
 }
 
-audio_set_master_gain(0, music*0.25);
+audio_set_master_gain(0, global.music*0.25);
 
 </string>
           </argument>

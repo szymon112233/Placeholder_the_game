@@ -3,8 +3,8 @@
   <caption></caption>
   <width>800</width>
   <height>600</height>
-  <vsnap>32</vsnap>
-  <hsnap>32</hsnap>
+  <vsnap>1</vsnap>
+  <hsnap>1</hsnap>
   <isometric>0</isometric>
   <speed>30</speed>
   <persistent>0</persistent>
@@ -31,7 +31,7 @@
     <yoffset>0</yoffset>
   </makerSettings>
   <backgrounds>
-    <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
+    <background visible="-1" foreground="0" name="bg_level_select" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
@@ -51,13 +51,15 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="obj_skindisplay" x="230" y="480" name="inst_DFD3875A" locked="0" code="skin=1;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_button_skin1" x="160" y="480" name="inst_D3906721" locked="0" code="next =  (-1) ;&#xA;skin = 1;&#xA;" scaleX="-1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_button_skin1" x="296" y="480" name="inst_9783A170" locked="0" code="next=1;&#xA;skin = 1;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_button_go" x="320" y="96" name="inst_944F3BE6" locked="0" code="" scaleX="5" scaleY="5" colour="4294967295" rotation="0"/>
-    <instance objName="obj_skindisplay" x="616" y="480" name="inst_37EBF904" locked="0" code="skin = 2;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_button_skin1" x="684" y="480" name="inst_0ED196AA" locked="0" code="next = 1;&#xA;skin = 2;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_button_skin1" x="544" y="480" name="inst_CE8E22ED" locked="0" code="next = -1;&#xA;skin = 2;&#xA;" scaleX="-1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_skindisplay" x="225" y="350" name="inst_DFD3875A" locked="0" code="skin=1;&#xA;" scaleX="3" scaleY="3" colour="4294967295" rotation="0"/>
+    <instance objName="obj_button_skin1" x="54" y="313" name="inst_D3906721" locked="0" code="next =  (-1) ;&#xA;skin = 1;&#xA;" scaleX="-1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_button_skin1" x="334" y="312" name="inst_9783A170" locked="0" code="next=1;&#xA;skin = 1;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_button_go" x="350" y="50" name="inst_944F3BE6" locked="0" code="" scaleX="2" scaleY="2" colour="4294967295" rotation="0"/>
+    <instance objName="obj_skindisplay" x="625" y="350" name="inst_37EBF904" locked="0" code="skin = 2;&#xA;" scaleX="3" scaleY="3" colour="4294967295" rotation="0"/>
+    <instance objName="obj_button_skin1" x="744" y="312" name="inst_0ED196AA" locked="0" code="next = 1;&#xA;skin = 2;&#xA;sprite_index=spr_arrow_small_blue;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_button_skin1" x="463" y="312" name="inst_CE8E22ED" locked="0" code="next = -1;&#xA;skin = 2;&#xA;sprite_index=spr_arrow_small_blue;&#xA;" scaleX="-1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_stats_display" x="5" y="0" name="inst_B75DE1AB" locked="0" code="skin=1;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_stats_display" x="414" y="0" name="inst_A3A4F397" locked="0" code="skin=2;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

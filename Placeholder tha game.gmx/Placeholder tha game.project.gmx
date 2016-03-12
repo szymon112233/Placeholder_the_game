@@ -14,7 +14,8 @@
   </sounds>
   <sprites name="sprites">
     <sprites name="Skins">
-      <sprite>sprites\spr_skinchose</sprite>
+      <sprite>sprites\spr_skinselect</sprite>
+      <sprite>sprites\spr_skinselect_stats</sprite>
       <sprite>sprites\spr_ballchose</sprite>
       <sprites name="Balls">
         <sprite>sprites\spr_ball</sprite>
@@ -89,26 +90,32 @@
       <sprites name="Buttons_options">
         <sprite>sprites\spr_button_player_1</sprite>
         <sprite>sprites\spr_button_player_2</sprite>
+        <sprite>sprites\spr_sound_options</sprite>
       </sprites>
       <sprites name="Buttons_mainmenu">
         <sprite>sprites\spr_button_play</sprite>
         <sprite>sprites\spr_button_options</sprite>
         <sprite>sprites\spr_button_credits</sprite>
         <sprite>sprites\spr_button_exit</sprite>
-        <sprite>sprites\spr_arrow_small</sprite>
+        <sprite>sprites\spr_arrow_small_red</sprite>
+        <sprite>sprites\spr_arrow_small_blue</sprite>
       </sprites>
       <sprites name="Scoreboard">
         <sprite>sprites\spr_scoreboard</sprite>
         <sprite>sprites\spr_sound</sprite>
         <sprite>sprites\spr_pilkascore</sprite>
       </sprites>
-      <sprite>sprites\spr_bar</sprite>
-      <sprite>sprites\spr_spod</sprite>
       <sprites name="Pop-up">
-        <sprite>sprites\spr_score_1</sprite>
         <sprite>sprites\spr_score_2</sprite>
+        <sprite>sprites\spr_score_1</sprite>
         <sprite>sprites\spr_score_end</sprite>
       </sprites>
+      <sprite>sprites\spr_bar</sprite>
+      <sprite>sprites\spr_spod</sprite>
+      <sprite>sprites\spr_pointer</sprite>
+      <sprite>sprites\spr_gamejolt_button</sprite>
+      <sprite>sprites\spr_avatar_frame</sprite>
+      <sprite>sprites\spr_map_select</sprite>
     </sprites>
     <sprites name="Randomshit">
       <sprite>sprites\spr_help</sprite>
@@ -126,6 +133,7 @@
       <sprite>sprites\spr_cloud1</sprite>
       <sprite>sprites\spr_dym</sprite>
       <sprite>sprites\spr_drzewko</sprite>
+      <sprite>sprites\spr_light</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -133,11 +141,14 @@
     <background>background\tj_kosz_i</background>
     <background>background\bg_blue</background>
     <background>background\ti_siatka</background>
-    <background>background\bg_mainmenu</background>
     <background>background\bg_mainmenu_2</background>
     <background>background\bg_options</background>
     <background>background\bg_socreboard</background>
     <background>background\ti_budynki</background>
+    <background>background\bg_mainmenu</background>
+    <background>background\bg_options_2</background>
+    <background>background\bg_credtis</background>
+    <background>background\bg_level_select</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -147,7 +158,6 @@
     <script>scripts\scr_prezbiorka.gml</script>
     <script>scripts\scr_wybicie.gml</script>
     <script>scripts\scr_balldrop.gml</script>
-    <script>scripts\gj_init.gml</script>
     <script>scripts\scr_wait.gml</script>
     <script>scripts\scr_game_end.gml</script>
     <script>scripts\scr_reload_keys.gml</script>
@@ -164,6 +174,7 @@
       <script>scripts\scr_sm_state4.gml</script>
     </scripts>
     <script>scripts\scr_pop_up.gml</script>
+    <script>scripts\gj_init.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_VCR</font>
@@ -183,6 +194,8 @@
       <object>objects\obj_button_clickable</object>
       <object>objects\obj_button_go</object>
       <object>objects\obj_button_skin1</object>
+      <object>objects\obj_button_sound</object>
+      <object>objects\obj_gamejolt_login</object>
     </objects>
     <objects name="Actual Things">
       <object>objects\obj_help</object>
@@ -190,16 +203,13 @@
       <object>objects\obj_player_par</object>
       <object>objects\obj_player</object>
       <object>objects\obj_ball</object>
-      <object>objects\obj_stojak</object>
       <object>objects\obj_player_2</object>
-      <object>objects\obj_ball_small</object>
     </objects>
     <objects name="pola">
       <object>objects\obj_blok</object>
       <object>objects\obj_blok_2</object>
       <object>objects\obj_ball_wybicie</object>
       <object>objects\obj_wall</object>
-      <object>objects\obj_manipulator</object>
       <object>objects\obj_spod</object>
       <object>objects\obj_pole</object>
     </objects>
@@ -219,25 +229,30 @@
     <objects name="controllers">
       <object>objects\obj_menu_controll</object>
       <object>objects\obj_button_controls</object>
+      <object>objects\obj_buttons_level_select</object>
       <object>objects\obj_ball_spawner</object>
       <object>objects\obj_music</object>
       <object>objects\obj_controller</object>
       <object>objects\obj_camera</object>
       <object>objects\obj_state_machine</object>
+      <object>objects\obj_camera_menu</object>
     </objects>
     <objects name="plansza">
       <object>objects\obj_clouds</object>
       <object>objects\obj_drzewko</object>
       <object>objects\obj_dym</object>
       <object>objects\obj_pop_up</object>
+      <object>objects\obj_light</object>
     </objects>
     <object>objects\obj_skindisplay</object>
+    <object>objects\obj_stats_display</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\R_mainmenu_v2</room>
+    <room>rooms\R_mainmenu_v3</room>
     <room>rooms\R_level_select</room>
     <room>rooms\R_level_1</room>
     <rooms name="old ones">
+      <room>rooms\R_mainmenu_v2</room>
       <room>rooms\R_mainmenu</room>
       <room>rooms\R_test</room>
       <room>rooms\R_options</room>

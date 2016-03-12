@@ -99,7 +99,7 @@ y=view_yview[0]+view_hview[0]/2;
           <argument>
             <kind>1</kind>
             <string>if (type=="score")
-    draw_sprite(spr_score_2,0,x,y);
+    draw_sprite(spr_score_1,0,x,y);
 else if (type=="end")
 {   
     draw_sprite(spr_score_end,0,x,y);

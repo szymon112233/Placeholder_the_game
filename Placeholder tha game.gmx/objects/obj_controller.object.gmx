@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-1</depth>
   <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>global.stage_curr="mainmenu";
-global.bot=false;
+global.bot=true;
 //Rzut
 global.rzutready=false;
 global.rzutmoc=alarm[0];
@@ -67,6 +67,8 @@ shake_value=0.25;
 time=180;
 win_message="Tie !";
 winpercent=50;
+avatar=spr_ball;
+global.music=0;
 global.throw_values[0,0]=3;
 global.throw_values[0,1]=2.5;
 global.throw_values[1,0]=3;
@@ -116,7 +118,10 @@ global.p2wybicie=scr_convert(ini_read_string("Controlls","P2_hit","alt"),0)
 ini_close();
 global.widok=0;
 
+
+//Gamejolt
 gj_init("123485" , "7eaafccf98473ebe4c12a5261a2573c9" );
+//gj_user_autologin();
 
 
 
@@ -126,6 +131,32 @@ obj_controller.alarm[5]=30;
 
 
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="6">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Session pinger
+gj_session_ping(true);
+alarm[6]=room_speed*30;
+show_debug_message("Ping!");
 </string>
           </argument>
         </arguments>
@@ -346,10 +377,18 @@ else view_angle[0] = 0;
 
 /*----------------------------------------------------------------------------*/
 
-/*Particle
-if (instance_exists(obj_ball))
-    part_system_position(global.psys,obj_ball.x,obj_ball.y);*/
-
+if (keyboard_check_pressed(vk_escape) or gamepad_button_check_pressed(0,gp_face2))
+    if ((global.stage_curr=="options" or global.stage_curr=="credits") and !mapping)
+    {
+        global.stage_curr="mainmenu";
+        obj_camera_menu.x=1200;
+    }
+    else if (global.stage_curr=="game")
+    {
+    global.stage_curr="mainmenu";
+    with (obj_menu_controll) instance_activate_object(self);
+    room_goto(R_mainmenu_v3);
+    }
 
 
 if (instance_exists(obj_player_par))
@@ -465,6 +504,86 @@ ini_close();
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="62">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>var resultid= gj_result_id();
+if(resultid==request[0]) //If it was user information.
+{
+    var status=gj_result_status();
+    if(status)
+    {
+        show_message("All good "+ gj_user_username());
+        if (gj_session_open())
+            alarm[6]=room_speed*30;
+        gj_trophy_add("52336");
+        request[1]=gj_user_info_fromusername(gj_user_username());
+        
+    }    
+    else
+    if(status==0)
+    show_message(gj_result_error());
+    else
+    show_message("GameMaker error");
+}
+else if (resultid==request[1] and gj_user_isloggedin())
+{
+
+    if(gj_result_status())
+    {
+        show_debug_message(gj_result_data_field("type"));
+        show_debug_message(gj_result_data_field("avatar_url"));
+        avatar=sprite_add(gj_result_data_field("avatar_url"), 1, 0, 0, 30, 30);
+    }
+    else
+        show_debug_message(gj_result_status());
+        
+}
+gj_result_clear()
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (gj_user_isloggedin())
+    gj_session_close();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -483,6 +602,8 @@ ini_close();
           <argument>
             <kind>1</kind>
             <string>global.widok=view_current;
+
+
 if (instance_exists(obj_player_par))
 {
     if (global.throwing and !global.insiderzut)
@@ -571,6 +692,8 @@ if (instance_exists(obj_player_par))
         draw_text(view_xview[view_current],view_yview[view_current]+108,"axislh: "+string(gamepad_axis_value(0, gp_axislh)));
     }
 }
+//Wskaźnik
+draw_sprite(spr_pointer,0,mouse_x,mouse_y);
 </string>
           </argument>
         </arguments>
@@ -682,17 +805,23 @@ else Debug=true;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.stage_curr=="options" and !mapping)
+            <string>if (global.stage_curr=="options" and !mapping and !obj_menu_controll.moving_l)
 {
     global.stage_curr="mainmenu";
     obj_menu_controll.moving_l=true;
+    obj_menu_controll.alarm[0]=20;
+}
+else if (global.stage_curr=="credits" and !mapping and !obj_menu_controll.moving_r)
+{
+    global.stage_curr="mainmenu";
+    obj_menu_controll.moving_r=true;
     obj_menu_controll.alarm[0]=20;
 }
 else if (global.stage_curr=="game")
 {
 global.stage_curr="mainmenu";
 with (obj_menu_controll) instance_activate_object(self);
-room_goto(R_mainmenu_v2);
+room_goto(R_mainmenu_v3);
 }
 </string>
           </argument>

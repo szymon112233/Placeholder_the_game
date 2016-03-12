@@ -57,7 +57,7 @@ else
         //Make a ds_map with the information
         //First clear our info map
         ds_map_clear(gj_infomap)
-        var gj_key="",gj_value="",gj_returnstring=ds_map_find_value(async_load,"result");
+        var gj_key="",gj_value="",gj_returnstring=string(ds_map_find_value(async_load,"result"));
         //Now removed because of HTML5
         //gj_returnstring=string_replace_all(gj_returnstring,"
 //","") //make it easier to read the map by removing all newlines.

@@ -201,9 +201,18 @@ else
     ch_Kthrow_r=(keyboard_check_released(Kthrow) or gamepad_button_check_released(player-1,gp_face2));
     ch_Kwybicie_p=(keyboard_check_pressed(Kwybicie) or gamepad_button_check_pressed(player-1 , gp_face3));
 }
+//maxspeed v.2
+if (abs(phy_speed_x)&gt;max_xspeed)
+{ 
+    if (phy_speed_x&gt;max_xspeed)
+        phy_speed_x=max_xspeed;
+    else
+        phy_speed_x=-max_xspeed;
+}
+    
 
     
-if (have_ball)
+/*if (have_ball)
     {
     move_speed=3200;
     phy_speed_x=max(min(phy_speed_x,max_xspeed),-max_xspeed);
@@ -213,11 +222,13 @@ else
     move_speed=3600; 
     phy_speed_x=max(min(phy_speed_x,max_xspeed_woball),-max_xspeed_woball);
     }
+    */
 
 
 //wybijarka
 if (have_ball)
 {
+    move_speed=3800;
     if (jumping)
         {
         obj_ball_wybicie.y=y-56;
@@ -247,6 +258,7 @@ if (have_ball)
 } 
 else if (!have_ball)
 {
+    move_speed=4000;
     if (jumping and !wybicie)
     {   
         if (obrot==0)
@@ -429,6 +441,7 @@ if (ch_Kup_p and !jumping)
 //Wybicie
 if (ch_Kwybicie_p and !have_ball and cdwybycie)
     {
+    
     if (jumping)
         {
         sprite_index=Vspr_wybicie_midair;
@@ -445,8 +458,9 @@ if (ch_Kwybicie_p and !have_ball and cdwybycie)
         cdwybycie=false;
         alarm[4]=room_speed*0.75;
         }
-    else if (abs(phy_speed_x)&lt;1)
+    else /*if (abs(phy_speed_x)&lt;1)*/
         {
+        phy_speed_x/=10;
         sprite_index=Vspr_wybicie_ziemia;
         image_index=0;
         alarm[2]=35;
@@ -462,6 +476,7 @@ if (ch_Kwybicie_p and !have_ball and cdwybycie)
         alarm[4]=room_speed*0.75;
         }
     }
+    
 //Skakanie sure maker
 if (place_meeting(x,y+1,obj_spod))
 jumping=false;
