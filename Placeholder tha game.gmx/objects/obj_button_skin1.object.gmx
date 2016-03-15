@@ -8,7 +8,7 @@
   <parentName>obj_button_clickable</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="6" enumb="4">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -25,18 +25,12 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (skin==1)
+            <string>if ((keyboard_check(kbutton) or gamepad_button_check(player-1 , pbutton) ) and ((player==1 and !obj_buttons_level_select.selection1) or (player==2 and !obj_buttons_level_select.selection2)) )
 {
-    global.skin1+=next;
-    if (global.skin1&lt;1) global.skin1=global.skincount;
-    else if (global.skin1&gt;global.skincount) global.skin1=1;
+    image_index=1;
 }
-else if (skin==2)
-{
-    global.skin2+=next;
-    if (global.skin2&lt;1) global.skin2=global.skincount;
-    else if (global.skin2&gt;global.skincount) global.skin2=1;
-}
+else
+    image_index=0;
 </string>
           </argument>
         </arguments>

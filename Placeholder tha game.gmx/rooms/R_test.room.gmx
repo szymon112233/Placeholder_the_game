@@ -138,7 +138,6 @@
     <instance objName="obj_wall" x="975" y="150" name="inst_4F65AEB3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_kosz_dol_p" x="845" y="269" name="inst_20530C3C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_kosz_dol" x="825" y="268" name="inst_731BEBEB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_obrecz_2" x="842" y="275" name="inst_DC3251A7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_blok" x="400" y="300" name="inst_F1F671AE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="975" y="125" name="inst_C2142678" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="975" y="100" name="inst_56A8771C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

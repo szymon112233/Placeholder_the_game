@@ -6,7 +6,7 @@ global.fouls2=0;
 
 obj_controller.time=180;
 
-kosz();
+scr_kosz(0);
 
 with (obj_player)
 {

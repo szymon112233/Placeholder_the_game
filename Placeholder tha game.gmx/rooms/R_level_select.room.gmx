@@ -52,16 +52,21 @@
   </views>
   <instances>
     <instance objName="obj_skindisplay" x="225" y="350" name="inst_DFD3875A" locked="0" code="skin=1;&#xA;" scaleX="3" scaleY="3" colour="4294967295" rotation="0"/>
-    <instance objName="obj_button_skin1" x="54" y="313" name="inst_D3906721" locked="0" code="next =  (-1) ;&#xA;skin = 1;&#xA;" scaleX="-1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_button_skin1" x="334" y="312" name="inst_9783A170" locked="0" code="next=1;&#xA;skin = 1;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_button_go" x="350" y="50" name="inst_944F3BE6" locked="0" code="" scaleX="2" scaleY="2" colour="4294967295" rotation="0"/>
+    <instance objName="obj_button_skin1" x="54" y="313" name="inst_D3906721" locked="0" code="player=1;&#xA;kbutton=global.p1left;&#xA;pbutton=gp_padl" scaleX="-1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_button_skin1" x="334" y="312" name="inst_9783A170" locked="0" code="player=1;&#xA;kbutton=global.p1right;&#xA;pbutton=gp_padr;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_skindisplay" x="625" y="350" name="inst_37EBF904" locked="0" code="skin = 2;&#xA;" scaleX="3" scaleY="3" colour="4294967295" rotation="0"/>
-    <instance objName="obj_button_skin1" x="744" y="312" name="inst_0ED196AA" locked="0" code="next = 1;&#xA;skin = 2;&#xA;sprite_index=spr_arrow_small_blue;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_button_skin1" x="463" y="312" name="inst_CE8E22ED" locked="0" code="next = -1;&#xA;skin = 2;&#xA;sprite_index=spr_arrow_small_blue;&#xA;" scaleX="-1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_button_skin1" x="744" y="312" name="inst_0ED196AA" locked="0" code="sprite_index=spr_arrow_small_blue;&#xA;player=2;&#xA;kbutton=global.p2right;&#xA;pbutton=gp_padr;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_button_skin1" x="463" y="312" name="inst_CE8E22ED" locked="0" code="sprite_index=spr_arrow_small_blue;&#xA;player=2;&#xA;kbutton=global.p2left;&#xA;pbutton=gp_padl;" scaleX="-1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_stats_display" x="5" y="0" name="inst_B75DE1AB" locked="0" code="skin=1;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_stats_display" x="414" y="0" name="inst_A3A4F397" locked="0" code="skin=2;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_buttons_level_select" x="1" y="184" name="inst_A5F64564" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objj_map_display" x="312" y="483" name="inst_236B755D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_button_map" x="327" y="523" name="inst_885913AE" locked="0" code="kbutton=global.p1left;&#xA;pbutton=gp_padl&#xA;" scaleX="-1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_button_map" x="472" y="523" name="inst_9BE1D594" locked="0" code="kbutton=global.p1right;&#xA;pbutton=gp_padr;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
-  <tiles/>
+  <tiles>
+    <tile bgName="ti_map_select" x="0" y="0" w="800" h="600" xo="0" yo="0" id="10000034" name="inst_AA0D5E26" depth="-1" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+  </tiles>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>
   <PhysicsWorldLeft>0</PhysicsWorldLeft>

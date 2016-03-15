@@ -56,7 +56,7 @@
           <sprite>sprites\spr_wyskok_2</sprite>
           <sprite>sprites\spr_wyskok_woball_2</sprite>
         </sprites>
-        <sprites name="Red">
+        <sprites name="3">
           <sprite>sprites\spr_idle_3</sprite>
           <sprite>sprites\spr_bieg_koz_3</sprite>
           <sprite>sprites\spr_bieg_woball_3</sprite>
@@ -74,6 +74,8 @@
           <sprite>sprites\spr_wyskok_woball_3</sprite>
         </sprites>
       </sprites>
+      <sprite>sprites\spr_maps</sprite>
+      <sprite>sprites\spr_selected</sprite>
     </sprites>
     <sprites name="Kosz">
       <sprite>sprites\spr_kosz</sprite>
@@ -99,6 +101,7 @@
         <sprite>sprites\spr_button_exit</sprite>
         <sprite>sprites\spr_arrow_small_red</sprite>
         <sprite>sprites\spr_arrow_small_blue</sprite>
+        <sprite>sprites\spr_arrow_small_white</sprite>
       </sprites>
       <sprites name="Scoreboard">
         <sprite>sprites\spr_scoreboard</sprite>
@@ -109,6 +112,7 @@
         <sprite>sprites\spr_score_2</sprite>
         <sprite>sprites\spr_score_1</sprite>
         <sprite>sprites\spr_score_end</sprite>
+        <sprite>sprites\spr_foul</sprite>
       </sprites>
       <sprite>sprites\spr_bar</sprite>
       <sprite>sprites\spr_spod</sprite>
@@ -134,7 +138,10 @@
       <sprite>sprites\spr_dym</sprite>
       <sprite>sprites\spr_drzewko</sprite>
       <sprite>sprites\spr_light</sprite>
+      <sprite>sprites\spr_indicator_p1</sprite>
+      <sprite>sprites\spr_indicator_p2</sprite>
     </sprites>
+    <sprite>sprites\spr_experimental</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\ti_kosz</background>
@@ -149,11 +156,12 @@
     <background>background\bg_options_2</background>
     <background>background\bg_credtis</background>
     <background>background\bg_level_select</background>
+    <background>background\ti_map_select</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\Restart.gml</script>
-    <script>scripts\kosz.gml</script>
+    <script>scripts\scr_kosz.gml</script>
     <script>scripts\scr_convert.gml</script>
     <script>scripts\scr_prezbiorka.gml</script>
     <script>scripts\scr_wybicie.gml</script>
@@ -175,6 +183,7 @@
     </scripts>
     <script>scripts\scr_pop_up.gml</script>
     <script>scripts\gj_init.gml</script>
+    <script>scripts\scr_stats_init.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_VCR</font>
@@ -192,8 +201,8 @@
       <object>objects\obj_button_player_1</object>
       <object>objects\obj_button_player_2</object>
       <object>objects\obj_button_clickable</object>
-      <object>objects\obj_button_go</object>
       <object>objects\obj_button_skin1</object>
+      <object>objects\obj_button_map</object>
       <object>objects\obj_button_sound</object>
       <object>objects\obj_gamejolt_login</object>
     </objects>
@@ -222,7 +231,6 @@
       <object>objects\obj_kosz6</object>
       <object>objects\obj_obrecz_par</object>
       <object>objects\obj_obrecz</object>
-      <object>objects\obj_obrecz_2</object>
       <object>objects\obj_kosz_dol</object>
       <object>objects\obj_kosz_dol_p</object>
     </objects>
@@ -246,6 +254,7 @@
     </objects>
     <object>objects\obj_skindisplay</object>
     <object>objects\obj_stats_display</object>
+    <object>objects\objj_map_display</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\R_mainmenu_v3</room>

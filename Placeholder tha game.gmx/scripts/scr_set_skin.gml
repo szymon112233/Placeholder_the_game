@@ -57,6 +57,23 @@ switch (skin_id)
         Vspr_wyskok=spr_wyskok_2;
         Vspr_wyskok_woball=spr_wyskok_woball_2;
     break;
+        case 3:
+        Vspr_idle=spr_idle_3;
+        Vspr_bieg_koz=spr_bieg_koz_3;
+        Vspr_bieg_woball=spr_bieg_woball_3;
+        Vspr_idle_grab=spr_idle_grab_3;
+        Vspr_idle_woball=spr_idle_woball_3;
+        Vspr_prerzut=spr_prerzut_3;
+        Vspr_rzut=spr_rzut_3;
+        Vspr_skok=spr_skok_3;
+        Vspr_skok_rzut=spr_skok_rzut_3;
+        Vspr_skok_woball=spr_skok_woball_3;
+        Vspr_wybicie_midair=spr_wybicie_midair_3;
+        Vspr_wybicie_midair_idle=spr_wybicie_midair_idle_3;
+        Vspr_wybicie_ziemia=spr_wybicie_ziemia_3;
+        Vspr_wyskok=spr_wyskok_3;
+        Vspr_wyskok_woball=spr_wyskok_woball_3;
+    break;
     
        
 }

@@ -83,6 +83,7 @@ else if (obj_player_2.have_ball)
             <string>///Wybicie off maker
 if (jumping) sprite_index=Vspr_wybicie_midair_idle;
 wybicie=false;
+obrotable = true;
 </string>
           </argument>
         </arguments>
@@ -158,6 +159,8 @@ if (!jumping and !prejump)
             global.fouls1++;
         else if (player==2)
             global.fouls2++;
+            
+        scr_pop_up(60,"foul");
         show_debug_message("FAUUL");
     }
 }
@@ -201,7 +204,7 @@ else
     ch_Kthrow_r=(keyboard_check_released(Kthrow) or gamepad_button_check_released(player-1,gp_face2));
     ch_Kwybicie_p=(keyboard_check_pressed(Kwybicie) or gamepad_button_check_pressed(player-1 , gp_face3));
 }
-//maxspeed v.2
+/*/maxspeed v.2
 if (abs(phy_speed_x)&gt;max_xspeed)
 { 
     if (phy_speed_x&gt;max_xspeed)
@@ -209,10 +212,10 @@ if (abs(phy_speed_x)&gt;max_xspeed)
     else
         phy_speed_x=-max_xspeed;
 }
-    
+    */
 
     
-/*if (have_ball)
+if (have_ball)
     {
     move_speed=3200;
     phy_speed_x=max(min(phy_speed_x,max_xspeed),-max_xspeed);
@@ -222,7 +225,6 @@ else
     move_speed=3600; 
     phy_speed_x=max(min(phy_speed_x,max_xspeed_woball),-max_xspeed_woball);
     }
-    */
 
 
 //wybijarka
@@ -304,7 +306,7 @@ if (ch_Kleft)
 
     if (have_ball)  global.zbiorka=false;   
           
-    if (!throwing)
+    if (!throwing and !wybicie)
         { 
             if (obrotable)
             {
@@ -331,7 +333,7 @@ else if (ch_Kright)
     }
     
     if (have_ball)  global.zbiorka=false;      
-    if (throwing=false) 
+    if (!throwing and !wybicie) 
         {
             if (obrotable)
             {
@@ -385,10 +387,9 @@ if (have_ball)
             else
                 global.rzutmoc=obj_controller.alarm[0];
                 
-            
+            obj_camera.following=obj_ball;
             global.ball="wyrzut";
             
-            obj_camera.following=obj_ball;
             
             if (obrot=0)
                 {
@@ -454,11 +455,8 @@ if (ch_Kwybicie_p and !have_ball and cdwybycie)
             {
             alarm[3]=10;
             }
-        wybicie=true;
-        cdwybycie=false;
-        alarm[4]=room_speed*0.75;
         }
-    else /*if (abs(phy_speed_x)&lt;1)*/
+    else 
         {
         phy_speed_x/=10;
         sprite_index=Vspr_wybicie_ziemia;
@@ -471,10 +469,11 @@ if (ch_Kwybicie_p and !have_ball and cdwybycie)
             {
             alarm[3]=10;
             }
+        }
         wybicie=true;
         cdwybycie=false;
         alarm[4]=room_speed*0.75;
-        }
+        obrotable = false;
     }
     
 //Skakanie sure maker
