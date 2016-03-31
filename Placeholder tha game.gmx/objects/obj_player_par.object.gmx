@@ -198,39 +198,33 @@ else
     //ch_Kleft_r=(keyboard_check_released(Kleft) or gamepad_button_check_released(player-1 , gp_padl));
     //ch_Kright_r=(keyboard_check_released(Kright) or gamepad_button_check_released(player-1 , gp_padr));
     ch_Kup_p=(keyboard_check_pressed(Kup) or gamepad_button_check_pressed(player-1 , gp_face1));
-    ch_Kdown_p=(keyboard_check_pressed(Kdown) or gamepad_button_check_pressed(player-1 , gp_padd) or gamepad_button_check_pressed(player-1 , gp_stickl));
+    //ch_Kdown_p=(keyboard_check_pressed(Kdown) or gamepad_button_check_pressed(player-1 , gp_padd) or gamepad_button_check_pressed(player-1 , gp_stickl));
     ch_Kthrow_p=(keyboard_check_pressed(Kthrow) or gamepad_button_check_pressed(player-1 , gp_face2));
     ch_Kthrow=(keyboard_check(Kthrow) or gamepad_button_check(player-1 , gp_face2));
     ch_Kthrow_r=(keyboard_check_released(Kthrow) or gamepad_button_check_released(player-1,gp_face2));
     ch_Kwybicie_p=(keyboard_check_pressed(Kwybicie) or gamepad_button_check_pressed(player-1 , gp_face3));
 }
-/*/maxspeed v.2
-if (abs(phy_speed_x)&gt;max_xspeed)
-{ 
-    if (phy_speed_x&gt;max_xspeed)
-        phy_speed_x=max_xspeed;
-    else
-        phy_speed_x=-max_xspeed;
-}
-    */
+dtohoop=distance_to_object(obj_obrecz);
 
+//Skakanie sure maker
+if (place_meeting(x,y+1,obj_spod))
+jumping=false;
+else jumping=true;
     
 if (have_ball)
     {
-    move_speed=3200;
+    move_speed=3800;
     phy_speed_x=max(min(phy_speed_x,max_xspeed),-max_xspeed);
     }
 else
     {
-    move_speed=3600; 
+    move_speed=4000; 
     phy_speed_x=max(min(phy_speed_x,max_xspeed_woball),-max_xspeed_woball);
     }
-
-
+    
 //wybijarka
 if (have_ball)
 {
-    move_speed=3800;
     if (jumping)
         {
         obj_ball_wybicie.y=y-56;
@@ -258,9 +252,8 @@ if (have_ball)
     blok.phy_position_y=0;
     blok.phy_position_x=0;
 } 
-else if (!have_ball)
+/*else if (!have_ball)
 {
-    move_speed=4000;
     if (jumping and !wybicie)
     {   
         if (obrot==0)
@@ -279,22 +272,22 @@ else if (!have_ball)
         blok.phy_position_y=0;
         blok.phy_position_x=0;
     }
-}
+}*/
 
 
-if (jumping or prejump) phy_speed_x/=1.1;
+if ((jumping or prejump) and !dunk) phy_speed_x/=1.1;
 
 
 //Zbiorka
-if (ch_Kdown_p )
+if (instance_exists(obj_ball))
     {
-    if (collision_rectangle( x-30, y-30, x+30, y+70, obj_ball, false, false ))
+    if (collision_rectangle( x-25, y-30, x+25, y+60, obj_ball, false, false ) and obj_ball.pickup)
         {
         scr_prezbiorka();
         }
     }        
 //Ruch w lewo (Priorytet)
-if (ch_Kleft)
+if (ch_Kleft and !dunk)
     {
 
     
@@ -308,6 +301,11 @@ if (ch_Kleft)
           
     if (!throwing and !wybicie)
         { 
+            if (phy_speed_x==0 and !jumping ) 
+            {
+                part_type_scale(partsys, -1, 1);
+                part_particles_create(partsys,x+30,y+70,partplayer,1);
+            }
             if (obrotable)
             {
                 if (have_ball) 
@@ -322,7 +320,7 @@ if (ch_Kleft)
         physics_apply_force(x,y,-move_speed,5);
     }
 //Ruch w prawo
-else if (ch_Kright)
+else if (ch_Kright and !dunk)
     {
 
     
@@ -335,6 +333,11 @@ else if (ch_Kright)
     if (have_ball)  global.zbiorka=false;      
     if (!throwing and !wybicie) 
         {
+            if (phy_speed_x==0 and !jumping) 
+            {
+                part_type_scale(partsys, 1, 1);
+                part_particles_create(partsys,x-30,y+70,partplayer,1);
+            }
             if (obrotable)
             {
                 if (have_ball) 
@@ -352,14 +355,14 @@ else if (ch_Kright)
 //Zatrzymanie
 if phy_speed_x=0 
     {
-    if (!throwing and !jumping and !prejump and obrotable and !wybicie /*and !global.zbiorka*/)
+    if (!throwing and !jumping and !prejump and obrotable and !wybicie and !ch_Kright and !ch_Kleft/*and !global.zbiorka*/)
         {
         if (have_ball) sprite_index=Vspr_idle;
         else sprite_index=Vspr_idle_woball; 
         } 
     }
-//rzut
-if (have_ball)
+//Rzut
+if (have_ball and !dunk)
     {
     if (ch_Kthrow_p )
         {
@@ -417,33 +420,14 @@ if (have_ball)
         else
              throwing=false;
         }
-    }       
-//wyskok
-if (ch_Kup_p and !jumping)
-    {
-    if (place_meeting(x,y+1,obj_collision))
-        {
-        obrotable = false;
-        prejump=true;
-        alarm[1]=15;
-        if (have_ball)
-            {
-            sprite_index=Vspr_wyskok;
-            image_index=0;
-            foul=true;
-            }
-        else
-            {
-            sprite_index=Vspr_wyskok_woball;
-            image_index=0;
-            }
-        } 
-    } 
+    }
 //Wybicie
-if (ch_Kwybicie_p and !have_ball and cdwybycie)
+else if (!have_ball)
+{
+    if (ch_Kthrow_p and cdwybycie)
     {
     
-    if (jumping)
+    if (jumping and !dunk)
         {
         sprite_index=Vspr_wybicie_midair;
         image_index=0;
@@ -475,17 +459,38 @@ if (ch_Kwybicie_p and !have_ball and cdwybycie)
         alarm[4]=room_speed*0.75;
         obrotable = false;
     }
-    
-//Skakanie sure maker
-if (place_meeting(x,y+1,obj_spod))
-jumping=false;
-else jumping=true;
-
-
-
-
-
-
+}      
+//wyskok
+if (ch_Kup_p)
+{
+    if (!jumping)
+    {
+        if (place_meeting(x,y+1,obj_collision))
+            {
+            obrotable = false;
+            prejump=true;
+            alarm[1]=15;
+            if (have_ball)
+                {
+                sprite_index=Vspr_wyskok;
+                image_index=0;
+                foul=true;
+                }
+            else
+                {
+                sprite_index=Vspr_wyskok_woball;
+                image_index=0;
+                }
+            }
+    }
+    else if (jumping and !dunk and have_ball)
+    {
+        show_debug_message("WSAD ATTEMPT");
+        dunk = true;
+        timeline_position=0;
+        timeline_running=true;
+    } 
+} 
 </string>
           </argument>
         </arguments>

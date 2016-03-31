@@ -52,6 +52,8 @@ else
         obj_player.phy_position_y=700;
         
     }
+    obj_kosz_dol.phy_active=true;
+    obj_kosz_dol_p.phy_active=true;
 
 }
 

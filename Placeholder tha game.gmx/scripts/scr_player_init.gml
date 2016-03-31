@@ -20,6 +20,14 @@ obrot=0;
 obrotable=true;
 wybicie=false;
 foul=false;
+dtohoop=0;
+dunk=false;
+timeline_index=tl_dunk;
+//player particles
+partsys=part_system_create();
+partplayer=part_type_create();
+part_type_sprite(partplayer,spr_dirt_p,true,true,false);
+part_type_life(partplayer,room_speed/2,room_speed/2);
 
 
 if (player==1)

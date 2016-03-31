@@ -21,6 +21,7 @@ switch (skin_id)
         Vspr_wybicie_ziemia=spr_wybicie_ziemia;
         Vspr_wyskok=spr_wyskok;
         Vspr_wyskok_woball=spr_wyskok_woball;
+        Vspr_dunk=spr_dunk;
     break;
     case 1:
         Vspr_idle=spr_idle;
@@ -38,6 +39,7 @@ switch (skin_id)
         Vspr_wybicie_ziemia=spr_wybicie_ziemia;
         Vspr_wyskok=spr_wyskok;
         Vspr_wyskok_woball=spr_wyskok_woball;
+        Vspr_dunk=spr_dunk;
     break;
     
     case 2:
@@ -56,6 +58,7 @@ switch (skin_id)
         Vspr_wybicie_ziemia=spr_wybicie_ziemia_2;
         Vspr_wyskok=spr_wyskok_2;
         Vspr_wyskok_woball=spr_wyskok_woball_2;
+        Vspr_dunk=spr_dunk;
     break;
         case 3:
         Vspr_idle=spr_idle_3;
@@ -73,6 +76,7 @@ switch (skin_id)
         Vspr_wybicie_ziemia=spr_wybicie_ziemia_3;
         Vspr_wyskok=spr_wyskok_3;
         Vspr_wyskok_woball=spr_wyskok_woball_3;
+        Vspr_dunk=spr_dunk;
     break;
     
        

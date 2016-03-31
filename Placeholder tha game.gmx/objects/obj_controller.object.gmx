@@ -72,6 +72,7 @@ winpercent=50;
 avatar=spr_ball;
 global.music=0;
 scr_stats_init();
+global.d=0;
 
 
 ini_open("game.ini");
@@ -512,6 +513,7 @@ ini_close();
             <string>if (async_load[? "event_type"]= "gamepad discovered")
 {
     show_debug_message("Gamepad Discovered:"+ gamepad_get_description(0)+string(gamepad_get_device_count()));
+    scr_info("cpad");
     if gamepad_is_connected(0) gamepad_set_axis_deadzone(0, 0.5);
     if gamepad_is_connected(1) gamepad_set_axis_deadzone(1, 0.5);
 }
@@ -547,8 +549,8 @@ if(resultid==request[0]) //If it was user information.
         show_message("All good "+ gj_user_username());
         if (gj_session_open())
             alarm[6]=room_speed*30;
-        gj_trophy_add("52336");
         request[1]=gj_user_info_fromusername(gj_user_username());
+        request[2]=gj_trophy_get(false);
         
     }    
     else
@@ -569,6 +571,24 @@ else if (resultid==request[1] and gj_user_isloggedin())
     else
         show_debug_message(gj_result_status());
         
+}
+else if (resultid==request[2] and gj_user_isloggedin())
+{
+    if(gj_result_status())
+    {
+        var number=gj_result_data_count();
+        for (i=0 ; i&lt;number ; i++)
+        {
+            if (gj_result_data_field_num("id",i)=="52336")
+            {
+                gj_trophy_add("52336");
+                scr_info("a1");
+            }
+            show_debug_message(gj_result_data_field_num("id",i));
+        }
+    }
+    else
+        show_debug_message(gj_result_status());
 }
 gj_result_clear()
 
@@ -698,7 +718,7 @@ if (instance_exists(obj_player_par))
         draw_set_font(font_default);
         draw_set_halign(fa_left);
         draw_text(view_xview[view_current],view_yview[view_current]+12,"Prejump: "+ string(obj_player.prejump));
-        draw_rectangle(obj_player.x-30,obj_player.y-30,obj_player.x+30,obj_player.y+70,true);//gracz
+        draw_rectangle(obj_player.x-25,obj_player.y-30,obj_player.x+25,obj_player.y+60,true);//gracz
         draw_rectangle(obj_player.x-60,obj_player.y-5,obj_player.x-10,obj_player.y+20,true);//reka p1
         draw_rectangle(obj_player_2.x-50,obj_player_2.y-50,obj_player_2.x-10,obj_player_2.y,true);//reka p2
         draw_text(view_xview[view_current]+20,view_yview[view_current],"FPS: "+string(fps)+" RFPS: "+string(fps_real));
@@ -710,6 +730,8 @@ if (instance_exists(obj_player_par))
         draw_text(view_xview[view_current],view_yview[view_current]+84,"V1: "+string(view_visible[1]));
         draw_text(view_xview[view_current],view_yview[view_current]+96,"V2: "+string(view_visible[2]));
         draw_text(view_xview[view_current],view_yview[view_current]+108,"axislh: "+string(gamepad_axis_value(0, gp_axislh)));
+        draw_text(view_xview[view_current],view_yview[view_current]+120,"d1tohoop "+string(obj_player.dtohoop));
+        draw_text(view_xview[view_current],view_yview[view_current]+132,"d2tohoop "+string(obj_player_2.dtohoop));
     }
 }
 //Wskaźnik

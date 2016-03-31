@@ -38,6 +38,7 @@
           <sprite>sprites\spr_wybicie_ziemia</sprite>
           <sprite>sprites\spr_wyskok</sprite>
           <sprite>sprites\spr_wyskok_woball</sprite>
+          <sprite>sprites\spr_dunk</sprite>
         </sprites>
         <sprites name="Player_2">
           <sprite>sprites\spr_idle_2</sprite>
@@ -120,6 +121,10 @@
       <sprite>sprites\spr_gamejolt_button</sprite>
       <sprite>sprites\spr_avatar_frame</sprite>
       <sprite>sprites\spr_map_select</sprite>
+      <sprites name="info">
+        <sprite>sprites\spr_info</sprite>
+        <sprite>sprites\spr_info_a1</sprite>
+      </sprites>
     </sprites>
     <sprites name="Randomshit">
       <sprite>sprites\spr_help</sprite>
@@ -142,6 +147,9 @@
       <sprite>sprites\spr_indicator_p2</sprite>
     </sprites>
     <sprite>sprites\spr_experimental</sprite>
+    <sprites name="Particles">
+      <sprite>sprites\spr_dirt_p</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\ti_kosz</background>
@@ -160,6 +168,14 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
+    <scripts name="State Machine">
+      <script>scripts\scr_sm_init.gml</script>
+      <script>scripts\scr_sm_state0.gml</script>
+      <script>scripts\scr_sm_state1.gml</script>
+      <script>scripts\scr_sm_state2.gml</script>
+      <script>scripts\scr_sm_state3.gml</script>
+      <script>scripts\scr_sm_state4.gml</script>
+    </scripts>
     <script>scripts\Restart.gml</script>
     <script>scripts\scr_kosz.gml</script>
     <script>scripts\scr_convert.gml</script>
@@ -173,17 +189,10 @@
     <script>scripts\scr_set_skin.gml</script>
     <script>scripts\scr_player_init.gml</script>
     <script>scripts\scr_get_ball_skin_by_id.gml</script>
-    <scripts name="State Machine">
-      <script>scripts\scr_sm_init.gml</script>
-      <script>scripts\scr_sm_state0.gml</script>
-      <script>scripts\scr_sm_state1.gml</script>
-      <script>scripts\scr_sm_state2.gml</script>
-      <script>scripts\scr_sm_state3.gml</script>
-      <script>scripts\scr_sm_state4.gml</script>
-    </scripts>
     <script>scripts\scr_pop_up.gml</script>
     <script>scripts\gj_init.gml</script>
     <script>scripts\scr_stats_init.gml</script>
+    <script>scripts\scr_info.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_VCR</font>
@@ -244,6 +253,7 @@
       <object>objects\obj_camera</object>
       <object>objects\obj_state_machine</object>
       <object>objects\obj_camera_menu</object>
+      <object>objects\obj_info</object>
     </objects>
     <objects name="plansza">
       <object>objects\obj_clouds</object>
@@ -256,6 +266,9 @@
     <object>objects\obj_stats_display</object>
     <object>objects\objj_map_display</object>
   </objects>
+  <timelines name="timelines">
+    <timeline>timelines\tl_dunk</timeline>
+  </timelines>
   <rooms name="rooms">
     <room>rooms\R_mainmenu_v3</room>
     <room>rooms\R_level_select</room>

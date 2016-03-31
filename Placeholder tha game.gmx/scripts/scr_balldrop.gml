@@ -4,6 +4,7 @@ global.zbiorka=false;
 instance_create(obj_ball_wybicie.x+10,obj_ball_wybicie.y+15,obj_ball);
 obj_camera.following=obj_ball;
 have_ball=false;
+foul=false;
 depth=1;
 throwing=false;
 obj_ball_wybicie.x=0;
