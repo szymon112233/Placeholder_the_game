@@ -11,6 +11,7 @@
     <sound>sound\sd_pilka</sound>
     <sound>sound\menu_sound</sound>
     <sound>sound\sd_bgmusic</sound>
+    <sound>sound\sd_whistle</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Skins">
@@ -39,6 +40,8 @@
           <sprite>sprites\spr_wyskok</sprite>
           <sprite>sprites\spr_wyskok_woball</sprite>
           <sprite>sprites\spr_dunk</sprite>
+          <sprite>sprites\spr_dunk_flight</sprite>
+          <sprite>sprites\spr_dunk_fail</sprite>
         </sprites>
         <sprites name="Player_2">
           <sprite>sprites\spr_idle_2</sprite>
@@ -254,12 +257,12 @@
       <object>objects\obj_state_machine</object>
       <object>objects\obj_camera_menu</object>
       <object>objects\obj_info</object>
+      <object>objects\obj_pop_up</object>
     </objects>
     <objects name="plansza">
       <object>objects\obj_clouds</object>
       <object>objects\obj_drzewko</object>
       <object>objects\obj_dym</object>
-      <object>objects\obj_pop_up</object>
       <object>objects\obj_light</object>
     </objects>
     <object>objects\obj_skindisplay</object>

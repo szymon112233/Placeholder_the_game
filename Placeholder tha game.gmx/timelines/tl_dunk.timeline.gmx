@@ -95,7 +95,7 @@ else
 {
     show_debug_message("wsad fail");
     //sprite_index=Vspr_dunk;
-    timeline_position=120;
+    timeline_position=140;
     
 }
 </string>
@@ -126,9 +126,9 @@ else
             <string>phy_position_y+=5;
 global.ball="wsad";
 if (obrot==0)
-    instance_create(x+30,y-10,obj_ball);
+    instance_create(x+35,y-5,obj_ball);
 else if (obrot==1)
-    instance_create(x-30,y-10,obj_ball);
+    instance_create(x-35,y-5,obj_ball);
 have_ball=false;
 </string>
           </argument>
@@ -159,6 +159,34 @@ have_ball=false;
 image_speed=0.185;
 phy_active=true;
 sprite_index=Vspr_idle_woball;
+timeline_running=false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>140</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>sprite_index=spr_dunk_flight;
+alarm[5]=5;
 timeline_running=false;
 </string>
           </argument>

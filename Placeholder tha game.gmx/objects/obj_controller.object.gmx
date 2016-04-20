@@ -74,6 +74,8 @@ global.music=0;
 scr_stats_init();
 global.d=0;
 
+physics_world_update_speed(140);
+
 
 ini_open("game.ini");
 ini_write_string("test","test","test");

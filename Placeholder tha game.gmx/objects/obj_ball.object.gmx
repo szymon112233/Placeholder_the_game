@@ -100,6 +100,37 @@ else if (global.ball="wybicie")
             }
         }
     }
+else if (global.ball="dunk_fail")
+    {
+    pickup=false;
+    alarm[0]=room_speed;
+    if (obj_player.have_ball=true)
+        {
+        if (obj_player.obrot=0)
+            {
+            physics_apply_impulse(x,y,5,0);
+            physics_apply_torque(-130);
+            }
+        else if (obj_player.obrot=1)
+            {
+            physics_apply_impulse(x,y,-5,0);
+            physics_apply_torque(130);
+            }
+        }
+    else 
+        {
+        if (obj_player_2.obrot=0)
+            {
+            physics_apply_impulse(x,y,5,0);
+            physics_apply_torque(-130);
+            }
+        else if (obj_player_2.obrot=1)
+            {
+            physics_apply_impulse(x,y,-5,0);
+            physics_apply_torque(130);
+            }
+        }
+    }
 else if (global.ball="random")  
 {
     physics_apply_torque(random_range(-130,130));
@@ -109,7 +140,7 @@ else if (global.ball=="wsad")
 {
     pickup=false;
     alarm[0]=room_speed*2;    
-}  
+}
 sprite_index=scr_get_ball_skin_by_id(global.skinball);
 
 

@@ -19,6 +19,7 @@ else if (type=="foul")
     obj_pop_up.yscale=5;
     obj_pop_up.alarm[1]=1;
     obj_pop_up.sprite_index=spr_foul;
+    audio_play_sound(sd_whistle,1,0);
 }
 else if (type=="end") 
 {
