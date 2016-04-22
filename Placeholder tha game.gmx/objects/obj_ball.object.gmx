@@ -355,8 +355,9 @@ if (obj_controller.shake!=true)
 {
 gamepad_set_vibration(0, 0.3, 0.3);
 gamepad_set_vibration(1, 0.3, 0.3);
-obj_controller.alarm[2]=15;
+obj_controller.alarm[2]=30;
 obj_controller.shake=true;
+obj_controller.alarm[5]=30;
 }
 
 </string>

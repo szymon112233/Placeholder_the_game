@@ -25,3 +25,10 @@ else if (type=="end")
 {
     obj_pop_up.sprite_index=spr_score_end;
 }
+else if (type=="dunk") 
+{
+    obj_pop_up.xscale=5;
+    obj_pop_up.yscale=5;
+    obj_pop_up.alarm[1]=1;
+    obj_pop_up.sprite_index=spr_slam_dunk;
+}

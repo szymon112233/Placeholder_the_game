@@ -283,8 +283,6 @@ physics_pause_enable(false);
           <argument>
             <kind>1</kind>
             <string>///Screnshake turnoffer
-gamepad_set_vibration(0, 0, 0);
-gamepad_set_vibration(1, 0, 0);
 shake=false;
 </string>
           </argument>

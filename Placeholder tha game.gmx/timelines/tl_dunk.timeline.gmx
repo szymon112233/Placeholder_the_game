@@ -21,7 +21,8 @@
             <kind>1</kind>
             <string>image_speed=0;
 foul=false;
-physics_apply_impulse(phy_position_x, phy_position_y, 0, -500);
+phy_speed_y=0;
+physics_apply_impulse(phy_position_x, phy_position_y, 0, jump_force);
 sprite_index=Vspr_dunk;
 image_index=0;
 </string>
@@ -88,13 +89,14 @@ image_index=0;
     {
         phy_position_x=202
     }
-    phy_position_y=595;
+    phy_position_y=600;
     
 }
 else
 {
     show_debug_message("wsad fail");
-    timeline_position=140;
+    
+    timeline_position=200;
     
 }
 </string>
@@ -136,7 +138,7 @@ have_ball=false;
     </event>
   </entry>
   <entry>
-    <step>120</step>
+    <step>190</step>
     <event>
       <action>
         <libid>1</libid>
@@ -166,7 +168,33 @@ timeline_running=false;
     </event>
   </entry>
   <entry>
-    <step>140</step>
+    <step>195</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///The loop starts here
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>200</step>
     <event>
       <action>
         <libid>1</libid>
@@ -186,6 +214,11 @@ timeline_running=false;
             <kind>1</kind>
             <string>if(distance_to_point(x,798)&lt;=40)
 {
+    gamepad_set_vibration(0, 50, 50);
+    gamepad_set_vibration(1, 50, 50);
+    obj_controller.alarm[5]=room_speed;
+    obj_controller.alarm[2]=30;
+    obj_controller.shake=true;
     sprite_index=Vspr_dunk_flight;
     timeline_running=false;
     image_speed=0.185;
@@ -199,7 +232,7 @@ timeline_running=false;
     alarm[6]=room_speed*2;
 }
 else
-    timeline_position=135;
+    timeline_position=195;
 </string>
           </argument>
         </arguments>

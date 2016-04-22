@@ -274,8 +274,8 @@ if (have_ball)
         else obj_ball_wybicie.x=x+24;
         }
     //So that it wont bug out
-    blok.phy_position_y=0;
-    blok.phy_position_x=0;
+    //blok.phy_position_y=0;
+    //blok.phy_position_x=0;
 } 
 /*else if (!have_ball)
 {
@@ -448,7 +448,7 @@ if (have_ball and !dunk)
         }
     }
 //Wybicie
-else if (!have_ball)
+else if (!have_ball and !dunk)
 {
     if (ch_Kthrow_p and cdwybycie)
     {
@@ -489,7 +489,7 @@ else if (!have_ball)
 //wyskok
 if (ch_Kup_p)
 {
-    if (!jumping)
+    if (!jumping and !prejump)
     {
         if (place_meeting(x,y+1,obj_collision))
             {

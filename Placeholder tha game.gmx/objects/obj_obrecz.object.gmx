@@ -133,7 +133,12 @@ if (punktable)
      }
     punktable=false;
     if (obj_controller.alarm[7]==-1)
-        scr_pop_up(90,"score");
+    {
+        if (global.ball="wsad")
+            scr_pop_up(90,"dunk");
+        else
+            scr_pop_up(90,"score");
+    }
     
     alarm[1]=90;
     alarm[0]=180;
