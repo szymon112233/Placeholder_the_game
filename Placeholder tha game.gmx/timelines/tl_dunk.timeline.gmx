@@ -94,7 +94,6 @@ image_index=0;
 else
 {
     show_debug_message("wsad fail");
-    //sprite_index=Vspr_dunk;
     timeline_position=140;
     
 }
@@ -158,7 +157,7 @@ have_ball=false;
             <string>dunk=false;
 image_speed=0.185;
 phy_active=true;
-sprite_index=Vspr_idle_woball;
+sprite_index=Vspr_skok_woball;
 timeline_running=false;
 </string>
           </argument>
@@ -185,9 +184,22 @@ timeline_running=false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>sprite_index=spr_dunk_flight;
-alarm[5]=5;
-timeline_running=false;
+            <string>if(distance_to_point(x,798)&lt;=40)
+{
+    sprite_index=Vspr_dunk_flight;
+    timeline_running=false;
+    image_speed=0.185;
+    sprite_index=Vspr_dunk_fail;
+    global.ball="dunk_fail";
+    if (obrot==0)
+        instance_create(x+35,y+60,obj_ball);
+    else if (obrot==1)
+        instance_create(x-35,y+60,obj_ball);
+    have_ball=false;
+    alarm[6]=room_speed*2;
+}
+else
+    timeline_position=135;
 </string>
           </argument>
         </arguments>

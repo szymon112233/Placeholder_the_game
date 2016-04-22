@@ -59,6 +59,9 @@
           <sprite>sprites\spr_wybicie_ziemia_2</sprite>
           <sprite>sprites\spr_wyskok_2</sprite>
           <sprite>sprites\spr_wyskok_woball_2</sprite>
+          <sprite>sprites\spr_dunk_2</sprite>
+          <sprite>sprites\spr_dunk_flight_2</sprite>
+          <sprite>sprites\spr_dunk_fail_2</sprite>
         </sprites>
         <sprites name="3">
           <sprite>sprites\spr_idle_3</sprite>
@@ -76,6 +79,9 @@
           <sprite>sprites\spr_wybicie_ziemia_3</sprite>
           <sprite>sprites\spr_wyskok_3</sprite>
           <sprite>sprites\spr_wyskok_woball_3</sprite>
+          <sprite>sprites\spr_dunk_3</sprite>
+          <sprite>sprites\spr_dunk_flight_3</sprite>
+          <sprite>sprites\spr_dunk_fail_3</sprite>
         </sprites>
       </sprites>
       <sprite>sprites\spr_maps</sprite>
