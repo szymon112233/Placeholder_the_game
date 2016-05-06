@@ -23,6 +23,8 @@ foul=false;
 dtohoop=0;
 dunk=false;
 timeline_index=tl_dunk;
+ball_x=0;
+ball_y=0;
 //player particles
 partsys=part_system_create();
 partplayer=part_type_create();

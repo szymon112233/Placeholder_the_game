@@ -251,11 +251,17 @@ else
 if (have_ball)
 {
     if (jumping)
-        {
+    {
         obj_ball_wybicie.y=y-56;
-        if (obrot==1) obj_ball_wybicie.x=x-34;
-        else obj_ball_wybicie.x=x+14;
+        if (obrot==1)
+        { 
+            obj_ball_wybicie.x=x-34;
         }
+        else 
+        {
+            obj_ball_wybicie.x=x+14;
+        }
+    }
     else if (throwing or prejump)
         {
         obj_ball_wybicie.y=y-50;
@@ -562,11 +568,120 @@ if (ch_Kup_p)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self();
-if (have_ball)
+            <string>if (have_ball)
 {
-    //draw_sprite(spr_ball,0,obj_ball_wybicie.x,obj_ball_wybicie.y);
+    image= floor(image_index);
+    if (sprite_index=Vspr_skok)
+    {
+        ball_y=y-46;
+        if (obrot==1)
+            ball_x=x-24;
+        else 
+            ball_x=x+24;
+    }
+    else if (sprite_index=Vspr_bieg_koz)
+    {
+        if (obrot==1) ball_x=x-28;
+        else ball_x=x+28;
+
+        if (image==0)
+            ball_y=y+26;
+        else if (image==1)
+            ball_y=y+42;
+        else if (image==2)
+            ball_y=y+60;
+        else if (image==3)
+            ball_y=y+54;
+        else if (image==4)
+            ball_y=y+42;
+        else if (image==5)
+            ball_y=y+32;
+        else if (image==6)
+            ball_y=y+26;
+        else if (image==7)
+            ball_y=y+44;
+        else if (image==8)
+            ball_y=y+60;
+        else if (image==9)
+            ball_y=y+54;
+        else if (image==10)
+            ball_y=y+44;
+        else if (image==11)
+            ball_y=y+34;
+    
+    }
+    else if (sprite_index=Vspr_idle_grab)
+    {
+        ball_y=y+18;
+        ball_x=x;
+    }
+    else if (sprite_index=Vspr_prerzut)
+    {
+        ball_y=y-40;
+        if (obrot==1) ball_x=x-20;
+        else ball_x=x+20;
+    }
+    else if (sprite_index=Vspr_wyskok)
+    {
+        if (obrot==1)
+        {
+            if(image&gt;=0 and image&lt;4)
+            {
+                ball_x=x-36;
+                ball_y=y-18;
+            }
+            else
+            {
+                ball_x=x-20;
+                ball_y=y-40;
+            }
+            
+        }
+        else
+        {
+            if(image&gt;=0 and image&lt;4)
+            {
+                ball_x=x+36;
+                ball_y=y-18;
+            }
+            else
+            {
+                ball_x=x+20;
+                ball_y=y-40;
+            }
+            
+        }
+    }
+    else if (sprite_index=Vspr_dunk)
+        {
+        ball_y=y-46;
+        if (obrot==1) ball_x=x-24;
+        else ball_x=x+24;
+        }
+    else if (sprite_index=Vspr_dunk_flight)
+        {
+        ball_y=y-36;
+        if (obrot==1) ball_x=x-15;
+        else ball_x=x+15;
+        }
+    else if (sprite_index=Vspr_idle)
+    {
+        if (obrot==1) ball_x=x-34;
+        else ball_x=x+34;
+
+        if (image==0)
+            ball_y=y+26;
+        else if (image==1)
+            ball_y=y+42;
+        else if (image==2)
+            ball_y=y+60;
+        else if (image==3)
+            ball_y=y+42;
+    }
+
+    draw_sprite(scr_get_ball_skin_by_id(global.skinball),0,ball_x,ball_y);
 }
+draw_self();
 </string>
           </argument>
         </arguments>

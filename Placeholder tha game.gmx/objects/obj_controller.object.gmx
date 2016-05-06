@@ -48,7 +48,7 @@ global.zbiorka=false;
 global.skincount=3;
 global.skin1=1;
 global.skin2=2;
-global.skinball=1;
+global.skinball=2;
 global.mapcount=3;
 global.map=1;
 //Particles
@@ -484,7 +484,7 @@ ini_open("game.ini");
     keyboard_lastkey=-1;
     mkey++;
     
-    if (mkey==7) mapping = false;  
+    if (mkey==6) mapping = false;  
 ini_close(); 
 }
 
