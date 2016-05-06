@@ -21,6 +21,9 @@
       <sprites name="Balls">
         <sprite>sprites\spr_ball</sprite>
         <sprite>sprites\spr_ball_2</sprite>
+        <sprite>sprites\spr_ball_3</sprite>
+        <sprite>sprites\spr_ball_4</sprite>
+        <sprite>sprites\spr_ball_5</sprite>
       </sprites>
       <sprites name="Players">
         <sprites name="Player_1">
@@ -156,7 +159,6 @@
       <sprite>sprites\spr_indicator_p1</sprite>
       <sprite>sprites\spr_indicator_p2</sprite>
     </sprites>
-    <sprite>sprites\spr_experimental</sprite>
     <sprites name="Particles">
       <sprite>sprites\spr_dirt_p</sprite>
     </sprites>

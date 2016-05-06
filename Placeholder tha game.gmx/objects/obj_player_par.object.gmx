@@ -649,21 +649,74 @@ if (ch_Kup_p)
                 ball_x=x+20;
                 ball_y=y-40;
             }
-            
         }
     }
     else if (sprite_index=Vspr_dunk)
+    {
+        if (obrot==1)
         {
-        ball_y=y-46;
-        if (obrot==1) ball_x=x-24;
-        else ball_x=x+24;
+            if (image=0)
+            {
+                ball_x=0;
+                ball_y=0;
+            }
+            else if (image=1)
+            {
+                ball_x=x+17;
+                ball_y=y-38;
+            }
+            else if (image=2)
+            {
+                ball_x=x-3;
+                ball_y=y-56;
+            }
+            else if (image=3)
+            {
+                ball_x=x-30;
+                ball_y=y-34;
+            }
+            else if (image=4)
+            {
+                ball_x=x-44;
+                ball_y=y-12;
+            }
         }
+        else
+        {
+            if (image=0)
+            {
+                ball_x=0;
+                ball_y=0;
+            }
+            else if (image=1)
+            {
+                ball_x=x-17;
+                ball_y=y-38;
+            }
+            else if (image=2)
+            {
+                ball_x=x+3;
+                ball_y=y-56;
+            }
+            else if (image=3)
+            {
+                ball_x=x+30;
+                ball_y=y-34;
+            }
+            else if (image=4)
+            {
+                ball_x=x+44;
+                ball_y=y-12;
+            }
+            
+        }
+    }
     else if (sprite_index=Vspr_dunk_flight)
-        {
-        ball_y=y-36;
-        if (obrot==1) ball_x=x-15;
-        else ball_x=x+15;
-        }
+    {
+        ball_y=y-38;
+        if (obrot==1) ball_x=x-17;
+        else ball_x=x+17;
+    }
     else if (sprite_index=Vspr_idle)
     {
         if (obrot==1) ball_x=x-34;
