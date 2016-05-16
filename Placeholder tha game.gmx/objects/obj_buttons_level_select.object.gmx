@@ -206,6 +206,9 @@ if (selection1 and selection2 and selectionmap and selectionball and selectionti
     global.ball="play"; 
     obj_controller.alarm[1]=60;
     if (global.bot) instance_create(0,0,obj_state_machine);
+    global.request_type="data";
+    obj_controller.request[0]=gj_datastore_update_global("Matches started", "1", "add");
+    
     room_goto(R_level_1);
 }
 

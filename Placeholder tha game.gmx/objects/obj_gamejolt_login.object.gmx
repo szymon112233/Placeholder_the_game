@@ -100,6 +100,7 @@ gj_user_autologin();
     if (!gj_user_isloggedin())
     {
     var user=get_string("Please type your Gamejolt username","");
+    global.request_type="login";
     obj_controller.request[0]=gj_user_login(user,get_string("And your user token",""));
     }
     else

@@ -12,8 +12,19 @@
   <showcolour>-1</showcolour>
   <code>obj_controller.alarm[4]=room_speed;
 global.ball="free";
-//if gamepad_is_connected(0) gamepad_set_axis_deadzone(0, 0.5);
-//if gamepad_is_connected(1) gamepad_set_axis_deadzone(1, 0.5);</code>
+global.request_type="data";
+switch(global.skinball)
+    {
+        case 1: obj_controller.request[3]=gj_datastore_update_global("Ball 1", "1", "add"); break;
+        case 2: obj_controller.request[3]=gj_datastore_update_global("Ball 2", "1", "add"); break;
+        case 3: obj_controller.request[3]=gj_datastore_update_global("Ball 3", "1", "add"); break;
+        case 4: obj_controller.request[3]=gj_datastore_update_global("Ball 4", "1", "add"); break;
+        case 5: obj_controller.request[3]=gj_datastore_update_global("Ball 5", "1", "add"); break;
+        case 6: obj_controller.request[3]=gj_datastore_update_global("Ball 6", "1", "add"); break;
+        case 7: obj_controller.request[3]=gj_datastore_update_global("Ball 7", "1", "add"); break;
+        default: show_debug_message("Unknown ball !"); break;
+        
+    }</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>

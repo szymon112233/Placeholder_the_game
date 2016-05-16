@@ -74,6 +74,7 @@ avatar=spr_ball;
 global.music=0;
 scr_stats_init();
 global.d=0;
+global.request_type="none";
 
 physics_world_update_speed(140);
 
@@ -544,21 +545,33 @@ ini_close();
             <string>var resultid= gj_result_id();
 if(resultid==request[0]) //If it was user information.
 {
-    var status=gj_result_status();
-    if(status)
+    if(global.request_type=="login")
     {
-        show_message("All good "+ gj_user_username());
-        if (gj_session_open())
-            alarm[6]=room_speed*30;
-        request[1]=gj_user_info_fromusername(gj_user_username());
-        request[2]=gj_trophy_get(false);
-        
-    }    
-    else
-    if(status==0)
-    show_message(gj_result_error());
-    else
-    show_message("GameMaker error");
+        var status=gj_result_status();
+        if(status)
+        {
+            show_message("All good "+ gj_user_username());
+            if (gj_session_open())
+                alarm[6]=room_speed*30;
+            request[1]=gj_user_info_fromusername(gj_user_username());
+            request[2]=gj_trophy_get(false);
+            
+        }    
+        else
+        if(status==0)
+        show_message(gj_result_error());
+        else
+        show_message("GameMaker error");
+    }
+    else if (global.request_type="data")
+    {
+        if(gj_result_status())
+        {
+            show_debug_message(gj_result_data_field("data"));
+        }
+        else
+            show_debug_message(gj_result_status());
+    }
 }
 else if (resultid==request[1] and gj_user_isloggedin())
 {
