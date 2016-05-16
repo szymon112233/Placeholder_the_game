@@ -24,6 +24,8 @@
         <sprite>sprites\spr_ball_3</sprite>
         <sprite>sprites\spr_ball_4</sprite>
         <sprite>sprites\spr_ball_5</sprite>
+        <sprite>sprites\spr_ball_6</sprite>
+        <sprite>sprites\spr_ball_7</sprite>
       </sprites>
       <sprites name="Players">
         <sprites name="Player_1">
@@ -89,6 +91,7 @@
       </sprites>
       <sprite>sprites\spr_maps</sprite>
       <sprite>sprites\spr_selected</sprite>
+      <sprite>sprites\spr_black</sprite>
     </sprites>
     <sprites name="Kosz">
       <sprite>sprites\spr_kosz</sprite>
@@ -277,6 +280,7 @@
     <object>objects\obj_skindisplay</object>
     <object>objects\obj_stats_display</object>
     <object>objects\objj_map_display</object>
+    <object>objects\obj_ball_display</object>
   </objects>
   <timelines name="timelines">
     <timeline>timelines\tl_dunk</timeline>

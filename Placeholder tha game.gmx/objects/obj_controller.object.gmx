@@ -48,9 +48,10 @@ global.zbiorka=false;
 global.skincount=3;
 global.skin1=1;
 global.skin2=2;
-global.skinball=5;
-global.mapcount=3;
+global.skinball=1;
+global.ballcount=7;
 global.map=1;
+global.mapcount=3;
 //Particles
 global.psys=part_system_create();
 global.ptype=part_type_create();

@@ -8,4 +8,6 @@ switch (ball_id)
     case 3: return spr_ball_3; break;
     case 4: return spr_ball_4; break;
     case 5: return spr_ball_5; break;
+    case 6: return spr_ball_6; break;
+    case 7: return spr_ball_7; break;
 }
