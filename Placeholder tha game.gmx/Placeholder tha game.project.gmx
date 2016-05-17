@@ -4,14 +4,14 @@
     <Config>Configs\Default</Config>
   </Configs>
   <datafiles number="1" name="datafiles"/>
-  <NewExtensions>
-    <extension index="0">extensions\Capture screen - Pause example</extension>
-  </NewExtensions>
+  <NewExtensions/>
   <sounds name="sound">
     <sound>sound\sd_pilka</sound>
     <sound>sound\menu_sound</sound>
     <sound>sound\sd_bgmusic</sound>
     <sound>sound\sd_whistle</sound>
+    <sound>sound\sd_map1_background</sound>
+    <sound>sound\sd_bgmusic_2</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Skins">

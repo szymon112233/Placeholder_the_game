@@ -48,8 +48,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (!audio_is_playing(sd_bgmusic))
-    audio_play_sound(sd_bgmusic , 0, 1);
+            <string>if (!audio_is_playing(sd_bgmusic_2))
+    audio_play_sound(sd_bgmusic_2 , 0, 1);
     
 if (global.music==0)
 {

@@ -31,8 +31,8 @@ else
     image_index=global.music;
 if (selected and !obj_controller.mapping and (keyboard_check_pressed(vk_enter) or gamepad_button_check_pressed(0,gp_face1)) )
 {
-        if (!audio_is_playing(sd_bgmusic))
-        audio_play_sound(sd_bgmusic , 0, 1);
+        if (!audio_is_playing(sd_bgmusic_2))
+        audio_play_sound(sd_bgmusic_2 , 0, 1);
         
     if (global.music==0)
     {

@@ -216,7 +216,7 @@
     <option_changeresolution>false</option_changeresolution>
     <option_closeesc>true</option_closeesc>
     <option_colordepth>0</option_colordepth>
-    <option_display_name>Placeholder tha Game</option_display_name>
+    <option_display_name>Turbo Slam Dunk Unleashed</option_display_name>
     <option_displayerrors>True</option_displayerrors>
     <option_ecma>0</option_ecma>
     <option_facebook_app_display_name></option_facebook_app_display_name>
@@ -463,7 +463,7 @@
     <option_version_build>0</option_version_build>
     <option_version_company>None</option_version_company>
     <option_version_copyright>Indeed</option_version_copyright>
-    <option_version_description>Basicaly the best game u will ever paly.</option_version_description>
+    <option_version_description>Basically the best game u will ever play.</option_version_description>
     <option_version_major>0</option_version_major>
     <option_version_minor>6</option_version_minor>
     <option_version_product></option_version_product>
@@ -540,7 +540,7 @@
     <option_windows_company_info>None</option_windows_company_info>
     <option_windows_copyright_info>Indeed</option_windows_copyright_info>
     <option_windows_create_textures_on_demand>False</option_windows_create_textures_on_demand>
-    <option_windows_description_info>Basicaly the best game u will ever paly.</option_windows_description_info>
+    <option_windows_description_info>Basically the best game u will ever play.</option_windows_description_info>
     <option_windows_enable_steam>0</option_windows_enable_steam>
     <option_windows_game_icon>Configs\Default\windows\runner_icon.ico</option_windows_game_icon>
     <option_windows_license>Configs\Default\windows\License.txt</option_windows_license>

@@ -71,10 +71,15 @@ time=180;
 win_message="Tie !";
 winpercent=50;
 avatar=spr_ball;
-global.music=0;
+global.music=2;
 scr_stats_init();
 global.d=0;
 global.request_type="none";
+
+//Audio
+audio_play_sound(sd_bgmusic_2,0,true);
+audio_set_master_gain(0, global.music*0.25);
+
 
 physics_world_update_speed(140);
 

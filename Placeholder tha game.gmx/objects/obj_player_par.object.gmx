@@ -377,12 +377,22 @@ else if (ch_Kright and !dunk)
                 }
                 else sprite_index=Vspr_bieg_woball; 
             }
-            physics_apply_force(x,y,move_speed,5); 
+            physics_apply_force(x,y,move_speed,5);
+            
         }
     else if (throwing and jumping)
         physics_apply_force(x,y,move_speed,5);
         
     }   
+//anim speed
+if (!dunk)
+{
+    image_speed=abs(phy_speed_x*0.028);
+    if (phy_speed==0) image_speed=0.185;
+    if (image_speed&lt;0.1) image_speed=0.1;
+}
+    
+    
 //Zatrzymanie
 if phy_speed_x=0 
     {

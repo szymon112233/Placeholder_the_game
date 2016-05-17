@@ -26,6 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>following=obj_ball;
+y=following.y;
+x=following.x;
 </string>
           </argument>
         </arguments>
@@ -48,8 +50,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>x=following.x;
-y=following.y;
+            <string>y=following.y;
+if(following.phy_speed_x&gt;0)
+    x=following.x+150;
+else if(following.phy_speed_x&lt;0)
+    x=following.x-150;
 </string>
           </argument>
         </arguments>
