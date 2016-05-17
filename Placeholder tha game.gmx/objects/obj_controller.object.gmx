@@ -78,6 +78,7 @@ global.request_type="none";
 
 //Audio
 audio_play_sound(sd_bgmusic_2,0,true);
+audio_sound_gain(sd_bgmusic_2,0.15,0);
 audio_set_master_gain(0, global.music*0.25);
 
 
