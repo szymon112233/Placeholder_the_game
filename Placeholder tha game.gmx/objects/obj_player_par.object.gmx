@@ -33,6 +33,37 @@
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Balldrop with knockback decide
+if (obj_player.have_ball) 
+{
+    with (obj_player) scr_balldrop_knockback();
+}
+else if (obj_player_2.have_ball)
+{
+    with (obj_player_2) scr_balldrop_knockback();
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="4">
       <action>
         <libid>1</libid>
@@ -199,6 +230,30 @@ else
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>hitbox.x=x;
+hitbox.y=y;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -243,7 +298,7 @@ if (have_ball)
     }
 else
     {
-    move_speed=4000; 
+    move_speed=4800; 
     phy_speed_x=max(min(phy_speed_x,max_xspeed_woball),-max_xspeed_woball);
     }
     
@@ -345,10 +400,10 @@ if (ch_Kleft and !dunk)
                 }
                 else sprite_index=Vspr_bieg_woball; 
             }
-            physics_apply_force(x,y,-move_speed,5);
+            physics_apply_force(x,y,-move_speed,-55);
         }
     else if (throwing and jumping)
-        physics_apply_force(x,y,-move_speed,5);
+        physics_apply_force(x,y,-move_speed,-5);
     }
 //Ruch w prawo
 else if (ch_Kright and !dunk)
@@ -374,14 +429,15 @@ else if (ch_Kright and !dunk)
                 if (have_ball) 
                 {
                 sprite_index=Vspr_bieg_koz;
+                
                 }
                 else sprite_index=Vspr_bieg_woball; 
             }
-            physics_apply_force(x,y,move_speed,5);
+            physics_apply_force(x,y,move_speed,-55);
             
         }
     else if (throwing and jumping)
-        physics_apply_force(x,y,move_speed,5);
+        physics_apply_force(x,y,move_speed,-5);
         
     }   
 //anim speed
@@ -413,6 +469,13 @@ if (have_ball and !dunk)
         }
     if (ch_Kthrow)
         {
+        if (!global.throwing)
+        {
+            global.rzutk=1;
+            obj_controller.alarm[0]=45;
+            throwing=true;
+        }
+        
         if (!prejump and jumping) 
             sprite_index=Vspr_skok;
         else if (!jumping and !prejump)
@@ -491,9 +554,16 @@ else if (!have_ball and !dunk)
         py=y-5;
         if (obrot=1)  px=x-60;
         else if (obrot=0) px=x+10;
-        if (collision_rectangle(px,py,px+50,py+25,obj_ball_wybicie, false, false ))
+        if (collision_rectangle(px,py,px+50,py+25,obj_player_hit, false, false ))
+            {
+            alarm[5]=10;
+            show_debug_message("player hit !");
+            }
+
+        else if (collision_rectangle(px,py,px+50,py+25,obj_ball_wybicie, false, false ))
             {
             alarm[3]=10;
+            show_debug_message("ball hit !");
             }
         }
         wybicie=true;

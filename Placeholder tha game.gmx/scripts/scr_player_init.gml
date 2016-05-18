@@ -9,7 +9,7 @@ image_speed=0.185;
 move_speed=4000;
 phy_fixed_rotation=true;
 max_xspeed=6.5;
-max_xspeed_woball=7.5;
+max_xspeed_woball=10;
 prejump=false;
 jumping=false;
 jump_force=-1200;
@@ -25,11 +25,15 @@ dunk=false;
 timeline_index=tl_dunk;
 ball_x=0;
 ball_y=0;
+hitbox=instance_create(x,y,obj_player_hit);
+
 //player particles
 partsys=part_system_create();
 partplayer=part_type_create();
 part_type_sprite(partplayer,spr_dirt_p,true,true,false);
 part_type_life(partplayer,room_speed/2,room_speed/2);
+
+
 
 
 if (player==1)

@@ -61,7 +61,7 @@ part_type_scale(global.ptype, 0.1, 0.1);
 part_type_alpha1(global.ptype, 0.5);
 part_type_life(global.ptype, room_speed*60, room_speed*60);
 //Others
-Debug=false;
+global.debug=false;
 mapping=false;
 mplayer=0;
 mkey=1;
@@ -78,7 +78,7 @@ global.request_type="none";
 
 //Audio
 audio_play_sound(sd_bgmusic_2,0,true);
-audio_sound_gain(sd_bgmusic_2,0.15,0);
+audio_sound_gain(sd_bgmusic_2,0,0);
 audio_set_master_gain(0, global.music*0.25);
 
 
@@ -733,7 +733,7 @@ if (instance_exists(obj_player_par))
         draw_sprite_ext(spr_arrow,0,view_xview[view_current]+view_wview[global.widok]-50,view_yview[view_current]+420,1,1,-90,c_blue,0.75 );
         }
     //Debug
-    if (Debug)
+    if (global.debug)
     {
         draw_set_font(font_default);
         draw_set_halign(fa_left);
@@ -761,6 +761,30 @@ if (instance_exists(obj_player_par))
         </arguments>
       </action>
     </event>
+    <event eventtype="10" enumb="112">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (global.debug) global.debug=false;
+else global.debug=true;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="10" enumb="82">
       <action>
         <libid>1</libid>
@@ -779,30 +803,6 @@ if (instance_exists(obj_player_par))
           <argument>
             <kind>1</kind>
             <string>game_restart();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="10" enumb="81">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (Debug) Debug=false;
-else Debug=true;
 </string>
           </argument>
         </arguments>

@@ -235,7 +235,73 @@ sprite_index=scr_get_ball_skin_by_id(global.skinball);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(obj_controller.Debug) part_particles_create(global.psys, x, y, global.ptype, 1);
+            <string>if(global.debug) part_particles_create(global.psys, x, y, global.ptype, 1);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_kosz_dol_p">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (!audio_is_playing(sd_hoophit))
+    audio_play_sound(sd_hoophit,0,false);
+if (obj_controller.shake!=true)
+{
+gamepad_set_vibration(0, 0.3, 0.3);
+gamepad_set_vibration(1, 0.3, 0.3);
+obj_controller.alarm[2]=30;
+obj_controller.shake=true;
+obj_controller.alarm[5]=30;
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_kosz_dol">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (!audio_is_playing(sd_hoophit))
+    audio_play_sound(sd_hoophit,0,false);
+if (obj_controller.shake!=true)
+{
+gamepad_set_vibration(0, 0.3, 0.3);
+gamepad_set_vibration(1, 0.3, 0.3);
+obj_controller.alarm[2]=30;
+obj_controller.shake=true;
+obj_controller.alarm[5]=30;
+}
+
 </string>
           </argument>
         </arguments>
@@ -259,6 +325,71 @@ sprite_index=scr_get_ball_skin_by_id(global.skinball);
           <argument>
             <kind>1</kind>
             <string>pickup=false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_kosz3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (!audio_is_playing(sd_hoophit))
+    audio_play_sound(sd_hoophit,0,false);
+if (obj_controller.shake!=true)
+{
+gamepad_set_vibration(0, 0.3, 0.3);
+gamepad_set_vibration(1, 0.3, 0.3);
+obj_controller.alarm[2]=30;
+obj_controller.shake=true;
+obj_controller.alarm[5]=30;
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_kosz">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>audio_play_sound(sd_boardhit,0,false);
+if (obj_controller.shake!=true)
+{
+gamepad_set_vibration(0, 0.3, 0.3);
+gamepad_set_vibration(1, 0.3, 0.3);
+obj_controller.alarm[2]=30;
+obj_controller.shake=true;
+obj_controller.alarm[5]=30;
+}
+
 </string>
           </argument>
         </arguments>

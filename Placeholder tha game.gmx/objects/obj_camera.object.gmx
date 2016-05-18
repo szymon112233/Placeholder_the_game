@@ -51,10 +51,22 @@ x=following.x;
           <argument>
             <kind>1</kind>
             <string>y=following.y;
-if(following.phy_speed_x&gt;0)
-    x=following.x+150;
-else if(following.phy_speed_x&lt;0)
-    x=following.x-150;
+if(following==obj_ball)
+{
+    if(following.phy_speed_x&gt;0)
+        x=following.x+150;
+    else if(following.phy_speed_x&lt;0)
+        x=following.x-150;
+}
+else if (following ==obj_player or following == obj_player_2)
+{
+    if(following.obrot==0)
+        x=following.x+150;
+    else if(following.obrot==1)
+        x=following.x-150;
+}
+else
+    x=following.x
 </string>
           </argument>
         </arguments>

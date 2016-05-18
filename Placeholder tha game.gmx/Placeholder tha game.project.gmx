@@ -12,6 +12,8 @@
     <sound>sound\sd_whistle</sound>
     <sound>sound\sd_map1_background</sound>
     <sound>sound\sd_bgmusic_2</sound>
+    <sound>sound\sd_boardhit</sound>
+    <sound>sound\sd_hoophit</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Skins">
@@ -47,6 +49,7 @@
           <sprite>sprites\spr_dunk</sprite>
           <sprite>sprites\spr_dunk_flight</sprite>
           <sprite>sprites\spr_dunk_fail</sprite>
+          <sprite>sprites\spr_knockback_white</sprite>
         </sprites>
         <sprites name="Player_2">
           <sprite>sprites\spr_idle_2</sprite>
@@ -161,6 +164,7 @@
       <sprite>sprites\spr_light</sprite>
       <sprite>sprites\spr_indicator_p1</sprite>
       <sprite>sprites\spr_indicator_p2</sprite>
+      <sprite>sprites\spr_player_hitbox</sprite>
     </sprites>
     <sprites name="Particles">
       <sprite>sprites\spr_dirt_p</sprite>
@@ -208,6 +212,7 @@
     <script>scripts\gj_init.gml</script>
     <script>scripts\scr_stats_init.gml</script>
     <script>scripts\scr_info.gml</script>
+    <script>scripts\scr_balldrop_knockback.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_VCR</font>
@@ -245,6 +250,7 @@
       <object>objects\obj_wall</object>
       <object>objects\obj_spod</object>
       <object>objects\obj_pole</object>
+      <object>objects\obj_player_hit</object>
     </objects>
     <objects name="kosz">
       <object>objects\obj_kosz</object>
