@@ -105,7 +105,7 @@ cdwybycie=true;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///*Balldrop decide
+            <string>///Balldrop decide
 if (obj_player.have_ball) 
 {
     with (obj_player) scr_balldrop();
@@ -271,7 +271,8 @@ hitbox.y=y;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (!bot)
+            <string>
+if (!bot)
 {    
     ch_Kleft=( keyboard_check(Kleft) or gamepad_button_check(player-1 , gp_padl) or gamepad_axis_value(player-1, gp_axislh)&lt;0);
     ch_Kright=(keyboard_check(Kright) or gamepad_button_check(player-1 , gp_padr) or gamepad_axis_value(player-1, gp_axislh)&gt;0);
@@ -289,17 +290,19 @@ dtohoop=distance_to_object(obj_obrecz);
 //Skakanie sure maker
 if (place_meeting(x,y+1,obj_spod) and !dunk)
 jumping=false;
-else jumping=true;
+else  jumping=true;
     
 if (have_ball)
     {
     move_speed=3800;
-    phy_speed_x=max(min(phy_speed_x,max_xspeed),-max_xspeed);
+    //phy_speed_x=max(min(phy_speed_x,max_xspeed),-max_xspeed);
+    phy_speed_x=clamp(phy_speed_x, -max_xspeed, max_xspeed);
     }
 else
     {
     move_speed=4800; 
-    phy_speed_x=max(min(phy_speed_x,max_xspeed_woball),-max_xspeed_woball);
+    //phy_speed_x=max(min(phy_speed_x,max_xspeed_woball),-max_xspeed_woball);
+    phy_speed_x=clamp(phy_speed_x, -max_xspeed_woball, max_xspeed_woball);
     }
     
 //wybijarka
@@ -399,8 +402,8 @@ if (ch_Kleft and !dunk)
                 sprite_index=Vspr_bieg_koz;
                 }
                 else sprite_index=Vspr_bieg_woball; 
-            }
-            physics_apply_force(x,y,-move_speed,-55);
+            }  
+            physics_apply_force(x,y,-move_speed,55);
         }
     else if (throwing and jumping)
         physics_apply_force(x,y,-move_speed,-5);
@@ -432,8 +435,8 @@ else if (ch_Kright and !dunk)
                 
                 }
                 else sprite_index=Vspr_bieg_woball; 
-            }
-            physics_apply_force(x,y,move_speed,-55);
+            } 
+            physics_apply_force(x,y,move_speed,55);
             
         }
     else if (throwing and jumping)
@@ -444,13 +447,13 @@ else if (ch_Kright and !dunk)
 if (!dunk)
 {
     image_speed=abs(phy_speed_x*0.028);
-    if (phy_speed==0) image_speed=0.185;
+    if (phy_speed_x==0) image_speed=0.185;
     if (image_speed&lt;0.1) image_speed=0.1;
 }
     
     
 //Zatrzymanie
-if phy_speed_x=0 
+if (phy_speed_x==0) 
     {
     if (!throwing and !jumping and !prejump and obrotable and !wybicie and !ch_Kright and !ch_Kleft/*and !global.zbiorka*/)
         {
@@ -577,7 +580,7 @@ if (ch_Kup_p)
 {
     if (!jumping and !prejump)
     {
-        if (place_meeting(x,y+1,obj_collision))
+        if (place_meeting(x,y+1,obj_spod))
             {
             obrotable = false;
             prejump=true;
@@ -603,6 +606,7 @@ if (ch_Kup_p)
         timeline_running=true;
     } 
 } 
+
 </string>
           </argument>
         </arguments>
@@ -823,21 +827,19 @@ draw_self();
   </events>
   <PhysicsObject>-1</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
-  <PhysicsObjectShape>2</PhysicsObjectShape>
+  <PhysicsObjectShape>1</PhysicsObjectShape>
   <PhysicsObjectDensity>1</PhysicsObjectDensity>
   <PhysicsObjectRestitution>0.0500000007450581</PhysicsObjectRestitution>
   <PhysicsObjectGroup>0</PhysicsObjectGroup>
   <PhysicsObjectLinearDamping>0</PhysicsObjectLinearDamping>
-  <PhysicsObjectAngularDamping>0</PhysicsObjectAngularDamping>
+  <PhysicsObjectAngularDamping>0.100000001490116</PhysicsObjectAngularDamping>
   <PhysicsObjectFriction>2</PhysicsObjectFriction>
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
   <PhysicsShapePoints>
-    <point>71.25,37.5</point>
-    <point>86.25,67.5</point>
-    <point>86.25,138.75</point>
-    <point>45,138.75</point>
-    <point>45,75</point>
-    <point>63.75,41.25</point>
+    <point>44,34</point>
+    <point>80,34</point>
+    <point>80,139</point>
+    <point>44,139</point>
   </PhysicsShapePoints>
 </object>

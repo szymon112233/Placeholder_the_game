@@ -66,7 +66,6 @@ audio_play_sound(sd_map1_background,0,true);</code>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="obj_player" x="675" y="725" name="inst_AE9D6494" locked="0" code="view_object[1]=id;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_player_2" x="825" y="725" name="inst_DFE74D4F" locked="0" code="" scaleX="-1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="0" y="775" name="inst_54430985" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="0" y="750" name="inst_4A9A665C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -82,35 +81,6 @@ audio_play_sound(sd_map1_background,0,true);</code>
     <instance objName="obj_wall" x="1475" y="725" name="inst_DD5BAB9F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="1475" y="750" name="inst_BA2E56F7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="1475" y="775" name="inst_E4C58C54" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spod" x="25" y="800" name="inst_2F0A204C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spod" x="75" y="800" name="inst_8D1C5C3A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spod" x="125" y="800" name="inst_E692516E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spod" x="175" y="800" name="inst_C80E9555" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spod" x="225" y="800" name="inst_4ABC1A28" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spod" x="275" y="800" name="inst_BFB97925" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spod" x="325" y="800" name="inst_0747A646" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spod" x="375" y="800" name="inst_7CCBDCCC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spod" x="425" y="800" name="inst_36A09F36" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spod" x="475" y="800" name="inst_CF9137ED" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spod" x="525" y="800" name="inst_AB8656F1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spod" x="575" y="800" name="inst_2C4E502F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spod" x="625" y="800" name="inst_FABBBF31" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spod" x="675" y="800" name="inst_75B3734E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spod" x="725" y="800" name="inst_C32EC595" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spod" x="775" y="800" name="inst_1751171A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spod" x="825" y="800" name="inst_7DB7D50E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spod" x="875" y="800" name="inst_6ECD263E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spod" x="925" y="800" name="inst_12125266" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spod" x="975" y="800" name="inst_DE05846B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spod" x="1025" y="800" name="inst_DC015321" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spod" x="1075" y="800" name="inst_BF515D2B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spod" x="1125" y="800" name="inst_4C40E720" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spod" x="1175" y="800" name="inst_CEDD7B27" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spod" x="1225" y="800" name="inst_4EC8D235" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spod" x="1275" y="800" name="inst_483C7C64" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spod" x="1325" y="800" name="inst_C327FDFC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spod" x="1375" y="800" name="inst_DEA25AD7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spod" x="1425" y="800" name="inst_6E3CA23D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ball_wybicie" x="925" y="100" name="inst_A632A306" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_kosz" x="128" y="511" name="inst_8E157E42" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_kosz2" x="136" y="583" name="inst_2733A608" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -141,6 +111,8 @@ audio_play_sound(sd_map1_background,0,true);</code>
     <instance objName="obj_obrecz" x="160" y="600" name="inst_25FF033C" locked="0" code="global.obrecz2=self;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_button" x="514" y="440" name="inst_5894D7C6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_obrecz" x="1332" y="601" name="inst_6CABFB88" locked="0" code="player=1;&#xA;global.obrecz1=self;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_spod" x="26" y="800" name="inst_67CCF094" locked="0" code="" scaleX="29" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_player" x="660" y="724" name="inst_E87F366F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="ti_budynki" x="9" y="548" w="400" h="216" xo="0" yo="0" id="10000020" name="inst_EE838B5A" depth="11" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

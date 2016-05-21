@@ -263,6 +263,8 @@
       <object>objects\obj_obrecz</object>
       <object>objects\obj_kosz_dol</object>
       <object>objects\obj_kosz_dol_p</object>
+      <object>objects\obj_wood</object>
+      <object>objects\obj_metal</object>
     </objects>
     <objects name="controllers">
       <object>objects\obj_menu_controll</object>

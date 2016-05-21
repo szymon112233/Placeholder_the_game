@@ -8,6 +8,7 @@ cdwybycie=true;
 image_speed=0.185;
 move_speed=4000;
 phy_fixed_rotation=true;
+phy_bullet=true;
 max_xspeed=6.5;
 max_xspeed_woball=10;
 prejump=false;

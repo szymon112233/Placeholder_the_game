@@ -34,7 +34,7 @@
   </events>
   <PhysicsObject>-1</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
-  <PhysicsObjectShape>2</PhysicsObjectShape>
+  <PhysicsObjectShape>1</PhysicsObjectShape>
   <PhysicsObjectDensity>1</PhysicsObjectDensity>
   <PhysicsObjectRestitution>0.0500000007450581</PhysicsObjectRestitution>
   <PhysicsObjectGroup>0</PhysicsObjectGroup>
@@ -44,11 +44,9 @@
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
   <PhysicsShapePoints>
-    <point>70.625,38.125</point>
-    <point>85.875,67.875</point>
-    <point>86.375,139.75</point>
-    <point>45,139.75</point>
-    <point>45,75</point>
-    <point>64,41</point>
+    <point>44,34</point>
+    <point>80,34</point>
+    <point>80,139</point>
+    <point>44,139</point>
   </PhysicsShapePoints>
 </object>
