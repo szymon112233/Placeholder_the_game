@@ -19,6 +19,7 @@ have_ball=false;
 throwing=false;
 obrot=0;
 obrotable=true;
+dunkable=false;
 wybicie=false;
 foul=false;
 dtohoop=0;

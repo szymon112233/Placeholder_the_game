@@ -10,6 +10,11 @@ else
         obj_controller.winpercent=100-(global.points1/(global.points2*2))*100;
 }
         
+if (global.points1>=10 or global.points2>=10)
+    {
+    scr_trophy("a3");
+    }
+    
 global.ball="free";
 if (obj_controller.time==0)
 {

@@ -76,28 +76,34 @@ image_index=0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (distance_to_object(obj_obrecz)&lt;9)
+            <string>if (distance_to_object(obj_obrecz)&lt;9 and phy_position_y&lt;600)
 {
-    show_debug_message("wsad succesful");
-    phy_active=false;
-    image_speed=0.10;
-    if (phy_position_x&gt;750)
+    if (phy_position_x&gt;750 and obrot==0)
     {
+        show_debug_message("wsad succesful");
+        phy_active=false;
+        image_speed=0.10;
         phy_position_x=1298;
+        phy_position_y=600;
+    }
+    else if (phy_position_x&lt;750 and obrot==1)
+    {
+        show_debug_message("wsad succesful");
+        phy_active=false;
+        image_speed=0.10;
+        phy_position_x=202
+        phy_position_y=600;
     }
     else
     {
-        phy_position_x=202
-    }
-    phy_position_y=600;
-    
+        show_debug_message("wsad fail");
+        timeline_position=200;
+    } 
 }
 else
 {
     show_debug_message("wsad fail");
-    
-    timeline_position=200;
-    
+    timeline_position=200;  
 }
 </string>
           </argument>
@@ -124,7 +130,8 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>phy_position_y+=5;
+            <string>scr_trophy("a2");
+phy_position_y+=5;
 global.ball="wsad";
 if (obrot==0)
     instance_create(x+35,y-5,obj_ball);

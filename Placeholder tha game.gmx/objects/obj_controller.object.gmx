@@ -52,6 +52,7 @@ global.skinball=1;
 global.ballcount=7;
 global.map=1;
 global.mapcount=3;
+trophies_count=3;
 //Particles
 global.psys=part_system_create();
 global.ptype=part_type_create();
@@ -75,7 +76,11 @@ global.music=2;
 scr_stats_init();
 global.d=0;
 global.request_type="none";
-
+for(i = trophies_count-1 ; i&gt;=0 ; i--)
+{
+    global.trophies[i] = false;
+}
+scr_load_trophies();
 //Audio
 audio_play_sound(sd_bgmusic_2,0,true);
 audio_sound_gain(sd_bgmusic_2,0,0);
@@ -560,7 +565,9 @@ if(resultid==request[0]) //If it was user information.
             if (gj_session_open())
                 alarm[6]=room_speed*30;
             request[1]=gj_user_info_fromusername(gj_user_username());
-            request[2]=gj_trophy_get(false);
+            scr_trophy("a1");
+            request[2]=gj_trophy_get(true);
+            
             
         }    
         else
@@ -596,19 +603,36 @@ else if (resultid==request[2] and gj_user_isloggedin())
 {
     if(gj_result_status())
     {
+        ini_open("game.ini");
         var number=gj_result_data_count();
         for (i=0 ; i&lt;number ; i++)
         {
             if (gj_result_data_field_num("id",i)=="52336")
             {
-                gj_trophy_add("52336");
-                scr_info("a1");
+                global.trophies[0]=true;
+                ini_write_real("Trophies","a1",1);
             }
+            if (gj_result_data_field_num("id",i)=="58356")
+            {
+                global.trophies[1]=true;
+                ini_write_real("Trophies","a2",1);
+            }
+            if (gj_result_data_field_num("id",i)=="58357")
+            {
+                global.trophies[2]=true;
+                ini_write_real("Trophies","a3",1);
+            }
+
+            
             show_debug_message(gj_result_data_field_num("id",i));
         }
+        ini_close();
+        
     }
     else
         show_debug_message(gj_result_status());
+        
+    
 }
 gj_result_clear()
 

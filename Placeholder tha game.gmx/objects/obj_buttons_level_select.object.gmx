@@ -209,7 +209,14 @@ if (selection1 and selection2 and selectionmap and selectionball and selectionti
     global.request_type="data";
     obj_controller.request[0]=gj_datastore_update_global("Matches started", "1", "add");
     
-    room_goto(R_level_1);
+    
+    switch (global.map)
+    {
+        default: room_goto(R_level_1); break;
+        case 1: room_goto(R_level_1); break;
+        case 2: room_goto(R_level_2); break;    
+    }
+    
 }
 
 

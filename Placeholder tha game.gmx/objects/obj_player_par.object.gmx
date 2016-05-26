@@ -106,6 +106,7 @@ cdwybycie=true;
           <argument>
             <kind>1</kind>
             <string>///Balldrop decide
+
 if (obj_player.have_ball) 
 {
     with (obj_player) scr_balldrop();
@@ -545,6 +546,7 @@ else if (!have_ball and !dunk)
         else if (obrot=0) px=x+20;
         if (collision_rectangle(px,py,px+40,py+50,obj_ball_wybicie, false, false ))
             {
+            dunkable=true;
             alarm[3]=10;
             }
         }
@@ -598,12 +600,13 @@ if (ch_Kup_p)
                 }
             }
     }
-    else if (jumping and !dunk and have_ball)
+    else if (jumping and !dunk and have_ball and dunkable)
     {
         show_debug_message("WSAD ATTEMPT");
         dunk = true;
         timeline_position=0;
         timeline_running=true;
+        dunkable=false;
     } 
 } 
 

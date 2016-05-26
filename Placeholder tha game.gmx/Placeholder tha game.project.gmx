@@ -14,6 +14,7 @@
     <sound>sound\sd_bgmusic_2</sound>
     <sound>sound\sd_boardhit</sound>
     <sound>sound\sd_hoophit</sound>
+    <sound>sound\sd_map2_background</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Skins">
@@ -93,7 +94,6 @@
         </sprites>
       </sprites>
       <sprite>sprites\spr_maps</sprite>
-      <sprite>sprites\spr_selected</sprite>
       <sprite>sprites\spr_black</sprite>
     </sprites>
     <sprites name="Kosz">
@@ -106,6 +106,7 @@
       <sprite>sprites\spr_kosz_dol_p</sprite>
       <sprite>sprites\spr_kosz5</sprite>
       <sprite>sprites\spr_obrecz</sprite>
+      <sprite>sprites\spr_basket_2</sprite>
     </sprites>
     <sprites name="GUI">
       <sprites name="Buttons_options">
@@ -184,6 +185,11 @@
     <background>background\bg_credtis</background>
     <background>background\bg_level_select</background>
     <background>background\ti_map_select</background>
+    <background>background\bg_level_2</background>
+    <background>background\ti_slamdunk</background>
+    <background>background\ti_lamps</background>
+    <background>background\tl_basket_2</background>
+    <background>background\tl_basket_2_i</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -213,6 +219,9 @@
     <script>scripts\scr_stats_init.gml</script>
     <script>scripts\scr_info.gml</script>
     <script>scripts\scr_balldrop_knockback.gml</script>
+    <script>scripts\scr_load_trophies.gml</script>
+    <script>scripts\scr_bool_convert.gml</script>
+    <script>scripts\scr_trophy.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_VCR</font>
@@ -297,6 +306,7 @@
     <room>rooms\R_mainmenu_v3</room>
     <room>rooms\R_level_select</room>
     <room>rooms\R_level_1</room>
+    <room>rooms\R_level_2</room>
     <rooms name="old ones">
       <room>rooms\R_mainmenu_v2</room>
       <room>rooms\R_mainmenu</room>
