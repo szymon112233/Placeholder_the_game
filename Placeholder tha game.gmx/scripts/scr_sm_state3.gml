@@ -1,8 +1,9 @@
+///state Go to Center
 player=argument0;
 show_debug_message("STATE 3");
 
 
-if (abs(player.phy_position_x-750)<10)
+if (abs(player.phy_position_x-750)<40)
     {
         player.ch_Kleft=false;
         player.ch_Kright=false;

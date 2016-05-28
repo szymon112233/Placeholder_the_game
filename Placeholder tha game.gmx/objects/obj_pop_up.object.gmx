@@ -151,9 +151,19 @@ y=view_yview[0]+view_hview[0]/2;
 else if (type=="end")
 {   
     draw_sprite(spr_score_end,0,x,y);
-    draw_set_font(font_sb_small);
+    if(global.points1&gt;global.points2)
+        draw_sprite(spr_score_p1,0,x,y-110);
+    else if (global.points1&lt;global.points2)
+        draw_sprite(spr_score_p2,0,x,y-110);
+    else
+        draw_sprite(spr_score_tie,0,x,y-110);
+        
+    draw_set_font(font_sb);
     draw_set_halign(fa_center);
-    draw_text(x,y,obj_controller.win_message);
+    draw_text(x-95,y+55,global.points1);
+    draw_text(x+95,y+55,global.points2);
+    draw_text(x-230,y-15,global.fouls1);
+    draw_text(x+230,y-15,global.fouls2);
 }
 else if (type=="foul")
     draw_sprite_ext(spr_foul,0,x,y,xscale,yscale,0,c_white,1);

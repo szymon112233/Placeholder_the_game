@@ -32,8 +32,11 @@ hitbox=instance_create(x,y,obj_player_hit);
 //player particles
 partsys=part_system_create();
 partplayer=part_type_create();
+part_shade=part_type_create();
 part_type_sprite(partplayer,spr_dirt_p,true,true,false);
 part_type_life(partplayer,room_speed/2,room_speed/2);
+part_type_alpha1(part_shade, 0.25);
+part_type_life(part_shade,room_speed/10,room_speed/10);
 
 
 

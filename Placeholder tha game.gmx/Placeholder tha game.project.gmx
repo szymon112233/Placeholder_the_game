@@ -134,6 +134,9 @@
         <sprite>sprites\spr_score_end</sprite>
         <sprite>sprites\spr_foul</sprite>
         <sprite>sprites\spr_slam_dunk</sprite>
+        <sprite>sprites\spr_score_p1</sprite>
+        <sprite>sprites\spr_score_p2</sprite>
+        <sprite>sprites\spr_score_tie</sprite>
       </sprites>
       <sprite>sprites\spr_bar</sprite>
       <sprite>sprites\spr_spod</sprite>

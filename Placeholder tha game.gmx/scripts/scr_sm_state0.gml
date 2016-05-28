@@ -1,3 +1,4 @@
+///Wait State
 player=argument0;
 show_debug_message("STATE 0");
 
@@ -21,7 +22,6 @@ else  if (instance_exists(obj_ball))
     }                
 }
 else
-    {    
-        player.ch_Kleft=false;
-        player.ch_Kright=false;
-    }
+{    
+    state= 1;
+}

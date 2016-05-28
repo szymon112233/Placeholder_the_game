@@ -12,8 +12,8 @@ gamepad_set_vibration(1, 0.5, 0.5);
 
 //show_message_async(win_message);
 
-scr_pop_up(100,"end");
-obj_controller.alarm[7]=120;
+scr_pop_up(200,"end");
+obj_controller.alarm[7]=200;
 
 
 //game_restart();

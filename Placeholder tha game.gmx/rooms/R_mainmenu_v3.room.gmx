@@ -57,9 +57,9 @@
     <instance objName="obj_button_options" x="847" y="325" name="inst_171D64AD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_button_credits" x="847" y="400" name="inst_509DB436" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_button_exit" x="847" y="475" name="inst_47AE14AC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_button_player_2" x="2039" y="191" name="inst_088FABB5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_button_player_2" x="2039" y="234" name="inst_088FABB5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_button_controls" x="1791" y="270" name="inst_DF57EBAF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_button_player_1" x="1791" y="192" name="inst_725B2619" locked="0" code="" scaleX="1.00414943695068" scaleY="0.986111104488373" colour="4294967295" rotation="0"/>
+    <instance objName="obj_button_player_1" x="1790" y="234" name="inst_725B2619" locked="0" code="" scaleX="1.00414943695068" scaleY="0.986111104488373" colour="4294967295" rotation="0"/>
     <instance objName="obj_button_sound" x="1710" y="164" name="inst_9E983A0D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_gamejolt_login" x="1260" y="26" name="inst_4979DA1C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_light" x="1034" y="130" name="inst_7B3AB303" locked="0" code="" scaleX="1.5" scaleY="1.5" colour="4294967295" rotation="0"/>

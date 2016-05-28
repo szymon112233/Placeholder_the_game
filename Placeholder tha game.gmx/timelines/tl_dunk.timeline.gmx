@@ -76,7 +76,8 @@ image_index=0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (distance_to_object(obj_obrecz)&lt;9 and phy_position_y&lt;600)
+            <string>dunkable=false;
+if (distance_to_object(obj_obrecz)&lt;9 and phy_position_y&lt;600)
 {
     if (phy_position_x&gt;750 and obrot==0)
     {

@@ -250,6 +250,16 @@ else
             <kind>1</kind>
             <string>hitbox.x=x;
 hitbox.y=y;
+if(dunkable)
+{
+    if(obrot==1)
+        part_type_scale(part_shade, -1, 1);
+    else
+        part_type_scale(part_shade, 1, 1);
+    part_type_sprite(part_shade,sprite_index,false,false,false);
+    part_particles_create(partsys,x,y,part_shade,1);
+    
+}
 </string>
           </argument>
         </arguments>
@@ -606,7 +616,6 @@ if (ch_Kup_p)
         dunk = true;
         timeline_position=0;
         timeline_running=true;
-        dunkable=false;
     } 
 } 
 

@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>global.stage_curr="mainmenu";
-global.bot=false;
+global.bot=true;
 //Rzut
 global.rzutready=false;
 global.rzutmoc=alarm[0];
@@ -475,10 +475,8 @@ ini_open("game.ini");
         {
             case 1: global.p1up=keyboard_lastkey; ini_write_string("Controlls","P1_up",scr_convert(keyboard_lastkey,1)); break;
             case 2: global.p1left=keyboard_lastkey; ini_write_string("Controlls","P1_left",scr_convert(keyboard_lastkey,1)); break;
-            case 3: global.p1down=keyboard_lastkey; ini_write_string("Controlls","P1_down",scr_convert(keyboard_lastkey,1)); break;
-            case 4: global.p1right=keyboard_lastkey; ini_write_string("Controlls","P1_right",scr_convert(keyboard_lastkey,1)); break;
-            case 5: global.p1throw=keyboard_lastkey; ini_write_string("Controlls","P1_throw",scr_convert(keyboard_lastkey,1)); break;
-            case 6: global.p1wybicie=keyboard_lastkey; ini_write_string("Controlls","P1_hit",scr_convert(keyboard_lastkey,1)); break;
+            case 3: global.p1right=keyboard_lastkey; ini_write_string("Controlls","P1_right",scr_convert(keyboard_lastkey,1)); break;
+            case 4: global.p1throw=keyboard_lastkey; ini_write_string("Controlls","P1_throw",scr_convert(keyboard_lastkey,1)); break;
         }    
     }
     else if (mplayer==2)
@@ -487,17 +485,15 @@ ini_open("game.ini");
         {
             case 1: global.p2up=keyboard_lastkey; ini_write_string("Controlls","P2_up",scr_convert(keyboard_lastkey,1)); break;
             case 2: global.p2left=keyboard_lastkey; ini_write_string("Controlls","P2_left",scr_convert(keyboard_lastkey,1)); break;
-            case 3: global.p2down=keyboard_lastkey; ini_write_string("Controlls","P2down",scr_convert(keyboard_lastkey,1)); break;
-            case 4: global.p2right=keyboard_lastkey; ini_write_string("Controlls","P2_right",scr_convert(keyboard_lastkey,1)); break;
-            case 5: global.p2throw=keyboard_lastkey; ini_write_string("Controlls","P2_throw",scr_convert(keyboard_lastkey,1)); break;
-            case 6: global.p2wybicie=keyboard_lastkey; ini_write_string("Controlls","P2_hit",scr_convert(keyboard_lastkey,1)); break;
+            case 3: global.p2right=keyboard_lastkey; ini_write_string("Controlls","P2_right",scr_convert(keyboard_lastkey,1)); break;
+            case 4: global.p2throw=keyboard_lastkey; ini_write_string("Controlls","P2_throw",scr_convert(keyboard_lastkey,1)); break;
         }    
         
     }
     keyboard_lastkey=-1;
     mkey++;
     
-    if (mkey==6) mapping = false;  
+    if (mkey==5) mapping = false;  
 ini_close(); 
 }
 
