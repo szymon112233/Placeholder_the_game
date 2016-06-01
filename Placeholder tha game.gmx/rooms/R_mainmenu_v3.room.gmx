@@ -71,7 +71,6 @@
     <tile bgName="" x="406" y="241" w="16" h="16" xo="0" yo="0" id="10000011" name="inst_FC5E109C" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_options_2" x="1600" y="0" w="800" h="600" xo="0" yo="0" id="10000028" name="inst_AE3FF09F" depth="0" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_mainmenu" x="800" y="0" w="800" h="600" xo="0" yo="0" id="10000029" name="inst_0E2C29DA" depth="0" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bg_credtis" x="0" y="0" w="800" h="600" xo="0" yo="0" id="10000032" name="inst_CEF08897" depth="0" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
   <PhysicsWorld>-1</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>

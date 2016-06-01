@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>global.stage_curr="mainmenu";
-global.bot=true;
+global.bot=false;
 //Rzut
 global.rzutready=false;
 global.rzutmoc=alarm[0];

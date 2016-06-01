@@ -91,6 +91,7 @@ audio_play_sound(sd_map2_background,0,true);</code>
     <instance objName="obj_pole" x="0" y="550" name="inst_090C303C" locked="0" code="player=2;&#xA;" scaleX="1.25" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="50" y="550" name="inst_274E15C7" locked="0" code="" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="1375" y="550" name="inst_B572C7E7" locked="0" code="" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_slamdunk_display" x="750" y="779" name="inst_62C5658C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tl_basket_2" x="1314" y="241" w="166" h="373" xo="0" yo="0" id="10000041" name="inst_44EE1A80" depth="-5" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

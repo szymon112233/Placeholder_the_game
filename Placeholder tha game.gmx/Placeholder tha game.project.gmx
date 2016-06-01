@@ -169,6 +169,7 @@
       <sprite>sprites\spr_indicator_p1</sprite>
       <sprite>sprites\spr_indicator_p2</sprite>
       <sprite>sprites\spr_player_hitbox</sprite>
+      <sprite>sprites\spr_slamdunk_display</sprite>
     </sprites>
     <sprites name="Particles">
       <sprite>sprites\spr_dirt_p</sprite>
@@ -301,9 +302,11 @@
     <object>objects\obj_stats_display</object>
     <object>objects\objj_map_display</object>
     <object>objects\obj_ball_display</object>
+    <object>objects\obj_slamdunk_display</object>
   </objects>
   <timelines name="timelines">
     <timeline>timelines\tl_dunk</timeline>
+    <timeline>timelines\tl_slamdunk_display</timeline>
   </timelines>
   <rooms name="rooms">
     <room>rooms\R_mainmenu_v3</room>
