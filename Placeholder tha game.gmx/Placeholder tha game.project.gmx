@@ -204,6 +204,7 @@
       <script>scripts\scr_sm_state2.gml</script>
       <script>scripts\scr_sm_state3.gml</script>
       <script>scripts\scr_sm_state4.gml</script>
+      <script>scripts\scr_sm_state5.gml</script>
     </scripts>
     <script>scripts\Restart.gml</script>
     <script>scripts\scr_kosz.gml</script>
@@ -293,6 +294,7 @@
       <object>objects\obj_pop_up</object>
     </objects>
     <objects name="plansza">
+      <object>objects\obj_slamdunk_display</object>
       <object>objects\obj_clouds</object>
       <object>objects\obj_drzewko</object>
       <object>objects\obj_dym</object>
@@ -302,7 +304,6 @@
     <object>objects\obj_stats_display</object>
     <object>objects\objj_map_display</object>
     <object>objects\obj_ball_display</object>
-    <object>objects\obj_slamdunk_display</object>
   </objects>
   <timelines name="timelines">
     <timeline>timelines\tl_dunk</timeline>
@@ -313,12 +314,6 @@
     <room>rooms\R_level_select</room>
     <room>rooms\R_level_1</room>
     <room>rooms\R_level_2</room>
-    <rooms name="old ones">
-      <room>rooms\R_mainmenu_v2</room>
-      <room>rooms\R_mainmenu</room>
-      <room>rooms\R_test</room>
-      <room>rooms\R_options</room>
-    </rooms>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

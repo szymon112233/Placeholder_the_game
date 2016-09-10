@@ -84,6 +84,8 @@ state=nstate;
         case 1: scr_sm_state1(player); break;
         case 2: scr_sm_state2(player); break;
         case 3: scr_sm_state3(player); break;
+        case 4: scr_sm_state4(player); break;
+        case 5: scr_sm_state5(player); break;
     }
 </string>
           </argument>
