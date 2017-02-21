@@ -292,6 +292,7 @@
       <object>objects\obj_camera_menu</object>
       <object>objects\obj_info</object>
       <object>objects\obj_pop_up</object>
+      <object>objects\obj_player_manager</object>
     </objects>
     <objects name="plansza">
       <object>objects\obj_slamdunk_display</object>

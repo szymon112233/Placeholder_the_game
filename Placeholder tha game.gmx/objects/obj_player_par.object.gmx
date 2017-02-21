@@ -51,14 +51,13 @@
           <argument>
             <kind>1</kind>
             <string>///Balldrop with knockback decide
-if (obj_player.have_ball) 
+for (i = 0 ; i &lt;instance_number(obj_player) ; i++)
 {
-    with (obj_player) scr_balldrop_knockback();
+    player = instance_find(obj_player, i);
+    if (player.have_ball)
+        with (player) scr_balldrop_knockback(other);
 }
-else if (obj_player_2.have_ball)
-{
-    with (obj_player_2) scr_balldrop_knockback();
-}
+
 </string>
           </argument>
         </arguments>
@@ -106,14 +105,11 @@ cdwybycie=true;
           <argument>
             <kind>1</kind>
             <string>///Balldrop decide
-
-if (obj_player.have_ball) 
+for (i = 0 ; i &lt;instance_number(obj_player) ; i++)
 {
-    with (obj_player) scr_balldrop();
-}
-else if (obj_player_2.have_ball)
-{
-    with (obj_player_2) scr_balldrop();
+    player = instance_find(obj_player, i);
+    if (player.have_ball)
+        with (player) scr_balldrop();
 }
 </string>
           </argument>
@@ -337,42 +333,13 @@ if (have_ball)
         if (obrot==1) obj_ball_wybicie.x=x-30;
         else obj_ball_wybicie.x=x+10;
         }
-    /*else if (global.zbiorka)
-        {
-        obj_ball_wybicie.y=y;
-        obj_ball_wybicie.x=x-11;
-        } */
     else
         {
         obj_ball_wybicie.y=y+16;
         if (obrot==1) obj_ball_wybicie.x=x-44;
         else obj_ball_wybicie.x=x+24;
         }
-    //So that it wont bug out
-    //blok.phy_position_y=0;
-    //blok.phy_position_x=0;
 } 
-/*else if (!have_ball)
-{
-    if (jumping and !wybicie)
-    {   
-        if (obrot==0)
-        {
-            blok.phy_position_y=y-65;
-            blok.phy_position_x=x-5;
-        }
-        else if (obrot==1)
-        {
-            blok.phy_position_y=y-65;
-            blok.phy_position_x=x-7;
-        }
-    }
-    else 
-    {
-        blok.phy_position_y=0;
-        blok.phy_position_x=0;
-    }
-}*/
 
 
 if ((jumping or prejump) and !dunk) phy_speed_x/=1.1;
@@ -383,7 +350,7 @@ if (instance_exists(obj_ball))
     {
     if (collision_rectangle( x-25, y-30, x+25, y+60, obj_ball, false, false ) and obj_ball.pickup)
         {
-        scr_prezbiorka();
+        scr_prezbiorka(self);
         }
     }        
 //Ruch w lewo (Priorytet)
@@ -619,6 +586,17 @@ if (ch_Kup_p)
     } 
 } 
 
+if (have_ball)
+{
+    global.bally = y;
+    if (obrot==0)
+        global.ballx = x+27;
+    else
+        global.ballx = x-27;
+}
+
+
+
 </string>
           </argument>
         </arguments>
@@ -664,7 +642,8 @@ if (ch_Kup_p)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (have_ball)
+            <string>//Drawing ball
+if (have_ball)
 {
     image= floor(image_index);
     if (sprite_index=Vspr_skok)

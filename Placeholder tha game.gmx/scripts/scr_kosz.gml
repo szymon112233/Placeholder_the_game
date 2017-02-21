@@ -1,4 +1,4 @@
-player=argument0;
+team=argument0;
 
 if (global.points1==0) 
     obj_controller.winpercent=100;
@@ -22,17 +22,17 @@ if (obj_controller.time==0)
 }
 else
 {
-    if (player==0)
-    {
-        obj_player.phy_position_x=700;
-        obj_player.phy_position_y=700;
-        obj_player_2.phy_position_x=800;
-        obj_player_2.phy_position_y=700;
-        obj_ball.phy_position_x=750;
-        obj_ball.phy_position_y=500;
+        for(i = 0 ; i < instance_number(obj_player); i++)
+        {
+            player = instance_find(obj_player, i);
+            player.phy_position_x = obj_player_manager.start_pos_x[i+1];
+            player.phy_position_y = obj_player_manager.start_pos_y[i+1];
+        }
+        obj_ball.phy_position_x = obj_player_manager.start_pos_x[0];
+        obj_ball.phy_position_y = obj_player_manager.start_pos_y[0];
         
-    }
-    else if (player==2)
+    /*}
+    else if (team==2)
     {
         
         obj_camera.following=obj_player;
@@ -46,7 +46,7 @@ else
         obj_player_2.phy_position_y=700;
         
     }
-    else if (player==1)
+    else if (team==1)
     {
         obj_camera.following=obj_player_2;
         with (obj_ball) instance_destroy();
@@ -56,7 +56,7 @@ else
         obj_player.phy_position_x=800;
         obj_player.phy_position_y=700;
         
-    }
+    } */
     obj_kosz_dol.phy_active=true;
     obj_kosz_dol_p.phy_active=true;
 

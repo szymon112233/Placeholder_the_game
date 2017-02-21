@@ -1,6 +1,6 @@
 global.zbiorka=true;
 have_ball=true;
-obj_camera.following=player_name;
+obj_camera.following=argument0;
 depth=2;
 if (jumping)
     {

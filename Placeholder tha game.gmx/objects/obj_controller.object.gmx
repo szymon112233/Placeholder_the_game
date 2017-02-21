@@ -25,7 +25,16 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.stage_curr="mainmenu";
+            <string>enum states
+{
+    menu,
+    options,
+    credits,
+    gameplay
+}
+
+
+global.stage_curr="mainmenu";
 global.bot=false;
 //Rzut
 global.rzutready=false;
@@ -63,6 +72,7 @@ part_type_alpha1(global.ptype, 0.5);
 part_type_life(global.ptype, room_speed*60, room_speed*60);
 //Others
 global.debug=false;
+global.active_players=9;
 mapping=false;
 mplayer=0;
 mkey=1;
@@ -363,13 +373,18 @@ shake=false;
           <argument>
             <kind>1</kind>
             <string>///Wyrzut alarm (moc)
-if (obj_player.ch_Kthrow or obj_player_2.ch_Kthrow)
-{
-alarm[0]=45;
-show_debug_message("Rzut_Max_Alarm!");
-if (global.rzutk==1) global.rzutk=0;
-else global.rzutk =1;
-}
+for(i = 0 ; i &lt; instance_number(obj_player); i++)
+    {
+        player = instance_find(obj_player, i);
+        if (player.ch_Kthrow)
+        {
+            alarm[0]=45;
+            show_debug_message("Rzut_Max_Alarm!");
+            if (global.rzutk==1) global.rzutk=0;
+            else global.rzutk =1;
+        }
+            
+    }
 </string>
           </argument>
         </arguments>
@@ -425,38 +440,13 @@ if (keyboard_check_pressed(vk_escape) or gamepad_button_check_pressed(0,gp_selec
 
 if (instance_exists(obj_player_par))
 {
-    if (obj_player.have_ball=true)
-        {
-           if (obj_player.obrot=0)
-           {
-           global.ballx=obj_player.x+27;
-           global.bally=obj_player.y;  
-           }
-           else
-           {
-           global.ballx=obj_player.x-27;
-           global.bally=obj_player.y;     
-           }
-        }
-        
-    else if (instance_exists(obj_player_2))
-        {
-            if (obj_player_2.have_ball=true)
-            {
-                if (obj_player_2.obrot=0)
-                {
-                   global.ballx=obj_player_2.x+27;
-                   global.bally=obj_player_2.y;  
-               }
-               else
-               {
-                   global.ballx=obj_player_2.x-27;
-                   global.bally=obj_player_2.y;     
-               }
-            }
-        }
-    if (obj_player.throwing=true or obj_player_2.throwing=true) global.throwing=true;
-    else global.throwing=false;
+    global.throwing = false;
+    for(i = 0 ; i &lt; instance_number(obj_player); i++)
+    {
+        player = instance_find(obj_player, i);
+        if (player.throwing)
+            global.throwing = true;
+    }
     
     if (collision_rectangle(obj_ball_wybicie.x,obj_ball_wybicie.y,obj_ball_wybicie.x+20,obj_ball_wybicie.y+30,obj_obrecz_par,1,1))
     global.insiderzut=true;
@@ -681,30 +671,27 @@ gj_result_clear()
             <kind>1</kind>
             <string>global.widok=view_current;
 
-
 if (instance_exists(obj_player_par))
 {
     //Indicators
-    draw_sprite(spr_indicator_p1,0,obj_player.x,obj_player.y-56);
-    draw_sprite(spr_indicator_p2,0,obj_player_2.x,obj_player_2.y-56);
+    //draw_sprite(spr_indicator_p1,0,obj_player.x,obj_player.y-56);
+    //draw_sprite(spr_indicator_p2,0,obj_player_2.x,obj_player_2.y-56);
     if (global.throwing and !global.insiderzut)
     {
-        if (obj_player.have_ball=true)
+        for(i = 0 ; i &lt; instance_number(obj_player); i++)
+        {
+            player = instance_find(obj_player, i);
+            if (player.have_ball=true)
             {
-            if(global.rzutk==1)
-                draw_healthbar(obj_player.x-8,obj_player.y-92,obj_player.x-5,obj_player.y-57,(45-alarm[0])/45*100,c_black,c_green,c_red,3,false,false);
-            else if (global.rzutk==0)
-                draw_healthbar(obj_player.x-8,obj_player.y-92,obj_player.x-5,obj_player.y-57,(alarm[0])/45*100,c_black,c_green,c_red,3,false,false);   
-            draw_sprite(spr_bar,0,obj_player.x-12,obj_player.y-94);
+                if(global.rzutk==1)
+                    value = (45-alarm[0])/45*100;
+                else if (global.rzutk==0)
+                    value = (45-alarm[0])/45*100;
+                draw_healthbar(player.x-8,player.y-92,player.x-5,player.y-57,value,c_black,c_green,c_red,3,false,false);   
+                draw_sprite(spr_bar,0,player.x-12,player.y-94);
             }
-        else if (obj_player_2.have_ball=true)
-            {
-            if (global.rzutk==1)
-                draw_healthbar(obj_player_2.x-8,obj_player_2.y-92,obj_player_2.x-5,obj_player_2.y-57,(45-alarm[0])/45*100,c_black,c_green,c_red,3,false,false);
-            else if (global.rzutk==0)
-                draw_healthbar(obj_player_2.x-8,obj_player_2.y-92,obj_player_2.x-5,obj_player_2.y-57,(alarm[0])/45*100,c_black,c_green,c_red,3,false,false);   
-            draw_sprite(spr_bar,0,obj_player_2.x-12,obj_player_2.y-94);
-            }
+            
+        }
     }
 
     //Points
@@ -723,19 +710,11 @@ if (instance_exists(obj_player_par))
     
     //SCOREBALL
     draw_healthbar(view_xview[view_current]+378, view_yview[view_current]+2, view_xview[view_current]+421, view_yview[view_current]+93, winpercent, make_colour_rgb(248, 35, 12), make_colour_rgb(18, 166, 245), make_colour_rgb(18, 166, 245), 1, true, false);
-    draw_sprite(spr_pilkascore,0,view_xview[view_current]+378,view_yview[view_current]+2)
-    
-    /*
-    //energy bars
-    draw_healthbar(view_xview[global.widok]+10,view_yview[view_current],view_xview[global.widok]+50,view_yview[view_current]+10,
-    obj_player.energy,c_black,c_yellow,c_red,0,false,false);
-    
-    draw_healthbar(view_xview[global.widok]+view_wview[global.widok]-60,view_yview[view_current],view_xview[global.widok]+view_wview[global.widok]-20,view_yview[view_current]+10,
-    obj_player_2.energy,c_black,c_yellow,c_red,0,false,false);
-    */
+    draw_sprite(spr_pilkascore,0,view_xview[view_current]+378,view_yview[view_current]+2);
     
     
     //Arrows
+    /*
     if (point_distance(view_xview[global.widok],0,obj_player.x,0)&gt;1 and point_distance(view_xview[global.widok]+view_wview[global.widok],0,obj_player.x,0)&gt;view_wview[global.widok]+1 )
         {
         draw_sprite_ext(spr_arrow,0,view_xview[view_current]+50,view_yview[view_current]+470,1,1,90,c_red,0.75 );
@@ -753,6 +732,7 @@ if (instance_exists(obj_player_par))
         {
         draw_sprite_ext(spr_arrow,0,view_xview[view_current]+view_wview[global.widok]-50,view_yview[view_current]+420,1,1,-90,c_blue,0.75 );
         }
+    */
     //Debug
     if (global.debug)
     {
@@ -761,7 +741,7 @@ if (instance_exists(obj_player_par))
         draw_text(view_xview[view_current],view_yview[view_current]+12,"Prejump: "+ string(obj_player.prejump));
         draw_rectangle(obj_player.x-25,obj_player.y-30,obj_player.x+25,obj_player.y+60,true);//gracz
         draw_rectangle(obj_player.x-60,obj_player.y-5,obj_player.x-10,obj_player.y+20,true);//reka p1
-        draw_rectangle(obj_player_2.x-50,obj_player_2.y-50,obj_player_2.x-10,obj_player_2.y,true);//reka p2
+        //draw_rectangle(obj_player_2.x-50,obj_player_2.y-50,obj_player_2.x-10,obj_player_2.y,true);//reka p2
         draw_text(view_xview[view_current]+20,view_yview[view_current],"FPS: "+string(fps)+" RFPS: "+string(fps_real));
         draw_text(view_xview[view_current],view_yview[view_current]+24,"Jumping: "+string(obj_player.jumping));
         draw_text(view_xview[view_current],view_yview[view_current]+36,"Throwing: "+string(global.throwing));
@@ -772,7 +752,7 @@ if (instance_exists(obj_player_par))
         draw_text(view_xview[view_current],view_yview[view_current]+96,"V2: "+string(view_visible[2]));
         draw_text(view_xview[view_current],view_yview[view_current]+108,"axislh: "+string(gamepad_axis_value(0, gp_axislh)));
         draw_text(view_xview[view_current],view_yview[view_current]+120,"d1tohoop "+string(obj_player.dtohoop));
-        draw_text(view_xview[view_current],view_yview[view_current]+132,"d2tohoop "+string(obj_player_2.dtohoop));
+        //draw_text(view_xview[view_current],view_yview[view_current]+132,"d2tohoop "+string(obj_player_2.dtohoop));
         draw_text(view_xview[view_current],view_yview[view_current]+144,"player 1 yspeed: "+string(obj_player.phy_speed_y));
     }
 }
