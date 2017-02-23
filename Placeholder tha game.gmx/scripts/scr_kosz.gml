@@ -27,9 +27,12 @@ else
             player = instance_find(obj_player, i);
             player.phy_position_x = obj_player_manager.start_pos_x[i+1];
             player.phy_position_y = obj_player_manager.start_pos_y[i+1];
+            player.obrot = i%2;
         }
         obj_ball.phy_position_x = obj_player_manager.start_pos_x[0];
         obj_ball.phy_position_y = obj_player_manager.start_pos_y[0];
+        obj_ball.phy_speed_x = 0;
+        obj_ball.phy_speed_y = 0;
         
     /*}
     else if (team==2)

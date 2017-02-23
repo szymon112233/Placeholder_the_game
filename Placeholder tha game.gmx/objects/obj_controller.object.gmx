@@ -376,12 +376,12 @@ shake=false;
 for(i = 0 ; i &lt; instance_number(obj_player); i++)
     {
         player = instance_find(obj_player, i);
-        if (player.ch_Kthrow)
+        if (player.throwing &amp;&amp; player.ch_Kthrow)
         {
             alarm[0]=45;
             show_debug_message("Rzut_Max_Alarm!");
-            if (global.rzutk==1) global.rzutk=0;
-            else global.rzutk =1;
+            if (global.rzutk == 1) global.rzutk=0;
+            else global.rzutk = 1;
         }
             
     }
@@ -671,7 +671,7 @@ gj_result_clear()
             <kind>1</kind>
             <string>global.widok=view_current;
 
-if (instance_exists(obj_player_par))
+if (instance_exists(obj_player))
 {
     //Indicators
     //draw_sprite(spr_indicator_p1,0,obj_player.x,obj_player.y-56);
@@ -686,7 +686,7 @@ if (instance_exists(obj_player_par))
                 if(global.rzutk==1)
                     value = (45-alarm[0])/45*100;
                 else if (global.rzutk==0)
-                    value = (45-alarm[0])/45*100;
+                    value = (alarm[0])/45*100;
                 draw_healthbar(player.x-8,player.y-92,player.x-5,player.y-57,value,c_black,c_green,c_red,3,false,false);   
                 draw_sprite(spr_bar,0,player.x-12,player.y-94);
             }

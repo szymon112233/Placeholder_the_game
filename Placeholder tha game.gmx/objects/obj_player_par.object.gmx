@@ -445,17 +445,17 @@ if (have_ball and !dunk)
     if (ch_Kthrow_p )
         {
         global.rzutk=1;
-        obj_controller.alarm[0]=45;
+        obj_controller.alarm[0] = 45;
         throwing=true;
         }
     if (ch_Kthrow)
         {
-        if (!global.throwing)
+        /*if (!global.throwing)
         {
             global.rzutk=1;
             obj_controller.alarm[0]=45;
             throwing=true;
-        }
+        }*/
         
         if (!prejump and jumping) 
             sprite_index=Vspr_skok;

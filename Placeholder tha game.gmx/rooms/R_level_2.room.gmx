@@ -71,11 +71,9 @@ audio_play_sound(sd_map2_background,0,true);</code>
     <instance objName="obj_kosz" x="126" y="511" name="inst_924518D2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_obrecz" x="160" y="601" name="inst_4EC12828" locked="0" code="global.obrecz2=self;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_kosz2" x="134" y="582" name="inst_14747BB2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_player" x="660" y="725" name="inst_A5447BB0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_player_2" x="825" y="725" name="inst_52607894" locked="0" code="" scaleX="-1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ball" x="750" y="625" name="inst_9BE80BA4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_music" x="16" y="0" name="inst_34523300" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_camera" x="154" y="140" name="inst_97140232" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_camera" x="0" y="0" name="inst_97140232" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ball_wybicie" x="326" y="112" name="inst_7EC3E18A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_kosz3" x="182" y="582" name="inst_512F2701" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_kosz_dol_p" x="171" y="589" name="inst_99DAC079" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

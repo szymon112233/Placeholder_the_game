@@ -150,13 +150,9 @@
       </sprites>
     </sprites>
     <sprites name="Randomshit">
-      <sprite>sprites\spr_help</sprite>
-      <sprite>sprites\spr_stojak_woball</sprite>
       <sprite>sprites\spr_wall</sprite>
-      <sprite>sprites\spr_stojak</sprite>
       <sprite>sprites\spr_manipulator</sprite>
       <sprite>sprites\spr_ball_wybicie</sprite>
-      <sprite>sprites\spr_blok</sprite>
       <sprite>sprites\spr_arrow</sprite>
       <sprite>sprites\spr_camera</sprite>
       <sprite>sprites\spr_pole</sprite>
@@ -180,8 +176,6 @@
     <background>background\tj_kosz_i</background>
     <background>background\bg_blue</background>
     <background>background\ti_siatka</background>
-    <background>background\bg_mainmenu_2</background>
-    <background>background\bg_options</background>
     <background>background\bg_socreboard</background>
     <background>background\ti_budynki</background>
     <background>background\bg_mainmenu</background>
@@ -250,16 +244,12 @@
       <object>objects\obj_gamejolt_login</object>
     </objects>
     <objects name="Actual Things">
-      <object>objects\obj_help</object>
       <object>objects\obj_collision</object>
       <object>objects\obj_player_par</object>
       <object>objects\obj_player</object>
       <object>objects\obj_ball</object>
-      <object>objects\obj_player_2</object>
     </objects>
     <objects name="pola">
-      <object>objects\obj_blok</object>
-      <object>objects\obj_blok_2</object>
       <object>objects\obj_ball_wybicie</object>
       <object>objects\obj_wall</object>
       <object>objects\obj_spod</object>
